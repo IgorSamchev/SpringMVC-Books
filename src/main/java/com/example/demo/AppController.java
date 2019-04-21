@@ -11,14 +11,11 @@ public class AppController {
 
 
     @RequestMapping("/books_list")
-    public String listContact(Model model) {
+    public String booksList(Model model) {
+        DataBaseReader business = new DataBaseReader();
+        List<Book> booksList = business.getBooksList();
 
-        ContactBusiness business = new ContactBusiness();
-        List<Contact> contactList = business.getContactList();
-
-        model.addAttribute("contacts", contactList);
-
+        model.addAttribute("books", booksList);
         return "contact";
-
     }
 }

@@ -12,7 +12,7 @@
 <body>
 <h1 align="center">ABC Books</h1>
 <br />
-<table cellpadding="10" align="center" border="1" class="table table-hover">
+	<table id="mainTable"  class="table table-hover">
 	<tr>
 		<th>#</th>
 		<th>Title</th>
@@ -21,16 +21,19 @@
 		<th>Comments</th>
 		<th>Action</th>
 	</tr>
-	<hr />
-	<tr th:each="contact : ${contacts}">
-		<td th:text="${contact.id}">id</td>
-		<td th:text="${contact.name}">Title</td>
-		<td th:text="${contact.email}">Author</td>
-		<td th:text="${contact.country}">Comments</td>
-		<td>0</td>
+
+	<tr th:each="book : ${books}">
+		<td th:text="${book.getID()}">id</td>
+		<td th:text="${book.getTitle()}">Title</td>
+		<td th:text="${book.getAuthor()}">Author</td>
+		<td th:text="${book.getISBN()}">ISBN</td>
+		<td th:text="${book.getComment()}">Comments</td>
 		<td>
-			<button class="btn btn-success">Add</button>
-			<button class="btn btn-danger">Delete</button></td>
+			<button class="btn btn-danger">Delete</button>
+            <button class="btn btn-warning">Edit</button>
+        </td>
+
+
 
 	</tr>
 </table>
