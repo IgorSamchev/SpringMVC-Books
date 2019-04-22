@@ -5,9 +5,9 @@ public class Book {
     private String Title;
     private String Author;
     private String ISBN;
-    private String comment;
+    public String[] comment;
 
-    Book(int ID, String title, String author, String ISBN, String comment) {
+    public Book(int ID, String title, String author, String ISBN, String[] comment) {
         this.ID = ID;
         Title = title;
         Author = author;
@@ -15,11 +15,15 @@ public class Book {
         this.comment = comment;
     }
 
-    public String getComment() {
+    public String[] getComment() {
         return comment;
     }
 
-    public void setComment(String comment) {
+    public int getCommentLength() {
+        return comment != null? comment.length : 0;
+    }
+
+    public void setComment(String[] comment) {
         this.comment = comment;
     }
 

@@ -20,13 +20,19 @@ class DataBaseReader {
              ResultSet rs = st.executeQuery("SELECT * FROM books")) {
 
             while (rs.next()) {
+                String[] comment = null;
+                if (rs.getString(5) != null){
+
+                    comment = rs.getString(5).split(",");
+                    comment[0] = comment[0].substring(1);
+                    comment[comment.length-1] = comment[comment.length-1].substring(0, comment[comment.length-1].length()-1);
+                }
                 booksList.add(new Book(Integer.parseInt(rs.getString(1)),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getString(5) == null ? "---" : rs.getString(5)));
+                        comment));
             }
-
             booksList.sort(Comparator.comparing((Book b) -> String.valueOf(b.getID())));
 
         } catch (SQLException e) {
