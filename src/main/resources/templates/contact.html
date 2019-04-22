@@ -15,6 +15,7 @@
             crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <title>ABC books - ThymeLeaf</title>
+    <link rel="script" type="">
 
 </head>
 <body>
@@ -41,14 +42,23 @@
             <td th:text="${book.getCommentLength()}">Comments</td>
             <td>
 
-                <button class="btn btn-danger"
-                        onclick="confirm('are you sure want to delete?')"
-                >Delete
+                <button class="btn btn-danger" th:onclick="'delete_book_by_ID(\'' + ${book.getID()} + '\');'">
+                    Delete
                 </button>
+
+
                 <button class="btn btn-warning">Edit</button>
             </td>
         </tr>
     </table>
+
+    <script>
+        function delete_book_by_ID(clicked_id) {
+            let result = confirm('Delete book with ID ' + clicked_id + ' ?');
+            
+        }
+    </script>
+
 </div>
 </body>
 </html>
