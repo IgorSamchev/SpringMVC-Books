@@ -14,13 +14,9 @@ public class Book {
         this.ISBN = ISBN;
         this.comment = comment;
     }
-//    public static void findBookByID(long id){
-//
-//    }
 
-    public static void deleteBookFromDataBase(long id){
-        System.out.println("Deleting book with ID " + id);
-            //<button class="btn btn-danger" th:onclick="'delete_book_by_ID(\'' + ${book.getID()} + '\');'">
+    static void deleteBookFromDataBase(long id) {
+        DataBase.deleteBookById(id);
     }
 
     public String[] getComment() {
@@ -28,7 +24,7 @@ public class Book {
     }
 
     public int getCommentLength() {
-        return comment != null? comment.length : 0;
+        return comment != null ? comment.length : 0;
     }
 
     public void setComment(String[] comment) {

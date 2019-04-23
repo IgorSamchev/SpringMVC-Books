@@ -12,7 +12,7 @@ public class AppController {
 
     @RequestMapping("/books_list")
     public String booksList(Model model) {
-        DataBaseReader business = new DataBaseReader();
+        DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
 
         model.addAttribute("books", booksList);
@@ -22,7 +22,7 @@ public class AppController {
     @RequestMapping(value="books/doDelete/{id}", method = RequestMethod.GET)
     public String deleteUser (@PathVariable Long id, Model model) {
         Book.deleteBookFromDataBase(id);
-        DataBaseReader business = new DataBaseReader();
+        DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         model.addAttribute("books", booksList);
 
