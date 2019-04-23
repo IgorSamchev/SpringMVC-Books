@@ -5,14 +5,22 @@ public class Book {
     private String Title;
     private String Author;
     private String ISBN;
-    public String[] comment;
+    private String[] comment;
 
-    public Book(int ID, String title, String author, String ISBN, String[] comment) {
+    Book(int ID, String title, String author, String ISBN, String[] comment) {
         this.ID = ID;
         Title = title;
         Author = author;
         this.ISBN = ISBN;
         this.comment = comment;
+    }
+//    public static void findBookByID(long id){
+//
+//    }
+
+    public static void deleteBookFromDataBase(long id){
+        System.out.println("Deleting book with ID " + id);
+            //<button class="btn btn-danger" th:onclick="'delete_book_by_ID(\'' + ${book.getID()} + '\');'">
     }
 
     public String[] getComment() {

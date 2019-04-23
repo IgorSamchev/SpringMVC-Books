@@ -21,7 +21,7 @@
 <body>
 <h1 align="center">ABC Books</h1>
 
-<div id="mainTable" align="center">
+<div>
     <br/>
     <table class="table table-hover">
         <tr>
@@ -40,23 +40,19 @@
             <td th:text="${book.getAuthor()}">Author</td>
             <td th:text="${book.getISBN()}">ISBN</td>
             <td th:text="${book.getCommentLength()}">Comments</td>
+
             <td>
-
-                <button class="btn btn-danger" th:onclick="'delete_book_by_ID(\'' + ${book.getID()} + '\');'">
-                    Delete
-                </button>
-
-
+                <a th:href="@{'/books/doDelete/' + ${book.getID()}}" class="btn btn-danger">
+                    <span>Delete</span>
+                </a>
                 <button class="btn btn-warning">Edit</button>
             </td>
         </tr>
     </table>
 
     <script>
-        function delete_book_by_ID(clicked_id) {
-            let result = confirm('Delete book with ID ' + clicked_id + ' ?');
-            
-        }
+
+
     </script>
 
 </div>
