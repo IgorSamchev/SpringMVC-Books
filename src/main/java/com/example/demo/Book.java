@@ -1,5 +1,6 @@
 package com.example.demo;
 
+
 public class Book {
     private int ID;
     private String Title;
@@ -22,6 +23,7 @@ public class Book {
     public String[] getComment() {
         return comment;
     }
+
 
     public int getCommentLength() {
         return comment != null ? comment.length : 0;
@@ -63,6 +65,5 @@ public class Book {
     public void setAuthor(String author) {
         Author = author;
     }
-
 
 }

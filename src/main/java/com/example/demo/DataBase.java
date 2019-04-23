@@ -7,9 +7,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 class DataBase {
-    static String url = "jdbc:postgresql://ec2-54-221-236-144.compute-1.amazonaws.com:5432/d11pd7jijnokmj";
-    static String user = "jwzorstluduoav";
-    static String password = "e6208131a87f8c2383632ad3b69c5b6cede00fb46b802676b323e97a650ac83a";
+    private static String url = "jdbc:postgresql://ec2-54-221-236-144.compute-1.amazonaws.com:5432/d11pd7jijnokmj";
+    private static String user = "jwzorstluduoav";
+    private static String password = "e6208131a87f8c2383632ad3b69c5b6cede00fb46b802676b323e97a650ac83a";
 
     List<Book> getBooksList() {
         List<Book> booksList = new ArrayList<>();
@@ -33,8 +33,7 @@ class DataBase {
                         rs.getString(4),
                         comment));
             }
-            booksList.sort(Comparator.comparing((Book b) -> String.valueOf(b.getID())));
-
+                booksList.sort(Comparator.comparingInt(Book::getID));
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Error");
