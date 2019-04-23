@@ -17,6 +17,7 @@
     <title>ABC books - ThymeLeaf</title>
     <link rel="script" type="">
 
+
 </head>
 <body>
 <h1 align="center">ABC Books</h1>
@@ -42,7 +43,8 @@
             <td th:text="${book.getCommentLength()}">Comments</td>
 
             <td>
-                <a th:href="@{'/books/doDelete/' + ${book.getID()}}" class="btn btn-danger">
+                <a th:href="@{'/books/doDelete/' + ${book.getID()}}" onclick="return confirmDelete();"
+                   class="btn btn-danger">
                     <span>Delete</span>
                 </a>
                 <button class="btn btn-warning">Edit</button>
@@ -50,11 +52,14 @@
         </tr>
     </table>
 
-    <script>
-
-
-    </script>
 
 </div>
+
+
+<script>
+    function confirmDelete() {
+        return confirm("Delete Book?");
+    }
+</script>
 </body>
 </html>
