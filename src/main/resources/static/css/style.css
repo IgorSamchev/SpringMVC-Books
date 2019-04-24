@@ -1,0 +1,17 @@
+.indexDiv{
+    text-align: center;
+}
+.button{
+    align-self: center;
+    background-color: #4CAF50;
+    border: 1px;
+    color: white;
+    padding: 80px 32px;
+    text-decoration: none;
+    display: inline-block;;
+    font-size: 30px;
+}
+
+h1{
+    text-align: center;
+}
