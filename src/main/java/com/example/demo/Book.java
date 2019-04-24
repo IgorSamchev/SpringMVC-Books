@@ -16,6 +16,16 @@ public class Book {
         this.comment = comment;
     }
 
+    public Book(String title, String author, String ISBN) {
+        Title = title;
+        Author = author;
+        this.ISBN = ISBN;
+    }
+
+    static void addNewBook(String request){
+        System.out.println(request);
+    }
+
     static void deleteBookFromDataBase(long id) {
         DataBase.deleteBookById(id);
     }

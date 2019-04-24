@@ -11,6 +11,9 @@ class DataBase {
     private static String user = "jwzorstluduoav";
     private static String password = "e6208131a87f8c2383632ad3b69c5b6cede00fb46b802676b323e97a650ac83a";
 
+    public static void addNewBook(String title, String author, String isbn) {
+    }
+
     List<Book> getBooksList() {
         List<Book> booksList = new ArrayList<>();
 
