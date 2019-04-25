@@ -20,7 +20,7 @@ public class AppController {
     }
 
     @RequestMapping(value = "books/doDelete/{id}", method = RequestMethod.GET)
-    public String deleteUser(@PathVariable Long id, Model model) {
+    public String deleteBook(@PathVariable Long id, Model model) {
         Book.deleteBookFromDataBase(id);
 
         DataBase business = new DataBase();
@@ -34,4 +34,19 @@ public class AppController {
     public String showCreateForm() {
         return "AddView";
     }
+
+        @RequestMapping(value = "books/addBook/{submit}", method = RequestMethod.GET)
+    public String addNewBook(@PathVariable String submit, Model model) {
+        Book.addNewBook(submit);
+            System.out.println(submit);
+
+        DataBase business = new DataBase();
+        List<Book> booksList = business.getBooksList();
+        model.addAttribute("books", booksList);
+
+        return "MainView";
+    }
+
+
+
 }

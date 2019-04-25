@@ -1,6 +1,8 @@
 package com.example.demo;
 
 
+import javax.xml.crypto.Data;
+
 public class Book {
     private int ID;
     private String Title;
@@ -22,8 +24,18 @@ public class Book {
         this.ISBN = ISBN;
     }
 
-    static void addNewBook(String request){
-        System.out.println(request);
+    public Book() {
+    }
+
+    static void addNewBook(String request) {
+        String[] titleRequest = request.split("AddedBookAuthor=");
+        String title = titleRequest[0].substring(titleRequest[0].indexOf("=") + 1);
+        String author = titleRequest[1].substring(0, titleRequest[1].indexOf("AddedBookISBN"));
+        String ISBN = titleRequest[1].substring(titleRequest[1]
+                .indexOf("AddedBookISBN="))
+                .replace("AddedBookISBN=", "");
+
+        DataBase.addNewBook(title, author, ISBN);
     }
 
     static void deleteBookFromDataBase(long id) {

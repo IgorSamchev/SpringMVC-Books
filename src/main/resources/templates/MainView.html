@@ -43,7 +43,7 @@
             <td th:text="${book.getCommentLength()}">Comments</td>
 
             <td>
-                <a th:href="@{'/books/doDelete/' + ${book.getID()}}" onclick="return confirmDelete();"
+                    <a th:href="@{'/books/doDelete/' + ${book.getID()}}" onclick="return confirmDelete();"
                    class="btn btn-danger">
                     <span>Delete</span>
                 </a>
