@@ -19,9 +19,34 @@ h1{
 
 #newBook{
     float: right;
-    margin-right: 75px;
+    margin-right: 60px;
 }
 
 #addNewBooks{
 
+}
+#deleteButton{
+    background-color: cadetblue;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#deleteButton:hover {
+    background-color: RoyalBlue;
+}
+
+#editButton{
+    background-color: darkgray;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#editButton:hover {
+    background-color: RoyalBlue;
 }

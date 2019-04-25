@@ -3,6 +3,7 @@
       xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -43,11 +44,10 @@
             <td th:text="${book.getCommentLength()}">Comments</td>
 
             <td>
-                    <a th:href="@{'/books/doDelete/' + ${book.getID()}}" onclick="return confirmDelete();"
-                   class="btn btn-danger">
-                    <span>Delete</span>
-                </a>
-                <button class="btn btn-warning">Edit</button>
+                <a id="deleteButton" th:href="@{'/books/doDelete/' + ${book.getID()}}" onclick="return confirmDelete();"
+                   class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                <a id="editButton"
+                   class="btn btn-danger"><i class="fa fa-bars"></i></a>
             </td>
         </tr>
     </table>
