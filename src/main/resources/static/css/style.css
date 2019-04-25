@@ -23,14 +23,16 @@ h1 {
     margin-right: 60px;
 }
 
-input {
+input[type=text] {
     width: 100%;
-
+    border: 2px solid black;
+    border-radius: 4px;
 }
 
 #addNewBooks {
     width: 400px;
     margin-left: 50px;
+
 }
 
 #deleteButton {
