@@ -23,10 +23,14 @@ h1 {
     margin-right: 60px;
 }
 
-#addNewBooks {
-width: 300px;
-    margin-left: 50px;
+input {
+    width: 100%;
 
+}
+
+#addNewBooks {
+    width: 400px;
+    margin-left: 50px;
 }
 
 #deleteButton {
@@ -55,7 +59,11 @@ width: 300px;
     background-color: RoyalBlue;
 }
 
-#addBookButton{
-    margin-left: 4px;
-  width: 205px;
+#addBookButton {
+    width: 100%;
+}
+
+#h1left{
+    text-align: left;
+    margin-left: 50px;
 }
