@@ -38,7 +38,6 @@ public class AppController {
         @RequestMapping(value = "books/addBook/{submit}", method = RequestMethod.GET)
     public String addNewBook(@PathVariable String submit, Model model) {
         Book.addNewBook(submit);
-            System.out.println(submit);
 
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();

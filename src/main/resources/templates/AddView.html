@@ -16,8 +16,8 @@
             crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <title>Add new Book</title>
-    <link rel="stylesheet" href="../static/css/style.css">
 
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <script type="text/javascript" th:src="@{/js/appJS.js}"></script>
 </head>
 <body>
@@ -25,19 +25,32 @@
 <h1>Add book</h1>
 
 <div id="addNewBooks">
-    <p>Title: <input id="titleID" type="text" name="123" value=""/></p>
-    <p>Author: <input id="authorID" type="text" value=""/></p>
-    <p>ISBN: <input id="isbnID" type="text" value=""/></p>
-    <button
+    <p>Title: </p>
+    <p>
+        <label for="titleID"></label>
+        <input id="titleID" type="text" name="123" value=""/>
+    </p>
+    <p>Author: </p>
+    <p>
+        <label for="authorID"></label>
+        <input id="authorID" type="text" value=""/>
+    </p>
+    <p>ISBN: </p>
+    <p>
+        <label for="isbnID"></label>
+        <input id="isbnID" type="text" value=""/>
+    </p>
+    <button id="addBookButton"
             class="btn btn-primary"
-            onclick="f()">Add new Book
+            onclick="addNewBook()">Add new Book
     </button>
 </div>
 </body>
 
 
-<!--DELETE ME AFTER-->
+<!--DELETE ME AFTER. FOR TESTS ONLY-->
 <script type="text/javascript" src="../static/js/appJS.js"></script>
-<!--DELETE ME AFTER-->
+<link rel="stylesheet" href="../static/css/style.css">
+<!--DELETE ME AFTER. FOR TESTS ONLY-->
 
 </html>

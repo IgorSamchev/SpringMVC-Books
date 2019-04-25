@@ -3,7 +3,7 @@ function confirmDelete() {
     return confirm("Delete Book?");
 }
 
-function f(){
+function addNewBook(){
 
     let title = 'AddedBookTitle=' + document.getElementById("titleID").value;
     let author = 'AddedBookAuthor=' + document.getElementById("authorID").value;

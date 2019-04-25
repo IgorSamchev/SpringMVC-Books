@@ -1,7 +1,8 @@
-.indexDiv{
+.indexDiv {
     text-align: center;
 }
-.button{
+
+.button {
     align-self: center;
     background-color: #4CAF50;
     border: 1px;
@@ -13,19 +14,22 @@
     font-size: 30px;
 }
 
-h1{
+h1 {
     text-align: center;
 }
 
-#newBook{
+#newBook {
     float: right;
     margin-right: 60px;
 }
 
-#addNewBooks{
+#addNewBooks {
+width: 300px;
+    margin-left: 50px;
 
 }
-#deleteButton{
+
+#deleteButton {
     background-color: cadetblue;
     border: none;
     color: white;
@@ -38,7 +42,7 @@ h1{
     background-color: RoyalBlue;
 }
 
-#editButton{
+#editButton {
     background-color: darkgray;
     border: none;
     color: white;
@@ -49,4 +53,9 @@ h1{
 
 #editButton:hover {
     background-color: RoyalBlue;
+}
+
+#addBookButton{
+    margin-left: 4px;
+  width: 205px;
 }
