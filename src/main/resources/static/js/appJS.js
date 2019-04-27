@@ -24,3 +24,7 @@ function addComment(id) {
     let ref = id + comment;
     return document.location.href="/add_Comment/" + ref;
 }
+
+function MainMenu() {
+    return document.location.href="/books_list";
+}
