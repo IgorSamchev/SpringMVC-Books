@@ -1,6 +1,7 @@
 package com.example.demo;
 
-
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Book {
@@ -8,23 +9,17 @@ public class Book {
     private String Title;
     private String Author;
     private String ISBN;
-    private String[] comment;
+    private List<String> comment;
 
-    Book(int ID, String title, String author, String ISBN, String[] comment) {
+    public Book(int ID, String title, String author, String ISBN, String[] comment) {
         this.ID = ID;
         Title = title;
         Author = author;
         this.ISBN = ISBN;
-        this.comment = comment;
-    }
-
-    public Book(String title, String author, String ISBN) {
-        Title = title;
-        Author = author;
-        this.ISBN = ISBN;
-    }
-
-    public Book() {
+        if (comment == null) {
+            this.comment = Collections.emptyList();
+        } else
+            this.comment = Arrays.asList(comment);
     }
 
     static Book findBookByID(Long id, List<Book> booksList) {
@@ -62,25 +57,18 @@ public class Book {
 
     }
 
-    public String[] getComment() {
+    public List<String> getComment() {
         return comment;
     }
 
 
     public int getCommentLength() {
-        return comment != null ? comment.length : 0;
+        return comment != null ? comment.size() : 0;
     }
 
-    public void setComment(String[] comment) {
-        this.comment = comment;
-    }
 
     public String getISBN() {
         return ISBN;
-    }
-
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
     }
 
 
@@ -88,24 +76,15 @@ public class Book {
         return ID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 
     public String getTitle() {
         return Title;
     }
 
-    public void setTitle(String title) {
-        Title = title;
-    }
 
     public String getAuthor() {
         return Author;
     }
 
-    public void setAuthor(String author) {
-        Author = author;
-    }
 
 }

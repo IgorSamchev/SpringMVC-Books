@@ -30,10 +30,18 @@ input[type=text] {
 }
 
 #addNewBooks {
-    width: 400px;
-    margin-left: 50px;
 
+    padding-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
+
+#comments {
+
+    padding-top: 30px;
+    margin-left: 30px;
+}
+
 
 #deleteButton {
     background-color: cadetblue;
@@ -63,4 +71,20 @@ input[type=text] {
 
 #addBookButton {
     width: 100%;
+}
+
+#comment {
+    height: 100px;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+#commentButton{
+    margin-top: 20px;
+    width: 35%;
+}
+
+#commentTable {
+    width: auto;
+    margin-top: 20px;
 }

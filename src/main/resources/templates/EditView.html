@@ -24,30 +24,61 @@
 <body>
 
 
+<div class="row">
+    <div id="addNewBooks" class="col">
 
-<div id="addNewBooks" class="col-md-6 pt-4">
+        <h1>Edit Book</h1>
+        <p>Title:
+            <label for="titleID"></label>
+            <input id="titleID" th:value="${book.getTitle()}" type="text" name="123"/>
+        </p>
+        <p>Author:
+            <label for="authorID"></label>
+            <input id="authorID" th:value="${book.getAuthor()}" type="text" value=""/>
+        </p>
+        <p>ISBN:
+            <label for="isbnID"></label>
+            <input id="isbnID" th:value="${book.getISBN()}" type="text" value=""/>
+        </p>
+        <button id="addBookButton"
+                class="btn btn-primary"
+                onclick="editBook(${book.getID()})"
+                th:onclick="'javascript:editBook(\''+ ${book.getID()} +'\');'"
 
-    <h1>Edit Book</h1>
-    <p>Title:
-        <label for="titleID"></label>
-        <input id="titleID" th:value="${book.getTitle()}"  type="text" name="123" />
-    </p>
-    <p>Author:
-        <label for="authorID"></label>
-        <input id="authorID" th:value="${book.getAuthor()}" type="text" value=""/>
-    </p>
-    <p>ISBN:
-        <label for="isbnID"></label>
-        <input id="isbnID" th:value="${book.getISBN()}" type="text" value=""/>
-    </p>
-    <button id="addBookButton"
-            class="btn btn-primary"
-            onclick="editBook(${book.getID()})"
-            th:onclick="'javascript:editBook(\''+ ${book.getID()} +'\');'"
+        >Edit Book
+        </button>
+    </div>
 
-    >Edit Book</button>
+
+    <div id="comments" class="col" align="center">
+        <h1>Comments</h1>
+        <br/>
+
+        <label for="comment"></label>
+        <textarea id="comment" rows="4" cols="25" name="bigComment">
+            Coming soon...
+         </textarea>
+        <br>
+        <button id="commentButton" class="btn btn-primary">
+            Add comment
+        </button>
+
+        <div>
+            <table id="commentTable" class="table table-hover">
+                <tr>
+
+                    <th>Comments</th>
+                </tr>
+                <tr th:each="comment : ${book.getComment()}">
+                    <td th:text="${comment}">Date</td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
 </div>
-
 
 </body>
 
