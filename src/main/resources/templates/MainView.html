@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
+    <<script
+        src="https://code.jquery.com/jquery-3.4.0.js"
+        integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
             crossorigin="anonymous"></script>
@@ -20,13 +21,20 @@
 
     <title>ABC books - ThymeLeaf</title>
 
+
 </head>
+<script>
+$(document).ready(function() {
+$('#myTable').tablesorter();
+});
+</script>
 <body>
 <h1>ABC Books</h1>
 
 <div class="container">
     <br/>
-    <table class="table table-hover">
+    <table class="table table-hover myTable" id="myTable" >
+        <thead>
         <tr>
             <th>#</th>
             <th>Title</th>
@@ -35,7 +43,8 @@
             <th>Comments</th>
             <th>Action</th>
         </tr>
-
+        </thead>
+        <tbody>
         <tr th:each="book : ${books}">
             <td th:text="${book.getID()}">id</td>
             <td th:text="${book.getTitle()}">Title</td>
@@ -50,6 +59,7 @@
                    class="btn btn-danger"><i class="fa fa-bars"></i></a>
             </td>
         </tr>
+        </tbody>
     </table>
     <a id="newBook" th:href="@{'/books/addBook/'}"
        class="btn btn-success">
@@ -58,7 +68,7 @@
 
 
 </div>
-
+<script type="text/javascript" th:src="@{/js/jquery.tablesorter.js}"></script>
 <script type="text/javascript" th:src="@{/js/appJS.js}"></script>
 </body>
 </html>
