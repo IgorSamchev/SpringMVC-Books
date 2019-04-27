@@ -18,3 +18,9 @@ function editBook(id){
     let ref = id+title+author+isbn;
     return document.location.href="/edit_book/" + ref;
 }
+
+function addComment(id) {
+    let comment = 'com=' + document.getElementById("comment").value.trim();
+    let ref = id + comment;
+    return document.location.href="/add_Comment/" + ref;
+}

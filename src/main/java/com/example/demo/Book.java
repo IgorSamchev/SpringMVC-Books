@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import javax.xml.crypto.Data;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -55,6 +57,17 @@ public class Book {
 
         DataBase.updateBook(id[0], data);
 
+    }
+
+    static void addNewComment(Book b, String request) {
+        String newComment = request.substring(request.indexOf("=") + 1);
+        List<String> list = new ArrayList<>(b.comment);
+        list.add("\"" + newComment + "\"");
+        StringBuilder sb = new StringBuilder();
+        for (String s : list) {
+            sb.append(s).append(",");
+        }
+        DataBase.addComment(b.getID(), sb.toString().substring(0, sb.length()-1));
     }
 
     public List<String> getComment() {

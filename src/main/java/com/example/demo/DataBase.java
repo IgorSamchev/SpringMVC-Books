@@ -41,8 +41,22 @@ class DataBase {
             st.executeQuery(query);
 
 
-        } catch (SQLException ignored) {}
+        } catch (SQLException ignored) {
+        }
 
+    }
+
+    static void addComment(int id, String commentArray) {
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            Statement st = conn.createStatement();
+            String query = "UPDATE books " +
+                    "SET " +
+                    "comment = '{" + commentArray +
+                    "}' WHERE id = " + id;
+            st.executeQuery(query);
+
+        } catch (SQLException ignored) {
+        }
     }
 
     List<Book> getBooksList() {

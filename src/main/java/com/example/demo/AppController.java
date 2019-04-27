@@ -68,5 +68,16 @@ public class AppController {
         return "MainView";
     }
 
+    @RequestMapping(value = "/add_Comment/{request}", method = RequestMethod.GET)
+    public String addComment(@PathVariable String request, Model model) {
+        long id = Long.parseLong(request.substring(0, request.indexOf("c")));
+        DataBase business = new DataBase();
+        List<Book> booksList = business.getBooksList();
+        Book b = Book.findBookByID(id, booksList);
+        Book.addNewComment(b, request);
+        model.addAttribute("books", booksList);
+        return booksEditView(id, model);
+    }
+
 
 }
