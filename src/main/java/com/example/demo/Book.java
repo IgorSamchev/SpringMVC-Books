@@ -62,12 +62,12 @@ public class Book {
     static void addNewComment(Book b, String request) {
         String newComment = request.substring(request.indexOf("=") + 1);
         List<String> list = new ArrayList<>(b.comment);
-        list.add("\"" + newComment + "\"");
+        list.add(newComment);
         StringBuilder sb = new StringBuilder();
         for (String s : list) {
-            sb.append(s).append(",");
+            sb.append(s).append("~@~");
         }
-        DataBase.addComment(b.getID(), sb.toString().substring(0, sb.length()-1));
+        DataBase.addComment(b.getID(), sb.toString().substring(0, sb.length()-3));
     }
 
     public List<String> getComment() {

@@ -51,8 +51,7 @@ class DataBase {
             Statement st = conn.createStatement();
             String query = "UPDATE books " +
                     "SET " +
-                    "comment = '{" + commentArray +
-                    "}' WHERE id = " + id;
+                    "comment = '{" + commentArray + "}' WHERE id = " + id;
             st.executeQuery(query);
 
         } catch (SQLException ignored) {
@@ -71,7 +70,7 @@ class DataBase {
                 String[] comment = null;
                 if (rs.getString(5) != null) {
 
-                    comment = rs.getString(5).split(",");
+                    comment = rs.getString(5).split("~@~");
                     comment[0] = comment[0].substring(1);
                     comment[comment.length - 1] = comment[comment.length - 1].substring(0, comment[comment.length - 1].length() - 1);
                 }
