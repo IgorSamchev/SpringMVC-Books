@@ -11,6 +11,7 @@ class DataBase {
     private static String user = "jwzorstluduoav";
     private static String password = "e6208131a87f8c2383632ad3b69c5b6cede00fb46b802676b323e97a650ac83a";
 
+
     static void addNewBook(String title, String author, String isbn) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
 
@@ -23,7 +24,25 @@ class DataBase {
 
             st.executeUpdate();
             st.close();
-        } catch (SQLException e) {e.printStackTrace();}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static void updateBook(String id, String[] data) {
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            Statement st = conn.createStatement();
+            String query = "UPDATE books " +
+                    "SET " +
+                    "title = '" + data[0] +
+                    "', author = '" + data[1] +
+                    "', isbn = '" + data[2] +
+                    "' WHERE id = " + id;
+            st.executeQuery(query);
+
+
+        } catch (SQLException ignored) {}
+
     }
 
     List<Book> getBooksList() {
@@ -48,7 +67,7 @@ class DataBase {
                         rs.getString(4),
                         comment));
             }
-                booksList.sort(Comparator.comparingInt(Book::getID));
+            booksList.sort(Comparator.comparingInt(Book::getID));
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Error");
@@ -63,6 +82,7 @@ class DataBase {
             Statement st = con.createStatement();
             st.executeQuery(sqlQuery);
 
-        } catch (SQLException ignored) {}
+        } catch (SQLException ignored) {
+        }
     }
 }

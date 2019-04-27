@@ -1,7 +1,7 @@
 package com.example.demo;
 
 
-import javax.xml.crypto.Data;
+import java.util.List;
 
 public class Book {
     private int ID;
@@ -27,19 +27,39 @@ public class Book {
     public Book() {
     }
 
-    static void addNewBook(String request) {
+    static Book findBookByID(Long id, List<Book> booksList) {
+        for (Book b : booksList) {
+            if (b.getID() == id) return b;
+        }
+        return null;
+    }
+
+    private static String[] splitData(String request) {
         String[] titleRequest = request.split("AddedBookAuthor=");
         String title = titleRequest[0].substring(titleRequest[0].indexOf("=") + 1);
         String author = titleRequest[1].substring(0, titleRequest[1].indexOf("AddedBookISBN"));
         String ISBN = titleRequest[1].substring(titleRequest[1]
                 .indexOf("AddedBookISBN="))
                 .replace("AddedBookISBN=", "");
+        return new String[]{title, author, ISBN};
+    }
 
-        DataBase.addNewBook(title, author, ISBN);
+    static void addNewBook(String request) {
+        String[] data = splitData(request);
+
+        DataBase.addNewBook(data[0], data[1], data[2]);
     }
 
     static void deleteBookFromDataBase(long id) {
         DataBase.deleteBookById(id);
+    }
+
+    static void update(String request) {
+        String[] id = request.split("AddedBookTitle");
+        String[] data = splitData(request);
+
+        DataBase.updateBook(id[0], data);
+
     }
 
     public String[] getComment() {

@@ -35,7 +35,7 @@ public class AppController {
         return "AddView";
     }
 
-        @RequestMapping(value = "books/addBook/{submit}", method = RequestMethod.GET)
+    @RequestMapping(value = "books/addBook/{submit}", method = RequestMethod.GET)
     public String addNewBook(@PathVariable String submit, Model model) {
         Book.addNewBook(submit);
 
@@ -46,6 +46,27 @@ public class AppController {
         return "MainView";
     }
 
+    //просмотр
+    @RequestMapping("/books_edit/{id}")
+    public String booksEditView(@PathVariable Long id, Model model) {
+        DataBase business = new DataBase();
+        List<Book> booksList = business.getBooksList();
+        Book b = Book.findBookByID(id, booksList);
+        model.addAttribute("book", b);
+        return "EditView";
+    }
+
+    //изменение
+    @RequestMapping(value = "/edit_book/{request}", method = RequestMethod.GET)
+    public String bookEdit(@PathVariable String request, Model model) {
+        Book.update(request);
+
+        DataBase business = new DataBase();
+        List<Book> booksList = business.getBooksList();
+        model.addAttribute("books", booksList);
+
+        return "MainView";
+    }
 
 
 }

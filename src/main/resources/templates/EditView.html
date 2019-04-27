@@ -19,29 +19,36 @@
 
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <script type="text/javascript" th:src="@{/js/appJS.js}"></script>
+    <script src="../static/js/appJS.js"></script>
 </head>
 <body>
 
 
-<div id="addNewBooks" class="col-md-6 pt-4" >
-    <h1>Add Book</h1>
+
+<div id="addNewBooks" class="col-md-6 pt-4">
+
+    <h1>Edit Book</h1>
     <p>Title:
         <label for="titleID"></label>
-        <input id="titleID" type="text" name="123" value=""/>
+        <input id="titleID" th:value="${book.getTitle()}"  type="text" name="123" />
     </p>
     <p>Author:
         <label for="authorID"></label>
-        <input id="authorID" type="text" value=""/>
+        <input id="authorID" th:value="${book.getAuthor()}" type="text" value=""/>
     </p>
     <p>ISBN:
         <label for="isbnID"></label>
-        <input id="isbnID" type="text" value=""/>
+        <input id="isbnID" th:value="${book.getISBN()}" type="text" value=""/>
     </p>
     <button id="addBookButton"
             class="btn btn-primary"
-            onclick="addNewBook()">Add new Book
-    </button>
+            onclick="editBook(${book.getID()})"
+            th:onclick="'javascript:editBook(\''+ ${book.getID()} +'\');'"
+
+    >Edit Book</button>
 </div>
+
+
 </body>
 
 
