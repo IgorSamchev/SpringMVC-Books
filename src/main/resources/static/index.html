@@ -2,19 +2,40 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       lang="en">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+
     <meta CHARSET="UTF-8">
     <title>ABC Books App</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="indexDiv">
 
-<h1>Welcome to ABC Books.</h1>
+<div class="layer">
+    <div class="layer_cover">
+        <div class="container">
+            <div class="indexDiv">
+                <div class="wrapper">
+                    <span class="rounded-circle c1 animated bounceInDown fast">Welcome</span>
+                    <span class="rounded-circle c2 animated bounceInLeft fast">to</span>
+                    <span class="rounded-circle c3 animated bounceInRight faster">ABC</span>
+                    <span class="rounded-circle c4 animated bounceInUp faster">books</span>
 
-<a id="EnterButton" href="/books_list" class="button">
-    <span>Click here to Enter</span>
-</a>
-
+                    <a id="EnterButton" href="/books_list" class="button animated bounceInUp fast">
+                        <span>ENTER</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

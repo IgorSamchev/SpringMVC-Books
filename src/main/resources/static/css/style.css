@@ -1,17 +1,145 @@
+/*.indexDiv {*/
+/*    text-align: center;*/
+/*    background-image: url("https://pxhere.com/ru/photo/340934");*/
+/*    height: 100vh;*/
+/*    min-height: 500px;*/
+
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*}*/
+
+
+/*.button {*/
+/*    align-self: center;*/
+/*    background-color: #4CAF50;*/
+/*    border: 1px;*/
+/*    border-radius: 25px;*/
+/*    color: white;*/
+/*    padding: 80px 32px;*/
+/*    text-decoration: none;*/
+/*    display: inline-block;;*/
+/*    font-size: 30px;*/
+/*}*/
+
+/*------------*/
+/*welcome page*/
+/*------------*/
+body {
+    min-width: 360px;
+    overflow: hidden;
+}
+
+.layer {
+    background-color: #e1e1e1;
+    background-image: url("https://www.mgpu.ru/wp-content/uploads/2018/02/books-bookstore-book-reading-159711-e1519722321843.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.layer .layer_cover {
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 100vh;
+}
+
 .indexDiv {
     text-align: center;
+    font-family: 'Indie Flower', cursive;
+    font-weight: 900;
+}
+
+.indexDiv .wrapper {
+    position: absolute;
+    height: 400px;
+    width: 260px;
+    top: 25%;
+    left: calc(50% - 130px);
+}
+
+.wrapper > span {
+    position: absolute;
+}
+
+.rounded-circle {
+    display: inline-block;
+}
+
+.c1 {
+    font-size: 26px;
+    height: 135px;
+    width: 135px;
+    color: white;
+    opacity: 1;
+    top: 0;
+    left: 53px;
+    background-color: #286ca8;
+    line-height: 132px;
+    z-index: 1;
+}
+
+.c2 {
+    height: 60px;
+    width: 60px;
+    color: white;
+    opacity: 0.3;
+    top: 118px;
+    left: 64px;
+    background-color: #04A863;
+    z-index: 0;
+    line-height: 64px;
+}
+
+.c3 {
+    height: 140px;
+    width: 140px;
+    top: 88px;
+    left: 109px;
+    background-color: #000000;
+    font-size: 30px;
+    color: white;
+    z-index: 2;
+    font-family: 'Roboto', sans-serif;
+    line-height: 129px;
+}
+
+.c4 {
+    height: 100px;
+    width: 100px;
+    opacity: 0.5;
+    color: white;
+    top: 199px;
+    left: 154px;
+    background-color: #a82c5a;
+    z-index: 1;
+    line-height: 100px;
 }
 
 .button {
+    position: absolute;
+    top: 172px;
+    left: 37px;
     align-self: center;
-    background-color: #4CAF50;
-    border: 1px;
-    border-radius: 25px;
-    color: white;
-    padding: 80px 32px;
+    background-color: #ffffff;
+    border: 3px solid black;
+    border-radius: 100%;
+    color: #000000;
+    padding: 49px 29px;
     text-decoration: none;
-    display: inline-block;;
-    font-size: 30px;
+    display: inline-block;
+    font-size: 26px;
+    z-index: 2;
+    transition: all 0.5s;
+    font-family: 'Roboto', sans-serif;
+}
+
+.button:hover {
+    box-shadow: 1px 1px 100px 20px rgb(255, 255, 255);
+    color: #a82c5a;
+    border: 3px solid #a82c5a;
+    transition: all 0.5s;
+    text-decoration: none;
 }
 
 h1 {
@@ -73,7 +201,7 @@ input[type=text] {
     width: 100%;
 }
 
-#backToMenu{
+#backToMenu {
     width: 100%;
     margin-top: 10px;
 
@@ -86,7 +214,7 @@ input[type=text] {
     border-radius: 4px;
 }
 
-#commentButton{
+#commentButton {
     margin-top: 20px;
     width: 35%;
 }
