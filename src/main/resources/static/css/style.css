@@ -1,7 +1,7 @@
 
 .layer {
     background-color: #e1e1e1;
-    background-image: url("https://www.mgpu.ru/wp-content/uploads/2018/02/books-bookstore-book-reading-159711-e1519722321843.jpeg");
+    background-image: url("https://shillienjava.herokuapp.com/images/index.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -199,7 +199,7 @@ input[type=text] {
 
 .edit{
 
-    background-image: url("https://www.computersharevoucherservices.com/parents/win-height-in-books/PublishingImages/book-tower.jpg");
+    background-image: url("https://shillienjava.herokuapp.com/images/Edit.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -214,7 +214,7 @@ input[type=text] {
 }
 
 #addView{
-    background-image: url("http://www.lucerne.k12.ca.us/images/books%20background.jpg");
+    background-image: url("https://shillienjava.herokuapp.com/images/add.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
