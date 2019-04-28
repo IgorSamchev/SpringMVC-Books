@@ -25,25 +25,31 @@
 </head>
 <body>
 
-
-<div id="addNewBooks" class="col-md-6 pt-4" >
-    <h1>Add Book</h1>
-    <p>Title:
-        <label for="titleID"></label>
-        <input id="titleID" type="text" name="123" value=""/>
-    </p>
-    <p>Author:
-        <label for="authorID"></label>
-        <input id="authorID" type="text" value=""/>
-    </p>
-    <p>ISBN:
-        <label for="isbnID"></label>
-        <input id="isbnID" type="text" value=""/>
-    </p>
-    <button id="addBookButton"
-            class="btn btn-primary"
-            onclick="addNewBook()">Add new Book
-    </button>
+<div align="center">
+    <div id="addNewBooks">
+        <h1>Add Book</h1>
+        <p>Title:
+            <label for="titleID"></label>
+            <input id="titleID" type="text" name="123" value=""/>
+        </p>
+        <p>Author:
+            <label for="authorID"></label>
+            <input id="authorID" type="text" value=""/>
+        </p>
+        <p>ISBN:
+            <label for="isbnID"></label>
+            <input id="isbnID" type="text" value=""/>
+        </p>
+        <button id="addBookButton"
+                class="btn btn-primary"
+                onclick="addNewBook()">Add new Book
+        </button>
+        <button id="backToMenu"
+                class="btn btn-success"
+                onclick="MainMenu()">
+            Back to Menu
+        </button>
+    </div>
 </div>
 </body>
 

@@ -1,7 +1,7 @@
 
 body {
     min-width: 360px;
-    overflow: hidden;
+
 }
 
 .layer {
@@ -133,6 +133,7 @@ input[type=text] {
 
 #addNewBooks {
 
+    max-width: 70%;
     padding-top: 30px;
     margin-left: 50px;
     margin-right: 50px;
@@ -194,6 +195,21 @@ input[type=text] {
 }
 
 #commentTable {
+    background-color: #e1e1e1;
     width: auto;
     margin-top: 20px;
 }
+
+.edit{
+
+    background-image: url("http://www.lucerne.k12.ca.us/images/books%20background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+
+    -moz-opacity:0.8;
+
+}
+
+
