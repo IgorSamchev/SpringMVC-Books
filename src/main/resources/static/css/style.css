@@ -202,7 +202,7 @@ input[type=text] {
 }
 
 .edit{
-
+    margin-top: 30px;
     background-image: url("https://static.vecteezy.com/system/resources/previews/000/292/434/large_2x/blank-book-on-white-background-vector.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -214,7 +214,7 @@ input[type=text] {
 }
 
 #mainTable{
-    background-image: linear-gradient(azure, darkgray)
+    background-image: linear-gradient(darkgray, azure)
 }
 
 #addView{
