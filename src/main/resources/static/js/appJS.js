@@ -28,3 +28,11 @@ function addComment(id) {
 function MainMenu() {
     return document.location.href="/books_list";
 }
+
+function sorter() {
+    $('#myTable').tablesorter();
+}
+
+function searcher() {
+
+}

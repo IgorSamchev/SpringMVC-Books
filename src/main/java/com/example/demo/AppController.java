@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -74,7 +75,7 @@ public class AppController {
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         Book b = Book.findBookByID(id, booksList);
-        Book.addNewComment(b, request);
+        Book.addNewComment(Objects.requireNonNull(b), request);
         model.addAttribute("books", booksList);
         return booksEditView(id, model);
     }
