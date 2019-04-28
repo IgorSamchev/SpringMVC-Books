@@ -123,6 +123,7 @@ h1 {
 #newBook {
     float: right;
     margin-right: 60px;
+    margin-bottom: 20px;
 }
 
 input[type=text] {
@@ -202,7 +203,7 @@ input[type=text] {
 
 .edit{
 
-    background-image: url("http://www.lucerne.k12.ca.us/images/books%20background.jpg");
+    background-image: url("https://static.vecteezy.com/system/resources/previews/000/292/434/large_2x/blank-book-on-white-background-vector.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -212,4 +213,17 @@ input[type=text] {
 
 }
 
+#mainTable{
+    background-image: linear-gradient(azure, darkgray)
+}
+
+#addView{
+    background-image: url("http://www.lucerne.k12.ca.us/images/books%20background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+
+    -moz-opacity:0.8;
+}
 
