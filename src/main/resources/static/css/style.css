@@ -1,30 +1,4 @@
-/*.indexDiv {*/
-/*    text-align: center;*/
-/*    background-image: url("https://pxhere.com/ru/photo/340934");*/
-/*    height: 100vh;*/
-/*    min-height: 500px;*/
 
-/*    background-size: cover;*/
-/*    background-position: center;*/
-/*    background-repeat: no-repeat;*/
-/*}*/
-
-
-/*.button {*/
-/*    align-self: center;*/
-/*    background-color: #4CAF50;*/
-/*    border: 1px;*/
-/*    border-radius: 25px;*/
-/*    color: white;*/
-/*    padding: 80px 32px;*/
-/*    text-decoration: none;*/
-/*    display: inline-block;;*/
-/*    font-size: 30px;*/
-/*}*/
-
-/*------------*/
-/*welcome page*/
-/*------------*/
 body {
     min-width: 360px;
     overflow: hidden;
@@ -40,7 +14,7 @@ body {
 }
 
 .layer .layer_cover {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.4);
     height: 100vh;
 }
 
@@ -83,7 +57,7 @@ body {
     height: 60px;
     width: 60px;
     color: white;
-    opacity: 0.3;
+    opacity: 1;
     top: 118px;
     left: 64px;
     background-color: #04A863;
@@ -107,7 +81,7 @@ body {
 .c4 {
     height: 100px;
     width: 100px;
-    opacity: 0.5;
+    opacity: 1;
     color: white;
     top: 199px;
     left: 154px;
