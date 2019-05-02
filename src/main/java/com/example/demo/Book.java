@@ -66,7 +66,7 @@ public class Book {
         for (String s : list) {
             sb.append(s).append("~@~");
         }
-        DataBase.addComment(b.getID(), sb.toString().substring(0, sb.length()-3));
+        DataBase.addComment(b.getID(), sb.toString().substring(0, sb.length() - 3));
     }
 
     public List<String> getComment() {
