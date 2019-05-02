@@ -4,6 +4,7 @@
 
 <head>
 
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -21,7 +22,7 @@
 
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <script type="text/javascript" th:src="@{/js/appJS.js}"></script>
-    <script src="../static/js/appJS.js"></script>
+
 </head>
 <body>
 
@@ -29,16 +30,19 @@
     <div id="addNewBooks">
         <h1>Add Book</h1>
         <p>Title:
-            <label for="titleID">Title</label>
-            <input id="titleID" type="text" name="123" value=""/>
+            <label for="titleID"></label>
+            <input id="titleID" type="text" name="123" required minlength="3" maxlength="30"/>
+        <div id="titleError" class="error"></div>
         </p>
         <p>Author:
             <label for="authorID"></label>
-            <input id="authorID" type="text" value=""/>
+            <input id="authorID" type="text" value="" minlength="3" maxlength="20"/>
+        <div id="authorError" class="error"></div>
         </p>
         <p>ISBN:
             <label for="isbnID"></label>
-            <input id="isbnID" type="text" value=""/>
+            <input id="isbnID" type="text" value="" minlength="3" maxlength="15"/>
+        <div id="isbnError" class="error"></div>
         </p>
         <button id="addBookButton"
                 class="btn btn-primary"
@@ -49,13 +53,14 @@
                 onclick="MainMenu()">
             Back to Menu
         </button>
+
     </div>
 </div>
 </body>
 
 
 <!--DELETE ME AFTER. FOR TESTS ONLY-->
-
+<script src="../static/js/appJS.js"></script>
 <!--DELETE ME AFTER. FOR TESTS ONLY-->
 
 </html>

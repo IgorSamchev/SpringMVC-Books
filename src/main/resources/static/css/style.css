@@ -224,3 +224,7 @@ input[type=text] {
     -moz-opacity:0.8;
 }
 
+.error{
+    color: azure;
+    font-size: 20px;
+}
