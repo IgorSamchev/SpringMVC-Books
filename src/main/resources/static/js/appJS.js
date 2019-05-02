@@ -18,7 +18,7 @@ function addNewBook() {
                 return window.location.href = '' + ref;
             } else {
                 document.getElementById('isbnError').innerText
-                    = "ISBN should be a minimum of 3 and maximum of 30 characters";
+                    = "ISBN should be a minimum of 3 and maximum of 13 characters";
             }
         } else {
             document.getElementById('authorError').innerText
@@ -26,7 +26,7 @@ function addNewBook() {
         }
     } else {
         document.getElementById('titleError').innerText
-            = "Title should be a minimum of 3 and maximum of 13 characters";
+            = "Title should be a minimum of 3 and maximum of 30 characters";
     }
 
     // alert(title.length + ' ' + author.length + ' ' + isbn.length);
