@@ -116,8 +116,8 @@ h1 {
 }
 
 #newBook {
+    width: 100%;
     float: right;
-    margin-right: 60px;
     margin-bottom: 20px;
 }
 
