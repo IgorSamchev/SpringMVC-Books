@@ -197,7 +197,7 @@ input[type=text] {
     margin-top: 20px;
 }
 
-.edit{
+.edit {
 
     background-image: url("https://shillienjava.herokuapp.com/images/Edit.jpg");
     background-repeat: no-repeat;
@@ -205,15 +205,15 @@ input[type=text] {
     background-position: center;
     height: 100vh;
 
-    -moz-opacity:0.8;
+    -moz-opacity: 0.8;
 
 }
 
-#mainTable{
+#mainTable {
     background-image: linear-gradient(darkgray, azure)
 }
 
-#addView{
+#addView {
     background-image: url("https://shillienjava.herokuapp.com/images/add.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -221,9 +221,15 @@ input[type=text] {
     height: 100vh;
 
 
-    -moz-opacity:0.8;
+    -moz-opacity: 0.8;
 }
-.error{
+
+.error {
     color: azure;
+    font-size: 20px;
+}
+
+.error2{
+    color: red;
     font-size: 20px;
 }

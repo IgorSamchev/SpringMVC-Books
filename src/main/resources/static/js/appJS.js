@@ -31,28 +31,27 @@ function addNewBook() {
 }
 
 function editBook(id) {
-    let title = 'AddedBookTitle=' + document.getElementById("titleID").innerText;
-    let author = 'AddedBookAuthor=' + document.getElementById("authorID").innerText;
-    let isbn = 'AddedBookISBN=' + document.getElementById("isbnID").innerText;
+    let title = 'AddedBookTitle=' + document.getElementById("titleEdit").value;
+    let author = 'AddedBookAuthor=' + document.getElementById("authorEdit").value;
+    let isbn = 'AddedBookISBN=' + document.getElementById("isbnEdit").value;
     let ref = id + title + author + isbn;
-    alert(title.length + " " + author.length + " " + isbn.length);
     if (title.length > 17 && title.length < 56) {
         document.getElementById('titleEditError').innerText = "";
         if (author.length > 18 && author.length < 37) {
             document.getElementById('AuthorEditError').innerText = "";
             if (isbn.length > 16 && isbn.length < 29) {
-                document.getElementById('isbnError').innerText = "";
+                document.getElementById('isbnEditError').innerText = "";
                 return document.location.href = "/edit_book/" + ref;
             } else {
-                document.getElementById('isbnError').innerText
+                document.getElementById('isbnEditError').innerText
                     = "ISBN should be a minimum of 3 and maximum of 13 characters";
             }
         } else {
-            document.getElementById('authorError').innerText
+            document.getElementById('AuthorEditError').innerText
                 = "Author should be a minimum of 3 and maximum of 20 characters";
         }
     } else {
-        document.getElementById('titleError').innerText
+        document.getElementById('titleEditError').innerText
             = "Title should be a minimum of 3 and maximum of 30 characters";
     }
 }

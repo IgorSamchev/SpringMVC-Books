@@ -17,8 +17,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <script type="text/javascript" th:src="@{/js/appJS.js}"></script>
-    <script src="../static/js/appJS.js"></script>
+
     <title>Add new Book</title>
+    <script src="../static/js/appJS.js"></script>
 </head>
 <body>
 
@@ -28,20 +29,23 @@
 
             <h1>Edit Book</h1>
             <p>Title:
-                <label for="titleID"></label>
-                <input id="titleID" th:value="${book.getTitle()}" type="text" name="123"/>
-            <div id="titleEditError" class="error"></div>
+                <label for="titleEdit"></label>
+                <input id="titleEdit" th:value="${book.getTitle()}" type="text" name="123"/>
             </p>
+            <div id="titleEditError" class="error2"></div>
+
             <p>Author:
-                <label for="authorID"></label>
-                <input id="authorID" th:value="${book.getAuthor()}" type="text" value=""/>
-            <div id="AuthorEditError" class="error"></div>
+                <label for="authorEdit"></label>
+                <input id="authorEdit" th:value="${book.getAuthor()}" type="text" value=""/>
             </p>
+            <div id="AuthorEditError" class="error2"></div>
+
             <p>ISBN:
-                <label for="isbnID"></label>
-                <input id="isbnID" th:value="${book.getISBN()}" type="text" value=""/>
-            <div id="isbnEditError" class="error"></div>
+                <label for="isbnEdit"></label>
+                <input id="isbnEdit" th:value="${book.getISBN()}" type="text" value=""/>
             </p>
+            <div id="isbnEditError" class="error2"></div>
+
             <button id="addBookButton"
                     class="btn btn-primary"
                     onclick="editBook(${book.getID()})"
