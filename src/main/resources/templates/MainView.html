@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script
-        src="https://code.jquery.com/jquery-3.4.0.js"
-        integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
-        crossorigin="anonymous"></script>
+            src="https://code.jquery.com/jquery-3.4.0.js"
+            integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+            crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
             crossorigin="anonymous"></script>
@@ -24,9 +24,9 @@
 
 </head>
 <script>
-$(document).ready(function() {
-$('#myTable').tablesorter();
-});
+    $(document).ready(function () {
+        $('#myTable').tablesorter();
+    });
 </script>
 <body>
 
@@ -34,10 +34,14 @@ $('#myTable').tablesorter();
 <div class="container-fluid" id="mainTable">
     <h1>ABC Books</h1>
     <div class="form-group">
+        <a th:href="@{'/books/addBook/'}"
+           class="btn btn-success newBook">
+            <span>Add New Book</span>
+        </a>
         <input type="text" class="form-control pull-right" id="search" placeholder="Search at table">
     </div>
     <br/>
-    <table class="table table-hover myTable" id="myTable" >
+    <table class="table table-hover myTable" id="myTable">
         <thead>
         <tr>
             <th>#</th>
@@ -65,23 +69,31 @@ $('#myTable').tablesorter();
         </tr>
         </tbody>
     </table>
-    <a id="newBook" th:href="@{'/books/addBook/'}"
-       class="btn btn-success">
+    <a th:href="@{'/books/addBook/'}"
+       class="btn btn-success newBook">
         <span>Add New Book</span>
+    </a>
+    <a id="about" th:href="@{'about'}"
+       class="btn btn-info newBook">
+        <span>About</span>
     </a>
 </div>
 
+
+
+
 <script>
-    $(document).ready(function(){
-        $("#search").keyup(function(){
+    $(document).ready(function () {
+        $("#search").keyup(function () {
             _this = this;
 
-            $.each($("#myTable tbody tr"), function() {
-                if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1) {
+            $.each($("#myTable tbody tr"), function () {
+                if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1) {
                     $(this).hide();
                 } else {
                     $(this).show();
-                }});
+                }
+            });
         });
     });
 </script>

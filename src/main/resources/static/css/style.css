@@ -115,10 +115,11 @@ h1 {
     text-align: center;
 }
 
-#newBook {
+.newBook {
     width: 100%;
     float: right;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 input[type=text] {
@@ -232,4 +233,10 @@ input[type=text] {
 .error2{
     color: red;
     font-size: 20px;
+}
+
+#about{
+    max-width: 10%;
+    alignment: right;
+
 }

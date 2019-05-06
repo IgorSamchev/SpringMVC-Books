@@ -69,7 +69,3 @@ function MainMenu() {
 function sorter() {
     $('#myTable').tablesorter();
 }
-
-function searcher() {
-
-}
