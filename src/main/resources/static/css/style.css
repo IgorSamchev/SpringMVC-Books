@@ -244,6 +244,6 @@ input[type=text] {
     background-image: url("https://shillienjava.herokuapp.com/images/about.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: right;
+    background-position: center;
     height: 100vh;
 }
