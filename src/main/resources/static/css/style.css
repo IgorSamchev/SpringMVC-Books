@@ -238,5 +238,12 @@ input[type=text] {
 #about{
     max-width: 10%;
     alignment: right;
+}
 
+#aboutDiv{
+    background-image: url("https://shillienjava.herokuapp.com/images/about.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    height: 100vh;
 }
