@@ -112,7 +112,6 @@
 }
 
 
-
 .newBook {
     width: 100%;
     float: right;
@@ -174,8 +173,11 @@ input[type=text] {
 #backToMenu {
     width: 100%;
     margin-top: 10px;
+}
 
-
+#backToMenu1 {
+    max-width: 35%;
+    alignment: left;
 }
 
 #comment {
@@ -208,16 +210,16 @@ input[type=text] {
 
 }
 
-h1{
+h1 {
     font-family: 'Marck Script', cursive;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-name: slidein;
     text-align: center;
 }
 
-.h1Left{
+.h1Left {
     font-family: 'Marck Script', cursive;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-name: slidein;
     text-align: left;
 }
@@ -255,17 +257,17 @@ h1{
     font-size: 20px;
 }
 
-.error2{
+.error2 {
     color: red;
     font-size: 20px;
 }
 
-#about{
+#about {
     max-width: 10%;
     alignment: right;
 }
 
-#aboutDiv{
+#aboutDiv {
     background-image: url("https://shillienjava.herokuapp.com/images/about.jpg");
     background-repeat: no-repeat;
     background-size: cover;
