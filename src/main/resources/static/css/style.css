@@ -265,7 +265,8 @@ h1 {
 #aboutDiv {
     background-image: url("https://shillienjava.herokuapp.com/images/about.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     height: 100vh;
+    margin-left: 20px;
 }
