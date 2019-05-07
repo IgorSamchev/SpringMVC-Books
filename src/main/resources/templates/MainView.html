@@ -38,7 +38,7 @@
            class="btn btn-success newBook">
             <span>Add New Book</span>
         </a>
-        <input type="text" class="form-control pull-right" id="search" placeholder="Search at table">
+        <label for="search"></label><input type="text" class="form-control pull-right" id="search" placeholder="Search at table">
     </div>
     <br/>
     <table class="table table-hover myTable" id="myTable">
@@ -85,7 +85,7 @@
 <script>
     $(document).ready(function () {
         $("#search").keyup(function () {
-            _this = this;
+            let _this = this;
 
             $.each($("#myTable tbody tr"), function () {
                 if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1) {

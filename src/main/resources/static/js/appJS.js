@@ -62,10 +62,11 @@ function addComment(id) {
     return document.location.href = "/add_Comment/" + ref;
 }
 
+/**
+ * @return {string}
+ */
 function MainMenu() {
     return document.location.href = "/books_list";
 }
 
-function sorter() {
-    $('#myTable').tablesorter();
-}
+
