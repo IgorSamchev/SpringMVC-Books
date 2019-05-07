@@ -39,7 +39,8 @@
            class="btn btn-success newBook">
             <span>Add New Book</span>
         </a>
-        <label for="search"></label><input type="text" class="form-control pull-right" id="search" placeholder="Search at table">
+        <label for="search"></label><input type="text" class="form-control pull-right" id="search"
+                                           placeholder="Search at table">
     </div>
     <br/>
     <table class="table table-hover myTable" id="myTable">
@@ -74,14 +75,11 @@
        class="btn btn-success newBook">
         <span>Add New Book</span>
     </a>
-    <a id="about" th:href="@{'about'}"
+    <a id="about" th:href="@{'/about'}"
        class="btn btn-info newBook">
         <span>About</span>
     </a>
 </div>
-
-
-
 
 <script>
     $(document).ready(function () {

@@ -1,4 +1,3 @@
-
 .layer {
     background-color: #e1e1e1;
     background-image: url("https://shillienjava.herokuapp.com/images/index.jpeg");
@@ -205,9 +204,7 @@ input[type=text] {
     background-size: cover;
     background-position: center;
     height: 100vh;
-
     -moz-opacity: 0.8;
-
 }
 
 h1 {
@@ -236,7 +233,7 @@ h1 {
     }
 
     to {
-        margin-left: 0%;
+        margin-left: 0;
         width: 100%;
     }
 }
@@ -247,8 +244,6 @@ h1 {
     background-size: cover;
     background-position: center;
     height: 100vh;
-
-
     -moz-opacity: 0.8;
 }
 

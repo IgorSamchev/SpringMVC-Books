@@ -85,4 +85,9 @@ public class AppController {
         return "about";
     }
 
+    @RequestMapping(value = "edit_book/about", method = RequestMethod.GET)
+    public String about2() {
+        return "about";
+    }
+
 }
