@@ -35,7 +35,7 @@ public class ClientInformation extends HttpServlet {
         }
 
         try {
-            FileWriter fw = new FileWriter("src/main/resources/logs/log.log", true);
+            FileWriter fw = new FileWriter("src/main/resources/static/logs/log.log", true);
             fw.write("try");
             fw.write(test + "\n");
 
