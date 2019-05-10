@@ -11,6 +11,19 @@ class DataBase {
     private static String user = "jwzorstluduoav";
     private static String password = "e6208131a87f8c2383632ad3b69c5b6cede00fb46b802676b323e97a650ac83a";
 
+    static void log(String logText){
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+
+            PreparedStatement st = conn.prepareStatement("INSERT INTO logs (text) VALUES (?)");
+
+            st.setString(1, logText);
+
+            st.executeUpdate();
+            st.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     static void addNewBook(String title, String author, String isbn) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
