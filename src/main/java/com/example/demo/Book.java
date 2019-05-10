@@ -12,6 +12,13 @@ public class Book {
     private String ISBN;
     private List<String> comment;
 
+    public Book(String title, String author, String ISBN, List<String> comment) {
+        Title = title;
+        Author = author;
+        this.ISBN = ISBN;
+        this.comment = comment;
+    }
+
     public Book(int ID, String title, String author, String ISBN, String[] comment) {
         this.ID = ID;
         Title = title;

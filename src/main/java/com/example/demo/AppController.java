@@ -90,4 +90,14 @@ public class AppController {
         return "about";
     }
 
+    @RequestMapping("/reset87")
+    public String reset(Model model) {
+        DataBase.reset();
+        DataBase business = new DataBase();
+        List<Book> booksList = business.getBooksList();
+        model.addAttribute("books", booksList);
+
+        return "MainView";
+    }
+
 }
