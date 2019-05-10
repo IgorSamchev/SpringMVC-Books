@@ -5,19 +5,19 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.sql.Timestamp;
 
-public class ClientInformation extends HttpServlet {
+public class Logger extends HttpServlet {
 
-    public static void getIP() {
+    static void getIP() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
                 .getRequest();
 
         String ip = request.getRemoteAddr();
-        System.out.println(ip);
-        DataBase.log(ip);
+        DataBase.log(new Timestamp(System.currentTimeMillis()) + " " + ip + " logged in");
     }
 
+    static void deleteBook(Long id) {
+        DataBase.log(new Timestamp(System.currentTimeMillis()) + " Deleted book with ID " + id);
+    }
 }

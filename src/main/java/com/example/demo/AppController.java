@@ -15,6 +15,7 @@ public class AppController {
 
     @RequestMapping("/books_list")
     public String booksList(Model model) {
+        Logger.getIP();
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         model.addAttribute("books", booksList);
@@ -24,19 +25,16 @@ public class AppController {
 
     @RequestMapping(value = "books/doDelete/{id}", method = RequestMethod.GET)
     public String deleteBook(@PathVariable Long id, Model model) {
+        Logger.deleteBook(id);
         Book.deleteBookFromDataBase(id);
-
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         model.addAttribute("books", booksList);
-
         return "MainView";
     }
 
     @RequestMapping(value = "books/addBook", method = RequestMethod.GET)
     public String showCreateForm() {
-
-      ClientInformation.getIP();
         return "AddView";
     }
 
