@@ -19,7 +19,7 @@ public class ClientInformation extends HttpServlet {
         System.out.println(ip);
         try {
             FileWriter fw = new FileWriter("src/main/resources/static/log.log", true);
-
+            fw.write("try");
             fw.write(ip + "\n");
 
             fw.close();
