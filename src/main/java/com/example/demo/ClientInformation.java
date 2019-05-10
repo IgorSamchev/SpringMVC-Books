@@ -18,9 +18,9 @@ public class ClientInformation extends HttpServlet {
         String ip = request.getRemoteAddr();
         System.out.println(ip);
         try {
-            FileWriter fw = new FileWriter(new File("src/main/resources/templates/log.log"));
+            FileWriter fw = new FileWriter("src/main/resources/static/log.log", true);
 
-            fw.write(ip);
+            fw.write(ip + "\n");
 
             fw.close();
 
