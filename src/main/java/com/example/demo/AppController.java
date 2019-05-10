@@ -1,11 +1,13 @@
 package com.example.demo;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import java.util.List;
 import java.util.Objects;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.ui.Model;
 
 @Controller
 public class AppController {
@@ -33,6 +35,8 @@ public class AppController {
 
     @RequestMapping(value = "books/addBook", method = RequestMethod.GET)
     public String showCreateForm() {
+
+      ClientInformation.getIP();
         return "AddView";
     }
 
@@ -43,7 +47,6 @@ public class AppController {
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         model.addAttribute("books", booksList);
-
         return "MainView";
     }
 
