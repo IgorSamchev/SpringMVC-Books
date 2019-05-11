@@ -69,4 +69,11 @@ function MainMenu() {
     return document.location.href = "/books_list";
 }
 
+/**
+ * @return {string}
+ */
+function LogMenu() {
+    return document.location.href = "/log";
+}
+
 
