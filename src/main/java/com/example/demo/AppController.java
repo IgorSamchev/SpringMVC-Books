@@ -30,6 +30,7 @@ public class AppController {
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         model.addAttribute("books", booksList);
+
         return "MainView";
     }
 
@@ -41,7 +42,6 @@ public class AppController {
     @RequestMapping(value = "books/addBook/{submit}", method = RequestMethod.GET)
     public String addNewBook(@PathVariable String submit, Model model) {
         Book.addNewBook(submit);
-
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         model.addAttribute("books", booksList);

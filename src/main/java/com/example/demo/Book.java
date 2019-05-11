@@ -51,6 +51,7 @@ public class Book {
         String[] data = splitData(request);
 
         DataBase.addNewBook(data[0], data[1], data[2]);
+        Logger.addNewBook(data[0], data[1], data[2]);
     }
 
     static void deleteBookFromDataBase(long id) {
