@@ -31,8 +31,10 @@ public class Logger extends HttpServlet {
     }
 
     private static String getTimeStamp() {
-        String timeStamp = new Timestamp(System.currentTimeMillis()).toString();
-        return timeStamp.substring(0, timeStamp.length() - 4);
+        Timestamp localTime = new Timestamp(System.currentTimeMillis());
+        final long EstTimeDifference = (180 * 60) * 1000L;
+        localTime.setTime(localTime.getTime() + EstTimeDifference);
+        return localTime.toString().substring(0, localTime.toString().length() - 4);
     }
 
     static void addNewBook(String title, String author, String isbn) {
