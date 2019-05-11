@@ -108,6 +108,30 @@ class DataBase {
         }
     }
 
+    public static List<Logger> getLogs() {
+        List<Logger> logsList = new ArrayList<>();
+
+        try (Connection con = DriverManager.getConnection(url, user, password);
+
+             Statement st = con.createStatement();
+             ResultSet rs = st.executeQuery("SELECT * FROM logs")) {
+
+            while (rs.next()) {
+                String log = null;
+                if (rs.getString(1) != null) {
+                    log = rs.getString(1);
+                }
+                logsList.add(new Logger(rs.getString(1)));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error");
+        }
+        Collections.reverse(logsList);
+        return logsList;
+    }
+
     List<Book> getBooksList() {
         List<Book> booksList = new ArrayList<>();
 

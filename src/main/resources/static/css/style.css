@@ -269,3 +269,9 @@ h1 {
     background-position: center;
     height: 100vh;
 }
+
+#logTable{
+
+    border: 2px solid black;
+    border-radius: 4px;
+}

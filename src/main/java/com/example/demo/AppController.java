@@ -101,4 +101,11 @@ public class AppController {
         return "MainView";
     }
 
+    @RequestMapping(value = "log", method = RequestMethod.GET)
+    public String log(Model model) {
+        List<Logger> logs = DataBase.getLogs();
+        model.addAttribute("logs", logs);
+        return "log";
+    }
+
 }

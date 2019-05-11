@@ -9,6 +9,16 @@ import java.sql.Timestamp;
 
 public class Logger extends HttpServlet {
 
+    public String getLog() {
+        return log;
+    }
+
+    private String log;
+
+    Logger(String log) {
+        this.log = log;
+    }
+
     static void getIP() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
                 .getRequest();
