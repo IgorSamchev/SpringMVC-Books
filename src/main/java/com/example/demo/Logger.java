@@ -6,6 +6,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Logger extends HttpServlet {
     private String date;
@@ -31,10 +34,9 @@ public class Logger extends HttpServlet {
     }
 
     private static String getTimeStamp() {
-        Timestamp localTime = new Timestamp(System.currentTimeMillis());
-        final long EstTimeDifference = (180 * 60) * 1000L;
-        localTime.setTime(localTime.getTime() + EstTimeDifference);
-        return localTime.toString().substring(0, localTime.toString().length() - 4);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        ZoneId zoneId = ZoneId.of("Europe/Helsinki");
+        return ZonedDateTime.now(zoneId).format(formatter);
     }
 
     static void addNewBook(String title, String author, String isbn) {

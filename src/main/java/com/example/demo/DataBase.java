@@ -18,7 +18,7 @@ class DataBase {
             String[] date = timeStamp.split(" ");
             st.setString(1, date[0]);
             st.setString(2, date[1]);
-            st.setString(3,logText);
+            st.setString(3, logText);
 
             st.executeUpdate();
             st.close();
