@@ -274,6 +274,7 @@ h1 {
 
     border: 2px solid black;
     border-radius: 4px;
+    background-image: linear-gradient(black, azure);
 }
 #LogDate{
     width: 10%;
