@@ -119,9 +119,9 @@ class DataBase {
              ResultSet rs = st.executeQuery("SELECT * FROM logs")) {
 
             while (rs.next()) {
-                String date = rs.getString(1);
-                String time = rs.getString(2);
-                String message = rs.getString(3);
+                String date = rs.getString(2);
+                String time = rs.getString(3);
+                String message = rs.getString(4);
 
                 logsList.add(new Logger(date, time, message));
             }
