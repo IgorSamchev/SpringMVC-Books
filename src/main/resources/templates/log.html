@@ -22,9 +22,18 @@
 <div class="container">
     <h1 class="h1Left">Logs</h1>
     <br>
-    <table id="logTable" class="table table-hover myTable">
+    <table id="logTable" class="table table-hover">
+        <thead>
+        <tr class="header">
+            <td><b>Date</b></td>
+            <td><b>Time</b></td>
+            <td><b>Message</b></td>
+        </tr>
+        </thead>
         <tr th:each="log : ${logs}">
-            <td th:text="${log.getLog()}">log</td>
+            <td id="LogDate" th:text="${log.getDate()}">log</td>
+            <td id="LogTime" th:text="${log.getTime()}">log</td>
+            <td id="LogMessage" th:text="${log.getMessage()}">log</td>
         </tr>
     </table>
 </div>

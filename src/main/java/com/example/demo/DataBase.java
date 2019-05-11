@@ -11,12 +11,14 @@ class DataBase {
     private static String user = "jwzorstluduoav";
     private static String password = "e6208131a87f8c2383632ad3b69c5b6cede00fb46b802676b323e97a650ac83a";
 
-    static void log(String logText){
+    static void log(String timeStamp, String logText){
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
 
-            PreparedStatement st = conn.prepareStatement("INSERT INTO logs (text) VALUES (?)");
-
-            st.setString(1, logText);
+            PreparedStatement st = conn.prepareStatement("INSERT INTO logs (day, time, message) VALUES (?,?,?)");
+            String[] date = timeStamp.split(" ");
+            st.setString(1, date[0]);
+            st.setString(2, date[1]);
+            st.setString(3,logText);
 
             st.executeUpdate();
             st.close();
@@ -108,7 +110,7 @@ class DataBase {
         }
     }
 
-    public static List<Logger> getLogs() {
+    static List<Logger> getLogs() {
         List<Logger> logsList = new ArrayList<>();
 
         try (Connection con = DriverManager.getConnection(url, user, password);
@@ -117,11 +119,11 @@ class DataBase {
              ResultSet rs = st.executeQuery("SELECT * FROM logs")) {
 
             while (rs.next()) {
-                String log = null;
-                if (rs.getString(1) != null) {
-                    log = rs.getString(1);
-                }
-                logsList.add(new Logger(rs.getString(1)));
+                String date = rs.getString(1);
+                String time = rs.getString(2);
+                String message = rs.getString(3);
+
+                logsList.add(new Logger(date, time, message));
             }
 
         } catch (SQLException e) {

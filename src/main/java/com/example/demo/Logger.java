@@ -8,14 +8,26 @@ import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 
 public class Logger extends HttpServlet {
-    private String log;
+    private String date;
+    private String time;
+    private String message;
 
-    Logger(String log) {
-        this.log = log;
+    Logger(String date, String time, String message) {
+        this.date = date;
+        this.time = time;
+        this.message = message;
     }
 
-    public String getLog() {
-        return log;
+    public String getDate() {
+        return date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     private static String getTimeStamp() {
@@ -24,11 +36,11 @@ public class Logger extends HttpServlet {
     }
 
     static void addNewBook(String title, String author, String isbn) {
-        DataBase.log(getTimeStamp()
-                + " Added new Book: "
-                + title + ", "
-                + author + ", "
-                + isbn);
+        DataBase.log(getTimeStamp(),
+                " Added new Book: "
+                        + title + ", "
+                        + author + ", "
+                        + isbn);
     }
 
     static void getIP() {
@@ -36,10 +48,10 @@ public class Logger extends HttpServlet {
                 .getRequest();
 
         String ip = request.getRemoteAddr();
-        DataBase.log(getTimeStamp() + " " + ip + " logged in");
+        DataBase.log(getTimeStamp(), " " + ip + " logged in");
     }
 
     static void deleteBook(Long id) {
-        DataBase.log(getTimeStamp() + " Deleted book with ID " + id);
+        DataBase.log(getTimeStamp(), " Deleted book with ID " + id);
     }
 }

@@ -275,3 +275,16 @@ h1 {
     border: 2px solid black;
     border-radius: 4px;
 }
+#LogDate{
+    width: 10%;
+}
+
+#LogTime{
+    width: 10%
+}
+
+#LogMessage{
+    width: 80%;
+}
+
+
