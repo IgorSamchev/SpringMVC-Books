@@ -222,7 +222,7 @@ h1 {
 }
 
 #mainTable {
-    background-image: linear-gradient(darkgray, azure);
+    background-image: linear-gradient(#faffc5, azure);
 
 }
 
@@ -274,7 +274,6 @@ h1 {
 
     border: 2px solid black;
     border-radius: 4px;
-    background-image: linear-gradient(black, azure);
 }
 #LogDate{
     width: 10%;
