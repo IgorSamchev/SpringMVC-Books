@@ -34,9 +34,8 @@ public class Logger extends HttpServlet {
     }
 
     private static String getTimeStamp() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        ZoneId zoneId = ZoneId.of("Europe/Helsinki");
-        return ZonedDateTime.now(zoneId).format(formatter);
+        return ZonedDateTime.now(ZoneId.of("Europe/Helsinki"))
+                .format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
     }
 
     static void addNewBook(String title, String author, String isbn) {
