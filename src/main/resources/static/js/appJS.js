@@ -65,7 +65,9 @@ function addComment(id) {
         .replace('%', '~percent~')
         .replace('?', '~question~')
         .replace('/', '~slash~')
-        .replace('\\', '~backSlash~');
+        .replace('\\', '~backSlash~')
+        .replace('[', '~leftBracket~')
+        .replace(']', '~rightBracket~');
     return document.location.href = "/add_Comment/" + ref;
 }
 

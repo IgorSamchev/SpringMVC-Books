@@ -81,7 +81,9 @@ public class Book {
                 .replace("~percent~", "%")
                 .replace("~question~", "?")
                 .replace("~slash~", "/")
-                .replace("~backSlash~", "\\");
+                .replace("~backSlash~", "\\")
+                .replace("~leftBracket~", "[")
+                .replace("~rightBracket~", "]");
         DataBase.addComment(b.getID(), comment);
     }
 
