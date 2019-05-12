@@ -70,7 +70,6 @@ public class AppController {
 
     @RequestMapping(value = "/add_Comment/{request}", method = RequestMethod.GET)
     public String addComment(@PathVariable String request, Model model) {
-        System.out.println(request);
         long id = Long.parseLong(request.substring(0, request.indexOf("c")));
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();

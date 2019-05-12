@@ -75,13 +75,13 @@ public class Book {
             sb.append(s).append("~@~");
         }
         String comment = sb.toString().substring(0, sb.length() - 3);
-        comment = comment.replaceAll("~sem~", ";")
-                .replaceAll("~sharp~", "#")
-                .replaceAll("~percent~", "%")
-                .replaceAll("~question~", "?")
-                .replaceAll("~slash~", "/")
-                .replaceAll("~backSlash~", "\\");
-        System.out.println(comment);
+        comment = comment
+                .replace("~sem~", ";")
+                .replace("~sharp~", "#")
+                .replace("~percent~", "%")
+                .replace("~question~", "?")
+                .replace("~slash~", "/")
+                .replace("~backSlash~", "\\");
         DataBase.addComment(b.getID(), comment);
     }
 
