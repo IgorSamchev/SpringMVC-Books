@@ -59,15 +59,26 @@ function editBook(id) {
 function addComment(id) {
     let comment = 'com=' + document.getElementById("comment").value.trim();
     let ref = id + comment;
-    ref = ref
-        .replace(';', '~sem~')
-        .replace('#', '~sharp~')
-        .replace('%', '~percent~')
-        .replace('?', '~question~')
-        .replace('/', '~slash~')
-        .replace('\\', '~backSlash~')
-        .replace('[', '~leftBracket~')
-        .replace(']', '~rightBracket~');
+    while (ref.includes(';')
+    || ref.includes('#')
+    || ref.includes('%')
+    || ref.includes('?')
+    || ref.includes('/')
+    || ref.includes('\\')
+    || ref.includes('[')
+    || ref.includes('|')
+    || ref.includes(']')) {
+        ref = ref
+            .replace(';', '~sem~')
+            .replace('#', '~sharp~')
+            .replace('%', '~percent~')
+            .replace('?', '~question~')
+            .replace('/', '~slash~')
+            .replace('\\', '~backSlash~')
+            .replace('[', '~leftBracket~')
+            .replace(']', '~rightBracket~')
+            .replace('|', '~wallSlash~');
+    }
     return document.location.href = "/add_Comment/" + ref;
 }
 

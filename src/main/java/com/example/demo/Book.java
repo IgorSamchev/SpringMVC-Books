@@ -83,7 +83,8 @@ public class Book {
                 .replace("~slash~", "/")
                 .replace("~backSlash~", "\\")
                 .replace("~leftBracket~", "[")
-                .replace("~rightBracket~", "]");
+                .replace("~rightBracket~", "]")
+                .replace("~wallSlash~", "|");
         DataBase.addComment(b.getID(), comment);
     }
 
