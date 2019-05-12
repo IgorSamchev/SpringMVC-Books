@@ -56,11 +56,11 @@
         </thead>
         <tbody>
         <tr th:each="book : ${books}">
-            <td th:text="${book.getID()}">id</td>
-            <td th:text="${book.getTitle()}">Title</td>
-            <td th:text="${book.getAuthor()}">Author</td>
-            <td th:text="${book.getISBN()}">ISBN</td>
-            <td th:text="${book.getCommentLength()}">Comments</td>
+            <td class="align-middle" th:text="${book.getID()}">id</td>
+            <td class="align-middle" th:text="${book.getTitle()}">Title</td>
+            <td class="align-middle" th:text="${book.getAuthor()}">Author</td>
+            <td class="align-middle" th:text="${book.getISBN()}">ISBN</td>
+            <td class="align-middle" th:text="${book.getCommentLength()}">Comments</td>
 
             <td>
                 <a id="deleteButton" th:href="@{'/books/doDelete/' + ${book.getID()}}" onclick="return confirmDelete();"
