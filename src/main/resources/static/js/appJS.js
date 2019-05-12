@@ -59,6 +59,12 @@ function editBook(id) {
 function addComment(id) {
     let comment = 'com=' + document.getElementById("comment").value.trim();
     let ref = id + comment;
+    ref = ref.replace(';', '~sem~');
+    ref = ref.replace('#', '~sharp~');
+    ref = ref.replace('%', '~percent~');
+    ref = ref.replace('?', '~question~');
+    ref = ref.replace('\/', '~slash~');
+    ref = ref.replace('\\', '~backSlash~');
     return document.location.href = "/add_Comment/" + ref;
 }
 

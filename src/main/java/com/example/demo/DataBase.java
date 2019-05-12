@@ -54,7 +54,7 @@ class DataBase {
                     "', isbn = '" + data[2] +
                     "' WHERE id = " + id;
             st.executeQuery(query);
-
+            st.close();
 
         } catch (SQLException ignored) {
         }

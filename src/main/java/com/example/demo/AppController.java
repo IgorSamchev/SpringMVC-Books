@@ -48,7 +48,6 @@ public class AppController {
         return "MainView";
     }
 
-    //просмотр
     @RequestMapping("/books_edit/{id}")
     public String booksEditView(@PathVariable Long id, Model model) {
         DataBase business = new DataBase();
@@ -58,7 +57,6 @@ public class AppController {
         return "EditView";
     }
 
-    //изменение
     @RequestMapping(value = "/edit_book/{request}", method = RequestMethod.GET)
     public String bookEdit(@PathVariable String request, Model model) {
         Book.update(request);
@@ -72,6 +70,7 @@ public class AppController {
 
     @RequestMapping(value = "/add_Comment/{request}", method = RequestMethod.GET)
     public String addComment(@PathVariable String request, Model model) {
+        System.out.println(request);
         long id = Long.parseLong(request.substring(0, request.indexOf("c")));
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();

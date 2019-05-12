@@ -74,7 +74,15 @@ public class Book {
         for (String s : list) {
             sb.append(s).append("~@~");
         }
-        DataBase.addComment(b.getID(), sb.toString().substring(0, sb.length() - 3));
+        String comment = sb.toString().substring(0, sb.length() - 3);
+        comment = comment.replaceAll("~sem~", ";")
+                .replaceAll("~sharp~", "#")
+                .replaceAll("~percent~", "%")
+                .replaceAll("~question~", "?")
+                .replaceAll("~slash~", "/")
+                .replaceAll("~backSlash~", "\\");
+        System.out.println(comment);
+        DataBase.addComment(b.getID(), comment);
     }
 
     public List<String> getComment() {
