@@ -5,7 +5,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import java.sql.Timestamp;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -40,21 +39,24 @@ public class Logger extends HttpServlet {
 
     static void addNewBook(String title, String author, String isbn) {
         DataBase.log(getTimeStamp(),
-                " Added new Book: "
+                checkIP() +
+                        " Added new Book: "
                         + title + ", "
                         + author + ", "
                         + isbn);
     }
 
-    static void getIP() {
+    private static String checkIP() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
                 .getRequest();
+        return request.getRemoteAddr();
+    }
 
-        String ip = request.getRemoteAddr();
-        DataBase.log(getTimeStamp(), " " + ip + " logged in");
+    static void getIP() {
+        DataBase.log(getTimeStamp(), " " + checkIP() + " logged in");
     }
 
     static void deleteBook(Long id) {
-        DataBase.log(getTimeStamp(), " Deleted book with ID " + id);
+        DataBase.log(getTimeStamp(), checkIP() + " Deleted book with ID " + id);
     }
 }

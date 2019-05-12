@@ -58,22 +58,24 @@ class DataBase {
 
         } catch (SQLException ignored) {
         }
-
     }
 
     static void addComment(int id, String commentArray) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
-            Statement st = conn.createStatement();
-            String query = "UPDATE books " +
-                    "SET " +
-                    "comment = '{" + commentArray + "}' WHERE id = " + id;
-            st.executeQuery(query);
+            String query = "UPDATE books "
+                    + "SET comment = ? "
+                    + "WHERE id = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1, commentArray);
+            preparedStatement.setInt(2 , id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
 
-        } catch (SQLException ignored) {
+        } catch (SQLException ignore) {
         }
     }
 
-    public static void reset() {
+    static void reset() {
         List<Book> list = new ArrayList<>();
         list.add(new Book("React Quickly", "Azat Mardan", "978-1617293344", null));
         list.add(new Book("Effective Java 3rd Edition", "Joshua Bloch", "978-0134685991", null));
@@ -145,10 +147,7 @@ class DataBase {
             while (rs.next()) {
                 String[] comment = null;
                 if (rs.getString(5) != null) {
-
                     comment = rs.getString(5).split("~@~");
-                    comment[0] = comment[0].substring(1);
-                    comment[comment.length - 1] = comment[comment.length - 1].substring(0, comment[comment.length - 1].length() - 1);
                 }
                 booksList.add(new Book(Integer.parseInt(rs.getString(1)),
                         rs.getString(2),
