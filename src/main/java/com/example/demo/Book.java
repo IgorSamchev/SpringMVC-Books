@@ -64,7 +64,7 @@ public class Book {
 
         DataBase.updateBook(id[0], data);
 
-    }
+}
 
     static void addNewComment(Book b, String request) {
         String newComment = request.substring(request.indexOf("=") + 1);
