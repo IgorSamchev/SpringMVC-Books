@@ -1,7 +1,3 @@
-function confirmDelete() {
-    return confirm("Delete Book?");
-}
-
 function addNewBook() {
 
     let title = 'AddedBookTitle=' + document.getElementById("titleID").value;
@@ -94,6 +90,17 @@ function MainMenu() {
  */
 function LogMenu() {
     return document.location.href = "/log";
+}
+
+function confirmDelete() {
+    return confirm("Delete Book?");
+}
+
+
+function doDelete(id) {
+    if (confirmDelete()) {
+        document.location.href = "/books/doDelete/" + id;
+    }
 }
 
 

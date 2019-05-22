@@ -63,7 +63,7 @@
             <td class="align-middle" th:text="${book.getCommentLength()}">Comments</td>
 
             <td>
-                <a id="deleteButton" th:href="@{'/books/doDelete/' + ${book.getID()}}" onclick="return confirmDelete();"
+                <a id="deleteButton" th:onclick="'javascript:doDelete(' + ${book.getID()} + ');'"
                    class="btn btn-danger"><i class="fa fa-trash"></i></a>
                 <a id="editButton" th:href="@{'/books_edit/' + ${book.getID()}}"
                    class="btn btn-danger"><i class="fa fa-bars"></i></a>
