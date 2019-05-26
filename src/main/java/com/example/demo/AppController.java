@@ -12,6 +12,27 @@ import java.util.Objects;
 @Controller
 public class AppController {
 
+    @RequestMapping(value = "/books/changeCurrentLanguageEN")
+    public String changeLanguageEn(Model model) {
+        Language.setCurrentLanguageEN();
+        booksList(model);
+        return "MainView";
+    }
+
+    @RequestMapping(value = "/books/changeCurrentLanguageEE")
+    public String changeLanguageEe(Model model) {
+        Language.setCurrentLanguageEE();
+        booksList(model);
+        return "MainView";
+    }
+
+    @RequestMapping(value = "/books/changeCurrentLanguageRU")
+    public String changeLanguageRu(Model model) {
+        Language.setCurrentLanguageRU();
+        booksList(model);
+        return "MainView";
+    }
+
 
     @RequestMapping("/books_list")
     public String booksList(Model model) {
@@ -19,7 +40,11 @@ public class AppController {
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         model.addAttribute("books", booksList);
-
+        model.addAttribute("Title", Language.getCurrentLanguage().equals("en") ? "Title" : Language.getCurrentLanguage().equals("ee") ? "Nimetus" : "Наименование");
+        model.addAttribute("Author", Language.getCurrentLanguage().equals("en") ? "Author" : Language.getCurrentLanguage().equals("ee") ? "Autor" : "Автор");
+        model.addAttribute("Comments", Language.getCurrentLanguage().equals("en") ? "Comments" : Language.getCurrentLanguage().equals("ee") ? "Kommentaarid" : "Комметарии");
+        model.addAttribute("Action", Language.getCurrentLanguage().equals("en") ? "Action" : Language.getCurrentLanguage().equals("ee") ? "Tegu" : "Действие");
+        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
         return "MainView";
     }
 

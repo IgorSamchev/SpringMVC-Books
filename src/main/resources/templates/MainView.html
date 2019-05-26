@@ -33,7 +33,12 @@
 
 
 <div class="container-fluid" id="mainTable">
-    <h1>ABC Books - KTA-18V - Igor Samchev</h1>
+    <h1>ABC Books - KTA-18V - Igor Samchev
+    <a th:href="@{'/books/changeCurrentLanguageEN'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png"></a>
+    <a th:href="@{'/books/changeCurrentLanguageRU'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png"></a>
+    <a th:href="@{'/books/changeCurrentLanguageEE'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png"></a>
+    </h1>
+
     <div class="form-group">
         <a th:href="@{'/books/addBook/'}"
            class="btn btn-success newBook">
@@ -46,12 +51,13 @@
     <table class="table table-hover myTable" id="myTable">
         <thead>
         <tr>
+
             <th>#</th>
-            <th>Title</th>
-            <th>Author</th>
+            <th th:text="${Title}"></th>
+            <th th:text="${Author}"></th>
             <th>ISBN-13</th>
-            <th>Comments</th>
-            <th>Action</th>
+            <th th:text="${Comments}"></th>
+            <th th:text="${Action}"></th>
         </tr>
         </thead>
         <tbody>
