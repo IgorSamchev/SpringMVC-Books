@@ -34,18 +34,21 @@
 
 <div class="container-fluid" id="mainTable">
     <h1>ABC Books - KTA-18V - Igor Samchev
-    <a th:href="@{'/books/changeCurrentLanguageEN'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png"></a>
-    <a th:href="@{'/books/changeCurrentLanguageRU'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png"></a>
-    <a th:href="@{'/books/changeCurrentLanguageEE'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png"></a>
+    <a th:href="@{'/books/changeCurrentLanguageEN'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png" alt="ENG"></a>
+    <a th:href="@{'/books/changeCurrentLanguageRU'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png" alt="RUS"></a>
+    <a th:href="@{'/books/changeCurrentLanguageEE'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
     </h1>
 
     <div class="form-group">
         <a th:href="@{'/books/addBook/'}"
-           class="btn btn-success newBook">
-            <span>Add New Book</span>
+           class="btn btn-success newBook"
+           th:switch="${currentLanguage}">
+            <span th:case="'en'">Add New Book</span>
+            <span th:case="'ee'">Lisage uus raamat</span>
+            <span th:case="'ru'">Добавить новую книгу</span>
         </a>
         <label for="search"></label><input type="text" class="form-control pull-right" id="search"
-                                           placeholder="Search at table">
+                                           placeholder="Search at table - Поиск по таблице - Otsi tabelist">
     </div>
     <br/>
     <table class="table table-hover myTable" id="myTable">
@@ -78,12 +81,18 @@
         </tbody>
     </table>
     <a th:href="@{'/books/addBook/'}"
-       class="btn btn-success newBook">
-        <span>Add New Book</span>
+       class="btn btn-success newBook"
+       th:switch="${currentLanguage}">
+        <span th:case="'en'">Add New Book</span>
+        <span th:case="'ee'">Lisage uus raamat</span>
+        <span th:case="'ru'">Добавить новую книгу</span>
     </a>
     <a id="about" th:href="@{'/about'}"
-       class="btn btn-info newBook">
-        <span>About</span>
+       class="btn btn-info newBook"
+       th:switch="${currentLanguage}">
+        <span th:case="'en'">About</span>
+        <span th:case="'ee'">Teavet</span>
+        <span th:case="'ru'">Информация</span>
     </a>
 </div>
 
