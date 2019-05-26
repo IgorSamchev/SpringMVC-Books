@@ -34,9 +34,18 @@
 
 <div class="container-fluid" id="mainTable">
     <h1>ABC Books - KTA-18V - Igor Samchev
-    <a th:href="@{'/books/changeCurrentLanguageEN'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png" alt="ENG"></a>
-    <a th:href="@{'/books/changeCurrentLanguageRU'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png" alt="RUS"></a>
-    <a th:href="@{'/books/changeCurrentLanguageEE'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
+        <a th:href="@{'/books/changeCurrentLanguageEN'}">
+            <img class="flag"
+                 src="https://shillienjava.herokuapp.com/images/engFlag.png"
+                 alt="ENG"></a>
+        <a th:href="@{'/books/changeCurrentLanguageRU'}">
+            <img class="flag"
+                 src="https://shillienjava.herokuapp.com/images/rusFlag.png"
+                 alt="RUS"></a>
+        <a th:href="@{'/books/changeCurrentLanguageEE'}">
+            <img class="flag"
+                 src="https://shillienjava.herokuapp.com/images/estFlag.png"
+                 alt="EST"></a>
     </h1>
 
     <div class="form-group">
@@ -47,14 +56,16 @@
             <span th:case="'ee'">Lisage uus raamat</span>
             <span th:case="'ru'">Добавить новую книгу</span>
         </a>
-        <label for="search"></label><input type="text" class="form-control pull-right" id="search"
-                                           placeholder="Search at table - Поиск по таблице - Otsi tabelist">
+        <label for="search"></label>
+        <input type="text" class="form-control pull-right" id="search"
+               placeholder="Search at table - Поиск по таблице - Otsi tabelist">
     </div>
+
     <br/>
+
     <table class="table table-hover myTable" id="myTable">
         <thead>
         <tr>
-
             <th>#</th>
             <th th:text="${Title}"></th>
             <th th:text="${Author}"></th>
@@ -80,6 +91,7 @@
         </tr>
         </tbody>
     </table>
+
     <a th:href="@{'/books/addBook/'}"
        class="btn btn-success newBook"
        th:switch="${currentLanguage}">
@@ -87,6 +99,7 @@
         <span th:case="'ee'">Lisage uus raamat</span>
         <span th:case="'ru'">Добавить новую книгу</span>
     </a>
+
     <a id="about" th:href="@{'/about'}"
        class="btn btn-info newBook"
        th:switch="${currentLanguage}">
@@ -111,7 +124,6 @@
         });
     });
 </script>
-
 <script type="text/javascript" th:src="@{/js/jquery.tablesorter.js}"></script>
 <script type="text/javascript" th:src="@{/js/appJS.js}"></script>
 </body>
