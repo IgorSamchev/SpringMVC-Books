@@ -1,19 +1,19 @@
 package com.example.demo;
 
-public class Language {
-    public static String currentLanguage = "ru";
+class Language {
+    private static String currentLanguage = "en";
 
-    public static String getCurrentLanguage() {
+    static String getCurrentLanguage() {
         return currentLanguage;
     }
 
-    public static void setCurrentLanguageEE() {
+    static void setCurrentLanguageEE() {
         currentLanguage = "ee";
     }
-    public static void setCurrentLanguageEN() {
+    static void setCurrentLanguageEN() {
         currentLanguage = "en";
     }
-    public static void setCurrentLanguageRU() {
+    static void setCurrentLanguageRU() {
         currentLanguage = "ru";
     }
 }

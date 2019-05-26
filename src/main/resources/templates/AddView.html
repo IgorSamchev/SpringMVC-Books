@@ -31,11 +31,11 @@
         <h1 th:case="'en'">Add Book</h1>
         <h1 th:case="'ee'">Raamatu lisamine</h1>
         <h1 th:case="'ru'">Добавление новой книги</h1>
-        <a th:href="@{'/books/changeCurrentLanguageEN'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png" alt="ENG"></a>
-        <a th:href="@{'/books/changeCurrentLanguageRU'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png" alt="RUS"></a>
-        <a th:href="@{'/books/changeCurrentLanguageEE'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
+        <a th:href="@{'/books/addBook/changeCurrentLanguageEN'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png" alt="ENG"></a>
+        <a th:href="@{'/books/addBook/changeCurrentLanguageRU'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png" alt="RUS"></a>
+        <a th:href="@{'/books/addBook/changeCurrentLanguageEE'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
 
-        <br>
+        </br>
 
         <p th:switch="${currentLanguage}">
             <span th:case="'en'">Title</span>
@@ -80,8 +80,7 @@
 
         <div th:switch="${currentLanguage}">
             <span th:case="'en'">
-                <button id="backToMenu"
-                        class="btn btn-success"
+                <button class="backToMenu btn btn-success"
                         onclick="MainMenu()">
                 Back to Menu
                 </button>

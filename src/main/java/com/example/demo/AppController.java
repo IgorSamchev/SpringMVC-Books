@@ -67,11 +67,27 @@ public class AppController {
 
     @RequestMapping(value = "books/addBook/{submit}", method = RequestMethod.GET)
     public String addNewBook(@PathVariable String submit, Model model) {
-        Book.addNewBook(submit);
-        DataBase business = new DataBase();
-        List<Book> booksList = business.getBooksList();
-        model.addAttribute("books", booksList);
-        return "MainView";
+        switch (submit) {
+            case "changeCurrentLanguageEN":
+                Language.setCurrentLanguageEN();
+                model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+                return "AddView";
+            case "changeCurrentLanguageEE":
+                Language.setCurrentLanguageEE();
+                model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+                return "AddView";
+            case "changeCurrentLanguageRU":
+                Language.setCurrentLanguageRU();
+                model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+                return "AddView";
+            default:
+                System.out.println(submit);
+                Book.addNewBook(submit);
+                DataBase business = new DataBase();
+                List<Book> booksList = business.getBooksList();
+                model.addAttribute("books", booksList);
+                return "MainView";
+        }
     }
 
     @RequestMapping("/books_edit/{id}")
