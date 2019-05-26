@@ -40,7 +40,7 @@ public class AppController {
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         model.addAttribute("books", booksList);
-        model.addAttribute("Title", Language.getCurrentLanguage().equals("en") ? "Title" : Language.getCurrentLanguage().equals("ee") ? "Nimetus" : "Наименование");
+        model.addAttribute("Title", Language.getCurrentLanguage().equals("en") ? "Title" : Language.getCurrentLanguage().equals("ee") ? "Pealkiri" : "Наименование");
         model.addAttribute("Author", Language.getCurrentLanguage().equals("en") ? "Author" : Language.getCurrentLanguage().equals("ee") ? "Autor" : "Автор");
         model.addAttribute("Comments", Language.getCurrentLanguage().equals("en") ? "Comments" : Language.getCurrentLanguage().equals("ee") ? "Kommentaarid" : "Комметарии");
         model.addAttribute("Action", Language.getCurrentLanguage().equals("en") ? "Action" : Language.getCurrentLanguage().equals("ee") ? "Tegu" : "Действие");
@@ -60,7 +60,8 @@ public class AppController {
     }
 
     @RequestMapping(value = "books/addBook", method = RequestMethod.GET)
-    public String showCreateForm() {
+    public String showCreateForm(Model model) {
+        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
         return "AddView";
     }
 

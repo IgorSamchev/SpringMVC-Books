@@ -27,15 +27,29 @@
 <body>
 
 <div align="center" id="addView">
-    <div id="addNewBooks">
-        <h1>Add Book</h1>
-        <p>Title:
+    <div th:switch="${currentLanguage}"  id="addNewBooks">
+        <h1 th:case="'en'">Add Book</h1>
+        <h1 th:case="'ee'">Raamatu lisamine</h1>
+        <h1 th:case="'ru'">Добавление новой книги</h1>
+        <a th:href="@{'/books/changeCurrentLanguageEN'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png" alt="ENG"></a>
+        <a th:href="@{'/books/changeCurrentLanguageRU'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png" alt="RUS"></a>
+        <a th:href="@{'/books/changeCurrentLanguageEE'}"><img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
+
+        <br>
+
+        <p th:switch="${currentLanguage}">
+            <span th:case="'en'">Title</span>
+            <span th:case="'ee'">Pealkiri</span>
+            <span th:case="'ru'">Наименование</span>
             <label for="titleID"></label>
             <input id="titleID" type="text" name="123" required minlength="3" maxlength="30"/>
         </p>
         <div id="titleError" class="error"></div>
 
-        <p>Author:
+        <p th:switch="${currentLanguage}">
+            <span th:case="'en'">Author</span>
+            <span th:case="'ee'">Autor</span>
+            <span th:case="'ru'">Автор</span>
             <label for="authorID"></label>
             <input id="authorID" type="text" value="" minlength="3" maxlength="20"/>
         </p>
@@ -46,16 +60,47 @@
             <input id="isbnID" type="text" value="" minlength="3" maxlength="15"/>
         </p>
         <div id="isbnError" class="error"></div>
+        <div th:switch="${currentLanguage}">
+            <span th:case="'en'">
+                <button class="addBookButton btn btn-primary"
+                        onclick="addNewBookEN()">Add new Book
+                </button>
+            </span>
+            <span th:case="'ee'">
+                 <button class="addBookButton btn btn-primary"
+                        onclick="addNewBookEE()">Lisa uus raamat
+                </button>
+            </span>
+            <span th:case="'ru'">
+                 <button class="addBookButton btn btn-primary"
+                        onclick="addNewBookRU()">Добавить новую книгу
+                </button>
+            </span>
+        </div>
 
-        <button id="addBookButton"
-                class="btn btn-primary"
-                onclick="addNewBook()">Add new Book
-        </button>
-        <button id="backToMenu"
-                class="btn btn-success"
-                onclick="MainMenu()">
-            Back to Menu
-        </button>
+        <div th:switch="${currentLanguage}">
+            <span th:case="'en'">
+                <button id="backToMenu"
+                        class="btn btn-success"
+                        onclick="MainMenu()">
+                Back to Menu
+                </button>
+            </span>
+            <span th:case="'ee'">
+                <button class="backToMenu btn btn-success"
+                        onclick="MainMenu()">
+                Tagasi
+                </button>
+            </span>
+            <span th:case="'ru'">
+                <button class="backToMenu btn btn-success"
+                        onclick="MainMenu()">
+                Возврат в основное меню
+                </button>
+            </span>
+
+        </div>
+
 
     </div>
 </div>

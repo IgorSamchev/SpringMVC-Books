@@ -165,11 +165,11 @@ input[type=text] {
     background-color: RoyalBlue;
 }
 
-#addBookButton {
+.addBookButton {
     width: 100%;
 }
 
-#backToMenu {
+.backToMenu {
     width: 100%;
     margin-top: 10px;
 }
