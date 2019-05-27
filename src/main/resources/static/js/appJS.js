@@ -82,7 +82,7 @@ function addNewBookRU() {
     }
 }
 
-function editBook(id) {
+function editBookEN(id) {
     let title = 'AddedBookTitle=' + document.getElementById("titleEdit").value;
     let author = 'AddedBookAuthor=' + document.getElementById("authorEdit").value;
     let isbn = 'AddedBookISBN=' + document.getElementById("isbnEdit").value;
@@ -105,6 +105,58 @@ function editBook(id) {
     } else {
         document.getElementById('titleEditError').innerText
             = "Title should be a minimum of 3 and maximum of 30 characters";
+    }
+}
+
+function editBookEE(id) {
+    let title = 'AddedBookTitle=' + document.getElementById("titleEdit").value;
+    let author = 'AddedBookAuthor=' + document.getElementById("authorEdit").value;
+    let isbn = 'AddedBookISBN=' + document.getElementById("isbnEdit").value;
+    let ref = id + title + author + isbn;
+    if (title.length > 17 && title.length < 56) {
+        document.getElementById('titleEditError').innerText = "";
+        if (author.length > 18 && author.length < 37) {
+            document.getElementById('AuthorEditError').innerText = "";
+            if (isbn.length > 16 && isbn.length < 29) {
+                document.getElementById('isbnEditError').innerText = "";
+                return document.location.href = "/edit_book/" + ref;
+            } else {
+                document.getElementById('isbnEditError').innerText
+                    = "ISBN peaks olema vähemalt 3 ja maksimaalselt 13 tähemärki";
+            }
+        } else {
+            document.getElementById('AuthorEditError').innerText
+                = "Autor peaks olema vähemalt 3 ja maksimaalselt 20 tähemärki";
+        }
+    } else {
+        document.getElementById('titleEditError').innerText
+            = "Pealkiri peaks olema vähemalt 3 ja maksimaalselt 30 tähemärk";
+    }
+}
+
+function editBookRU(id) {
+    let title = 'AddedBookTitle=' + document.getElementById("titleEdit").value;
+    let author = 'AddedBookAuthor=' + document.getElementById("authorEdit").value;
+    let isbn = 'AddedBookISBN=' + document.getElementById("isbnEdit").value;
+    let ref = id + title + author + isbn;
+    if (title.length > 17 && title.length < 56) {
+        document.getElementById('titleEditError').innerText = "";
+        if (author.length > 18 && author.length < 37) {
+            document.getElementById('AuthorEditError').innerText = "";
+            if (isbn.length > 16 && isbn.length < 29) {
+                document.getElementById('isbnEditError').innerText = "";
+                return document.location.href = "/edit_book/" + ref;
+            } else {
+                document.getElementById('isbnEditError').innerText
+                    = "Поле ISBN должно быть минимумально 3 и максимально 13 символов";
+            }
+        } else {
+            document.getElementById('AuthorEditError').innerText
+                = "Поле Автор должно быть минимумально 3 и максимально 20 символов";
+        }
+    } else {
+        document.getElementById('titleEditError').innerText
+            = "Поле Наименование должно быть минимумально 3 и максимально 30 символов";
     }
 }
 

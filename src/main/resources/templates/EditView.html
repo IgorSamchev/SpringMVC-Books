@@ -26,16 +26,24 @@
 
 <div class="edit">
     <div class="row">
-        <div id="addNewBooks" class="col">
+        <div id="addNewBooks" class="col" th:switch="${currentLanguage}">
+            <h1 th:case="'en'">Edit Book</h1>
+            <h1 th:case="'ee'">Redigeerige raamatut</h1>
+            <h1 th:case="'ru'">Редактировать книгу</h1>
 
-            <h1>Edit Book</h1>
-            <p>Title:
+            <p th:switch="${currentLanguage}">
+                <span th:case="'en'">Title</span>
+                <span th:case="'ee'">Pealkiri</span>
+                <span th:case="'ru'">Наименование</span>
                 <label for="titleEdit"></label>
                 <input id="titleEdit" th:value="${book.getTitle()}" type="text" name="123"/>
             </p>
             <div id="titleEditError" class="error2"></div>
 
-            <p>Author:
+            <p th:switch="${currentLanguage}">
+                <span th:case="'en'">Author</span>
+                <span th:case="'ee'">Autor</span>
+                <span th:case="'ru'">Автор</span>
                 <label for="authorEdit"></label>
                 <input id="authorEdit" th:value="${book.getAuthor()}" type="text" value=""/>
             </p>
@@ -47,51 +55,112 @@
             </p>
             <div id="isbnEditError" class="error2"></div>
 
-            <button id="addBookButton"
-                    class="btn btn-primary"
-                    onclick="editBook(${book.getID()})"
-                    th:onclick="'javascript:editBook(\''+ ${book.getID()} +'\');'"
+            <span th:switch="${currentLanguage}">
+                <span th:case="'en'">
+                <button
+                        class="btn btn-primary"
+                        onclick="editBookEN(${book.getID()})"
+                        th:onclick="'javascript:editBookEN(\''+ ${book.getID()} +'\');'">
+                    Edit Book
+                </button>
+                </span>
 
-            >Edit Book
-            </button>
+                 <span th:case="'ee'">
+                <button
+                        class="btn btn-primary"
+                        onclick="editBookEE(${book.getID()})"
+                        th:onclick="'javascript:editBookEE(\''+ ${book.getID()} +'\');'">
+                    Redigeerige raamatut
+                </button>
+                </span>
 
-            <button id="backToMenu"
-                    class="btn btn-success"
-                    onclick="MainMenu()">
-                Back to Menu
-            </button>
+                 <span th:case="'ru'">
+                <button
+                        class="btn btn-primary"
+                        onclick="editBookRU(${book.getID()})"
+                        th:onclick="'javascript:editBookRU(\''+ ${book.getID()} +'\');'">
+                    Редактировать книгу
+                 </button>
+                </span>
+            </span>
+
+            <span th:switch="${currentLanguage}">
+                <span th:case="'en'">
+                    <button class="btn btn-success"
+                            onclick="MainMenu()">
+                Back to Main Menu
+                    </button>
+                </span>
+
+                <span th:case="'ee'">
+                    <button class="btn btn-success"
+                            onclick="MainMenu()">
+                Tagasi põhimenüüsse
+                    </button>
+                </span>
+
+               <span th:case="'ru'">
+                    <button class="btn btn-success"
+                            onclick="MainMenu()">
+                Возврат в главное меню
+                    </button>
+                </span>
+            </span>
         </div>
 
 
-        <div id="comments" class="col" align="center">
-            <h1>Comments</h1>
-            <br/>
+        <div id="comments" class="col" align="center" th:switch="${currentLanguage}">
+            <h1 th:case="'en'">Comments</h1>
+            <h1 th:case="'ee'">Kommentaarid</h1>
+            <h1 th:case="'ru'">Комментарии</h1>
+
+            <br>
 
             <label for="comment"></label>
             <textarea id="comment" rows="4" cols="25" name="bigComment"></textarea>
             <br>
-            <button id="commentButton" class="btn btn-warning"
-                    onclick="addComment(${book.getID()})"
-                    th:onclick="'javascript:addComment(\''+ ${book.getID()} +'\');'">
+
+            <span th:switch="${currentLanguage}">
+                <span th:case="'en'">
+                   <button class="btn btn-warning commentButton"
+                           onclick="addComment(${book.getID()})"
+                           th:onclick="'javascript:addComment(\''+ ${book.getID()} +'\');'">
                 Add comment
-            </button>
+                   </button>
+                 </span>
+
+                <span th:case="'ee'">
+                   <button class="btn btn-warning commentButton"
+                           onclick="addComment(${book.getID()})"
+                           th:onclick="'javascript:addComment(\''+ ${book.getID()} +'\');'">
+                Lisa kommentaar
+                   </button>
+                 </span>
+
+                <span th:case="'ru'">
+                   <button class="btn btn-warning commentButton"
+                           onclick="addComment(${book.getID()})"
+                           th:onclick="'javascript:addComment(\''+ ${book.getID()} +'\');'">
+                Добвить комментарий
+                   </button>
+                 </span>
+            </span>
 
             <div>
                 <table id="commentTable" class="table table-hover">
-                    <tr>
-
-                        <th>Comments:</th>
+                    <tr th:switch="${currentLanguage}">
+                        <th th:case="'en'">Comments:</th>
+                        <th th:case="'ee'">Kommentaarid:</th>
+                        <th th:case="'ru'">Комментарии:</th>
                     </tr>
                     <tr th:each="comment : ${book.getComment()}">
                         <td th:text="${comment}">Date</td>
-
                     </tr>
                 </table>
             </div>
         </div>
     </div>
 </div>
-<script src="../static/js/appJS.js"></script>
 </body>
 
 

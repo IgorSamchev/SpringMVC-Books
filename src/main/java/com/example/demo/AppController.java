@@ -96,6 +96,7 @@ public class AppController {
         List<Book> booksList = business.getBooksList();
         Book b = Book.findBookByID(id, booksList);
         model.addAttribute("book", b);
+        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
         return "EditView";
     }
 

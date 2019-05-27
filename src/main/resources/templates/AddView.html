@@ -27,7 +27,7 @@
 <body>
 
 <div align="center" id="addView">
-    <div th:switch="${currentLanguage}" id="addNewBooks">
+    <div th:switch="${currentLanguage}"  id="addNewBooks">
         <h1 th:case="'en'">Add Book</h1>
         <h1 th:case="'ee'">Raamatu lisamine</h1>
         <h1 th:case="'ru'">Добавление новой книги</h1>
@@ -44,7 +44,8 @@
                  src="https://shillienjava.herokuapp.com/images/estFlag.png"
                  alt="EST"></a>
 
-        <br><br>
+        <br>
+        <br>
 
         <p th:switch="${currentLanguage}">
             <span th:case="'en'">Title</span>
@@ -68,9 +69,7 @@
             <label for="isbnID"></label>
             <input id="isbnID" type="text" value="" minlength="3" maxlength="15"/>
         </p>
-
         <div id="isbnError" class="error"></div>
-
         <div th:switch="${currentLanguage}">
             <span th:case="'en'">
                 <button class="addBookButton btn btn-primary"
@@ -79,12 +78,12 @@
             </span>
             <span th:case="'ee'">
                  <button class="addBookButton btn btn-primary"
-                         onclick="addNewBookEE()">Lisa uus raamat
+                        onclick="addNewBookEE()">Lisa uus raamat
                 </button>
             </span>
             <span th:case="'ru'">
                  <button class="addBookButton btn btn-primary"
-                         onclick="addNewBookRU()">Добавить новую книгу
+                        onclick="addNewBookRU()">Добавить новую книгу
                 </button>
             </span>
         </div>
@@ -108,8 +107,11 @@
                 Возврат в основное меню
                 </button>
             </span>
+
         </div>
     </div>
 </div>
 </body>
+
+
 </html>
