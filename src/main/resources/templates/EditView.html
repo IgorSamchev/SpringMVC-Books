@@ -32,18 +32,18 @@
             <h1 th:case="'ru'">Редактировать книгу</h1>
 
             <p th:switch="${currentLanguage}">
-                <span th:case="'en'">Title</span>
-                <span th:case="'ee'">Pealkiri</span>
-                <span th:case="'ru'">Наименование</span>
+                <span th:case="'en'">Title:</span>
+                <span th:case="'ee'">Pealkiri:</span>
+                <span th:case="'ru'">Наименование:</span>
                 <label for="titleEdit"></label>
                 <input id="titleEdit" th:value="${book.getTitle()}" type="text" name="123"/>
             </p>
             <div id="titleEditError" class="error2"></div>
 
             <p th:switch="${currentLanguage}">
-                <span th:case="'en'">Author</span>
-                <span th:case="'ee'">Autor</span>
-                <span th:case="'ru'">Автор</span>
+                <span th:case="'en'">Author:</span>
+                <span th:case="'ee'">Autor:</span>
+                <span th:case="'ru'">Автор:</span>
                 <label for="authorEdit"></label>
                 <input id="authorEdit" th:value="${book.getAuthor()}" type="text" value=""/>
             </p>
@@ -85,26 +85,11 @@
             </span>
 
             <span th:switch="${currentLanguage}">
-                <span th:case="'en'">
-                    <button class="btn btn-success"
-                            onclick="MainMenu()">
-                Back to Main Menu
+                    <button class="btn btn-success" onclick="MainMenu()">
+                        <span th:case="'en'">Back to Main Menu</span>
+                        <span th:case="'ee'">Tagasi põhimenüüsse</span>
+                        <span th:case="'ru'">Возврат в главное меню</span>
                     </button>
-                </span>
-
-                <span th:case="'ee'">
-                    <button class="btn btn-success"
-                            onclick="MainMenu()">
-                Tagasi põhimenüüsse
-                    </button>
-                </span>
-
-               <span th:case="'ru'">
-                    <button class="btn btn-success"
-                            onclick="MainMenu()">
-                Возврат в главное меню
-                    </button>
-                </span>
             </span>
         </div>
 
@@ -121,29 +106,13 @@
             <br>
 
             <span th:switch="${currentLanguage}">
-                <span th:case="'en'">
                    <button class="btn btn-warning commentButton"
                            onclick="addComment(${book.getID()})"
                            th:onclick="'javascript:addComment(\''+ ${book.getID()} +'\');'">
-                Add comment
+                       <span th:case="'en'">Add comment</span>
+                       <span th:case="'ee'">Lisa kommentaar</span>
+                       <span th:case="'ru'">Добaвить комментарий</span>
                    </button>
-                 </span>
-
-                <span th:case="'ee'">
-                   <button class="btn btn-warning commentButton"
-                           onclick="addComment(${book.getID()})"
-                           th:onclick="'javascript:addComment(\''+ ${book.getID()} +'\');'">
-                Lisa kommentaar
-                   </button>
-                 </span>
-
-                <span th:case="'ru'">
-                   <button class="btn btn-warning commentButton"
-                           onclick="addComment(${book.getID()})"
-                           th:onclick="'javascript:addComment(\''+ ${book.getID()} +'\');'">
-                Добaвить комментарий
-                   </button>
-                 </span>
             </span>
 
             <div>

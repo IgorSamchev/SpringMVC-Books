@@ -27,7 +27,7 @@
 <body>
 
 <div align="center" id="addView">
-    <div th:switch="${currentLanguage}"  id="addNewBooks">
+    <div th:switch="${currentLanguage}" id="addNewBooks">
         <h1 th:case="'en'">Add Book</h1>
         <h1 th:case="'ee'">Raamatu lisamine</h1>
         <h1 th:case="'ru'">Добавление новой книги</h1>
@@ -78,36 +78,23 @@
             </span>
             <span th:case="'ee'">
                  <button class="addBookButton btn btn-primary"
-                        onclick="addNewBookEE()">Lisa uus raamat
+                         onclick="addNewBookEE()">Lisa uus raamat
                 </button>
             </span>
             <span th:case="'ru'">
                  <button class="addBookButton btn btn-primary"
-                        onclick="addNewBookRU()">Добавить новую книгу
+                         onclick="addNewBookRU()">Добавить новую книгу
                 </button>
             </span>
         </div>
 
         <div th:switch="${currentLanguage}">
-            <span th:case="'en'">
                 <button class="backToMenu btn btn-success"
                         onclick="MainMenu()">
-                Back to Menu
+                    <span th:case="'en'">Back to Main Menu</span>
+                    <span th:case="'ee'">Tagasi põhimenüüsse</span>
+                    <span th:case="'ru'">Возврат в главное меню</span>
                 </button>
-            </span>
-            <span th:case="'ee'">
-                <button class="backToMenu btn btn-success"
-                        onclick="MainMenu()">
-                Tagasi
-                </button>
-            </span>
-            <span th:case="'ru'">
-                <button class="backToMenu btn btn-success"
-                        onclick="MainMenu()">
-                Возврат в основное меню
-                </button>
-            </span>
-
         </div>
     </div>
 </div>

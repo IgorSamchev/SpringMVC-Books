@@ -123,7 +123,8 @@ public class AppController {
     }
 
     @RequestMapping(value = "about", method = RequestMethod.GET)
-    public String about() {
+    public String about(Model model) {
+        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
         return "about";
     }
 

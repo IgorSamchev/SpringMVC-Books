@@ -20,7 +20,11 @@
 <body>
 <br>
 <div id="aboutDiv" class="container">
-    <h1 class="h1Left">Used technologies:</h1>
+    <h1 class="h1Left" th:switch="${currentLanguage}">
+        <span th:case="'en'">Used technologies:</span>
+        <span th:case="'ee'">Kasutatud tehnoloogiad:</span>
+        <span th:case="'ru'">Использованные технологии:</span>
+    </h1>
     <h3>FrontEnd</h3>
     <ul>
         <li>HTML 5</li>
@@ -43,19 +47,37 @@
         <li>PostgreSQL</li>
     </ul>
 
-    <a href="https://github.com/IgorSamchev/SpringMVC-Books">Project at GitHub </a>
-    <p><a href="mailto:Igor.Samchev@gmail.com?subject=ABC Books question">Contact e-mail</a></p>
+    <a href="https://github.com/IgorSamchev/SpringMVC-Books" th:switch="${currentLanguage}">
+        <span th:case="'en'">Project at GitHub</span>
+        <span th:case="'ee'">Projekt GitHubis</span>
+        <span th:case="'ru'">Проект на GitHub</span>
+    </a>
+    <p><a href="mailto:Igor.Samchev@gmail.com?subject=ABC Books question" th:switch="${currentLanguage}">
+        <span th:case="'en'">Contact E-mail</span>
+        <span th:case="'ee'">Võtke ühendust e-kirjaga</span>
+        <span th:case="'ru'">Связаться по E-mail</span>
+    </a></p>
     <br>
-    <button id="backToMenu1"
-            class="btn btn-success"
-            onclick="MainMenu()">
-        Back to Menu
-    </button>
+
+    <span th:switch="${currentLanguage}">
+        <button id="backToMenu1"
+                class="btn btn-success"
+                onclick="MainMenu()">
+            <span th:case="'en'">Back to Main Menu</span>
+            <span th:case="'ee'">Tagasi põhimenüüsse</span>
+            <span th:case="'ru'">Возврат в главное меню</span>
+         </button>
+    </span>
+
+    <span th:switch="${currentLanguage}">
     <button id="logButton"
             class="btn btn-warning"
             onclick="LogMenu()">
-        Show site Logs
+         <span th:case="'en'">Show site Logs</span>
+         <span th:case="'ee'">Näita saidi logisid</span>
+         <span th:case="'ru'">Показать логи сайта</span>
     </button>
+    </span>
 </div>
 <link rel="stylesheet" th:href="@{/css/style.css}">
 <script type="text/javascript" th:src="@{/js/appJS.js}"></script>
