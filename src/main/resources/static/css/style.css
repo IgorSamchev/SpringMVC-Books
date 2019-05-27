@@ -132,6 +132,10 @@ input[type=text] {
     margin-right: 50px;
 }
 
+textarea{
+    border: 2px solid black;
+}
+
 #comments {
 
     padding-top: 30px;
