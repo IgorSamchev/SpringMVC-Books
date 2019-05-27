@@ -147,6 +147,10 @@ public class AppController {
     public String log(Model model) {
         List<Logger> logs = DataBase.getLogs();
         model.addAttribute("logs", logs);
+        model.addAttribute("Date", Language.getCurrentLanguage().equals("en") ? "Date" : Language.getCurrentLanguage().equals("ee") ? "Kuupäev" : "Дата");
+        model.addAttribute("Time", Language.getCurrentLanguage().equals("en") ? "Time" : Language.getCurrentLanguage().equals("ee") ? "Aeg" : "Время");
+        model.addAttribute("Message", Language.getCurrentLanguage().equals("en") ? "Message" : Language.getCurrentLanguage().equals("ee") ? "Teade" : "Сообщение");
+        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
         return "log";
     }
 
