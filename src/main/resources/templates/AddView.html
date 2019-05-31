@@ -69,17 +69,17 @@
         <div th:switch="${currentLanguage}">
             <span th:case="'en'">
                 <button class="addBookButton btn btn-primary"
-                        onclick="addNewBookEN()">Add new Book
+                        onclick="addNewBook('en')">Add new Book
                 </button>
             </span>
             <span th:case="'ee'">
                  <button class="addBookButton btn btn-primary"
-                         onclick="addNewBookEE()">Lisa uus raamat
+                         onclick="addNewBook('ee')">Lisa uus raamat
                 </button>
             </span>
             <span th:case="'ru'">
                  <button class="addBookButton btn btn-primary"
-                         onclick="addNewBookRU()">Добавить новую книгу
+                         onclick="addNewBook('ru')">Добавить новую книгу
                 </button>
             </span>
         </div>
