@@ -14,6 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <meta charset="UTF-8">
     <title>ABC books - About this WebApp</title>
 </head>
@@ -79,7 +80,15 @@
     </button>
     </span>
 </div>
-<link rel="stylesheet" th:href="@{/css/style.css}">
-<script type="text/javascript" th:src="@{/js/appJS.js}"></script>
+
+Some Useless reCaptcha just for test
+<form>
+<div class="g-recaptcha"
+     data-sitekey="6LdGeDcUAAAAALfoMZ2Ltv4EE6AHIYb8nSxhCRh_">
+</div>
+</form>
+
+<link rel="stylesheet" th:href="@{/static/css/style.css}">
+<script type="text/javascript" th:src="@{/static/js/appJS.js}"></script>
 </body>
 </html>
