@@ -58,8 +58,7 @@
                 <span th:case="'en'">
                 <button
                         class="btn btn-primary"
-                        onclick="editBookEN(${book.getID()})"
-                        th:onclick="'javascript:editBookEN(\''+ ${book.getID()} +'\');'">
+                        th:onclick="'javascript:editBook(\''+ ${book.getID()} +'\', \'en\');'">
                     Edit Book
                 </button>
                 </span>
@@ -67,8 +66,7 @@
                  <span th:case="'ee'">
                 <button
                         class="btn btn-primary"
-                        onclick="editBookEE(${book.getID()})"
-                        th:onclick="'javascript:editBookEE(\''+ ${book.getID()} +'\');'">
+                        th:onclick="'javascript:editBook(\''+ ${book.getID()} +'\', \'ee\');'">
                     Redigeerige raamatut
                 </button>
                 </span>
@@ -76,8 +74,7 @@
                  <span th:case="'ru'">
                 <button
                         class="btn btn-primary"
-                        onclick="editBookRU(${book.getID()})"
-                        th:onclick="'javascript:editBookRU(\''+ ${book.getID()} +'\');'">
+                        th:onclick="'javascript:editBook(\''+ ${book.getID()} +'\', \'ru\');'">
                     Редактировать книгу
                  </button>
                 </span>
