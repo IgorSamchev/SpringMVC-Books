@@ -90,7 +90,6 @@ public class AppController {
                 model.addAttribute("currentLanguage", Language.getCurrentLanguage());
                 return "AddView";
             default:
-                System.out.println(submit);
                 Book.addNewBook(submit);
                 business = new DataBase();
                 booksList = business.getBooksList();

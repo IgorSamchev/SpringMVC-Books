@@ -1,4 +1,3 @@
-
 function addNewBook(language) {
 
     let title = 'AddedBookTitle=' + document.getElementById("titleID").value;
@@ -140,18 +139,17 @@ function confirmDelete() {
 }
 
 function addNewBookWithCaptcha(ref) {
-    let url = ref.split('/books/addBook/?');
+    let url = ref.split('/books/addBook/');
     ref = url[1].substring(0, url[1].indexOf('&g-recaptcha'));
     while (ref.includes('+')) {
         ref = ref.replace('+', '~space~')
-            .replace('changeCurrentLanguageRU', '')
-            .replace('changeCurrentLanguageEE', '')
-            .replace('changeCurrentLanguageEN', '');
     }
-    alert(ref);
+    ref = ref.replace('changeCurrentLanguageRU', '')
+        .replace('changeCurrentLanguageEE', '')
+        .replace('changeCurrentLanguageEN', '')
+        .substring(1);
     return window.location.href = '' + ref;
 }
-
 
 function doDelete(id) {
     if (confirmDelete()) {
