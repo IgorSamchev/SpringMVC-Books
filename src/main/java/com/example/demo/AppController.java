@@ -55,7 +55,7 @@ public class AppController {
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         model.addAttribute("books", booksList);
-
+        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
         return "MainView";
     }
 
@@ -81,11 +81,11 @@ public class AppController {
                 model.addAttribute("currentLanguage", Language.getCurrentLanguage());
                 return "AddView";
             default:
-                System.out.println(submit);
                 Book.addNewBook(submit);
                 DataBase business = new DataBase();
                 List<Book> booksList = business.getBooksList();
                 model.addAttribute("books", booksList);
+                model.addAttribute("currentLanguage", Language.getCurrentLanguage());
                 return "MainView";
         }
     }
