@@ -143,8 +143,12 @@ function addNewBookWithCaptcha(ref) {
     let url = ref.split('/books/addBook/?');
     ref = url[1].substring(0, url[1].indexOf('&g-recaptcha'));
     while (ref.includes('+')) {
-        ref = ref.replace('+', '~space~');
+        ref = ref.replace('+', '~space~')
+            .replace('changeCurrentLanguageRU', '')
+            .replace('changeCurrentLanguageEE', '')
+            .replace('changeCurrentLanguageEN', '');
     }
+    alert(ref);
     return window.location.href = '' + ref;
 }
 

@@ -70,20 +70,30 @@ public class AppController {
         switch (submit) {
             case "changeCurrentLanguageEN":
                 Language.setCurrentLanguageEN();
+                DataBase business = new DataBase();
+                List<Book> booksList = business.getBooksList();
+                model.addAttribute("books", booksList);
                 model.addAttribute("currentLanguage", Language.getCurrentLanguage());
                 return "AddView";
             case "changeCurrentLanguageEE":
                 Language.setCurrentLanguageEE();
+                business = new DataBase();
+                booksList = business.getBooksList();
+                model.addAttribute("books", booksList);
                 model.addAttribute("currentLanguage", Language.getCurrentLanguage());
                 return "AddView";
             case "changeCurrentLanguageRU":
                 Language.setCurrentLanguageRU();
+                business = new DataBase();
+                booksList = business.getBooksList();
+                model.addAttribute("books", booksList);
                 model.addAttribute("currentLanguage", Language.getCurrentLanguage());
                 return "AddView";
             default:
+                System.out.println(submit);
                 Book.addNewBook(submit);
-                DataBase business = new DataBase();
-                List<Book> booksList = business.getBooksList();
+                business = new DataBase();
+                booksList = business.getBooksList();
                 model.addAttribute("books", booksList);
                 model.addAttribute("currentLanguage", Language.getCurrentLanguage());
                 return "MainView";

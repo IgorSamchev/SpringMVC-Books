@@ -52,7 +52,7 @@
 
         <br><br>
         <form>
-            <p th:switch="${currentLanguage}">
+            <p class="addForm" th:switch="${currentLanguage}">
                 <span th:case="'en'">Title</span>
                 <span th:case="'ee'">Pealkiri</span>
                 <span th:case="'ru'">Наименование</span>
@@ -61,7 +61,7 @@
             </p>
             <div id="titleError" class="error"></div>
 
-            <p th:switch="${currentLanguage}">
+            <p class="addForm" th:switch="${currentLanguage}">
                 <span th:case="'en'">Author</span>
                 <span th:case="'ee'">Autor</span>
                 <span th:case="'ru'">Автор</span>
@@ -70,7 +70,7 @@
             </p>
             <div id="authorError" class="error"></div>
 
-            <p>ISBN:
+            <p class="addForm">ISBN:
                 <label for="isbnID"></label>
                 <input id="isbnID" type="text" name="AddedBookISBN" required minlength="3" maxlength="15"/>
             </p>
