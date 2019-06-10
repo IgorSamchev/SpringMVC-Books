@@ -14,8 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-<!--    <script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <meta charset="UTF-8">
     <title>ABC books - Add new Book</title>
@@ -25,6 +24,14 @@
 
 </head>
 <body>
+<script>
+    let ref = document.location.href;
+    if (ref.includes('&g-recaptcha-response=')){
+        if (!ref.endsWith('se=')){
+            addNewBookWithCaptcha(ref);
+        } else alert('stop');
+    }
+</script>
 <div align="center" id="addView">
     <div th:switch="${currentLanguage}" id="addNewBooks">
         <h1 th:case="'en'">Add Book</h1>
@@ -44,13 +51,13 @@
                  alt="EST"></a>
 
         <br><br>
-
+        <form>
         <p th:switch="${currentLanguage}">
             <span th:case="'en'">Title</span>
             <span th:case="'ee'">Pealkiri</span>
             <span th:case="'ru'">Наименование</span>
             <label for="titleID"></label>
-            <input id="titleID" type="text" name="123" required minlength="3" maxlength="30"/>
+            <input id="titleID" type="text" name="AddedBookTitle" required minlength="3" maxlength="30"/>
         </p>
         <div id="titleError" class="error"></div>
 
@@ -59,22 +66,20 @@
             <span th:case="'ee'">Autor</span>
             <span th:case="'ru'">Автор</span>
             <label for="authorID"></label>
-            <input id="authorID" type="text" value="" minlength="3" maxlength="20"/>
+            <input id="authorID" type="text" name="AddedBookAuthor" required minlength="3" maxlength="20"/>
         </p>
         <div id="authorError" class="error"></div>
 
         <p>ISBN:
             <label for="isbnID"></label>
-            <input id="isbnID" type="text" value="" minlength="3" maxlength="15"/>
+            <input id="isbnID" type="text" name="AddedBookISBN" required minlength="3" maxlength="15"/>
         </p>
         <div id="isbnError" class="error"></div>
+        <div class="g-recaptcha" data-sitekey="6LcJ5KcUAAAAAA8uMo73G_qwDKSlQfZdkFqcreBF"></div>
 
-<!--        <div class="g-recaptcha" data-sitekey="6LcJ5KcUAAAAAA8uMo73G_qwDKSlQfZdkFqcreBF"></div>-->
-
-        <br>
         <div th:switch="${currentLanguage}">
             <span th:case="'en'">
-                <button class="addBookButton btn btn-primary"
+                <button id="cmdSubmit" class="addBookButton btn btn-primary"
                         onclick="addNewBook('en')">Add new Book
                 </button>
             </span>
@@ -89,7 +94,7 @@
                 </button>
             </span>
         </div>
-
+        </form>
         <div th:switch="${currentLanguage}">
                 <button class="backToMenu btn btn-success"
                         onclick="MainMenu()">

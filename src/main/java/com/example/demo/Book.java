@@ -39,8 +39,8 @@ public class Book {
 
     private static String[] splitData(String request) {
         String[] titleRequest = request.split("AddedBookAuthor=");
-        String title = titleRequest[0].substring(titleRequest[0].indexOf("=") + 1);
-        String author = titleRequest[1].substring(0, titleRequest[1].indexOf("AddedBookISBN"));
+        String title = titleRequest[0].substring(titleRequest[0].indexOf("=")+1, titleRequest[0].length()-1);
+        String author = titleRequest[1].substring(0, titleRequest[1].indexOf("AddedBookISBN")-1);
         String ISBN = titleRequest[1].substring(titleRequest[1]
                 .indexOf("AddedBookISBN="))
                 .replace("AddedBookISBN=", "");

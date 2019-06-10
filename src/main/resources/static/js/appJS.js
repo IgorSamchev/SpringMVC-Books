@@ -1,3 +1,4 @@
+
 function addNewBook(language) {
 
     let title = 'AddedBookTitle=' + document.getElementById("titleID").value;
@@ -136,6 +137,11 @@ function LogMenu() {
 
 function confirmDelete() {
     return confirm("Delete Book?");
+}
+
+function addNewBookWithCaptcha(ref) {
+    let url = ref.split('/books/addBook/?');
+    return window.location.href = '' + url[1].substring(0, url[1].indexOf('&g-recaptcha'));
 }
 
 
