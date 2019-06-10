@@ -26,10 +26,10 @@
 <body>
 <script>
     let ref = document.location.href;
-    if (ref.includes('&g-recaptcha-response=')){
-        if (!ref.endsWith('se=')){
+    if (ref.includes('&g-recaptcha-response=')) {
+        if (!ref.endsWith('se=')) {
             addNewBookWithCaptcha(ref);
-        } else alert('stop');
+        } else alert('Please Accept ReCaptcha terms');
     }
 </script>
 <div align="center" id="addView">
@@ -52,56 +52,58 @@
 
         <br><br>
         <form>
-        <p th:switch="${currentLanguage}">
-            <span th:case="'en'">Title</span>
-            <span th:case="'ee'">Pealkiri</span>
-            <span th:case="'ru'">Наименование</span>
-            <label for="titleID"></label>
-            <input id="titleID" type="text" name="AddedBookTitle" required minlength="3" maxlength="30"/>
-        </p>
-        <div id="titleError" class="error"></div>
+            <p th:switch="${currentLanguage}">
+                <span th:case="'en'">Title</span>
+                <span th:case="'ee'">Pealkiri</span>
+                <span th:case="'ru'">Наименование</span>
+                <label for="titleID"></label>
+                <input id="titleID" type="text" name="AddedBookTitle" required minlength="3" maxlength="30"/>
+            </p>
+            <div id="titleError" class="error"></div>
 
-        <p th:switch="${currentLanguage}">
-            <span th:case="'en'">Author</span>
-            <span th:case="'ee'">Autor</span>
-            <span th:case="'ru'">Автор</span>
-            <label for="authorID"></label>
-            <input id="authorID" type="text" name="AddedBookAuthor" required minlength="3" maxlength="20"/>
-        </p>
-        <div id="authorError" class="error"></div>
+            <p th:switch="${currentLanguage}">
+                <span th:case="'en'">Author</span>
+                <span th:case="'ee'">Autor</span>
+                <span th:case="'ru'">Автор</span>
+                <label for="authorID"></label>
+                <input id="authorID" type="text" name="AddedBookAuthor" required minlength="3" maxlength="20"/>
+            </p>
+            <div id="authorError" class="error"></div>
 
-        <p>ISBN:
-            <label for="isbnID"></label>
-            <input id="isbnID" type="text" name="AddedBookISBN" required minlength="3" maxlength="15"/>
-        </p>
-        <div id="isbnError" class="error"></div>
-        <div class="g-recaptcha" data-sitekey="6LcJ5KcUAAAAAA8uMo73G_qwDKSlQfZdkFqcreBF"></div>
+            <p>ISBN:
+                <label for="isbnID"></label>
+                <input id="isbnID" type="text" name="AddedBookISBN" required minlength="3" maxlength="15"/>
+            </p>
+            <div id="isbnError" class="error"></div>
 
-        <div th:switch="${currentLanguage}">
+
+            <div class="g-recaptcha" data-sitekey="6LcJ5KcUAAAAAA8uMo73G_qwDKSlQfZdkFqcreBF"></div>
+            <br>
+            <div th:switch="${currentLanguage}">
             <span th:case="'en'">
                 <button id="cmdSubmit" class="addBookButton btn btn-primary"
                         onclick="addNewBook('en')">Add new Book
                 </button>
             </span>
-            <span th:case="'ee'">
+                <span th:case="'ee'">
                  <button class="addBookButton btn btn-primary"
                          onclick="addNewBook('ee')">Lisa uus raamat
                 </button>
             </span>
-            <span th:case="'ru'">
+                <span th:case="'ru'">
                  <button class="addBookButton btn btn-primary"
                          onclick="addNewBook('ru')">Добавить новую книгу
                 </button>
             </span>
-        </div>
+            </div>
         </form>
         <div th:switch="${currentLanguage}">
-                <button class="backToMenu btn btn-success"
-                        onclick="MainMenu()">
-                    <span th:case="'en'">Back to Main Menu</span>
-                    <span th:case="'ee'">Tagasi põhimenüüsse</span>
-                    <span th:case="'ru'">Возврат в главное меню</span>
-                </button>
+            <button class="backToMenu btn btn-success"
+                    onclick="MainMenu()">
+                <span th:case="'en'">Back to Main Menu</span>
+                <span th:case="'ee'">Tagasi põhimenüüsse</span>
+                <span th:case="'ru'">Возврат в главное меню</span>
+            </button>
         </div>
     </div>
 </div>
