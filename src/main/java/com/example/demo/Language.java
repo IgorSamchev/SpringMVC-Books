@@ -7,13 +7,27 @@ class Language {
         return currentLanguage;
     }
 
-    static void setCurrentLanguageEE() {
+    private static void setCurrentLanguageEE() {
         currentLanguage = "ee";
     }
-    static void setCurrentLanguageEN() {
+    private static void setCurrentLanguageEN() {
         currentLanguage = "en";
     }
-    static void setCurrentLanguageRU() {
+    private static void setCurrentLanguageRU() {
         currentLanguage = "ru";
+    }
+
+    static void shiftLanguage(String language) {
+        switch (language) {
+            case "changeCurrentLanguageEN":
+                Language.setCurrentLanguageEN();
+                break;
+            case "changeCurrentLanguageEE":
+                Language.setCurrentLanguageEE();
+                break;
+            case "changeCurrentLanguageRU":
+                Language.setCurrentLanguageRU();
+                break;
+        }
     }
 }

@@ -4,34 +4,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Member;
 import java.util.List;
 import java.util.Objects;
 
 @Controller
 public class AppController {
 
-    @RequestMapping(value = "/books/changeCurrentLanguageEN")
-    public String changeLanguageEn(Model model) {
-        Language.setCurrentLanguageEN();
+    @RequestMapping(value = "/books/{language}")
+    public String changeLanguageEn(@PathVariable String language, Model model) {
+        Language.shiftLanguage(language);
         booksList(model);
         return "MainView";
     }
-
-    @RequestMapping(value = "/books/changeCurrentLanguageEE")
-    public String changeLanguageEe(Model model) {
-        Language.setCurrentLanguageEE();
-        booksList(model);
-        return "MainView";
-    }
-
-    @RequestMapping(value = "/books/changeCurrentLanguageRU")
-    public String changeLanguageRu(Model model) {
-        Language.setCurrentLanguageRU();
-        booksList(model);
-        return "MainView";
-    }
-
 
     @RequestMapping("/books_list")
     public String booksList(Model model) {
@@ -66,17 +50,7 @@ public class AppController {
 
     @RequestMapping(value = "books/addBook/{language}", method = RequestMethod.GET)
     public String addNewBook(@PathVariable String language, Model model) {
-        switch (language) {
-            case "changeCurrentLanguageEN":
-                Language.setCurrentLanguageEN();
-                break;
-            case "changeCurrentLanguageEE":
-                Language.setCurrentLanguageEE();
-                break;
-            case "changeCurrentLanguageRU":
-                Language.setCurrentLanguageRU();
-                break;
-        }
+        Language.shiftLanguage(language);
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         model.addAttribute("books", booksList);
@@ -97,11 +71,9 @@ public class AppController {
     @RequestMapping(value = "/edit_book/{request}", method = RequestMethod.GET)
     public String bookEdit(@PathVariable String request, Model model) {
         Book.update(request);
-
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         model.addAttribute("books", booksList);
-
         return "MainView";
     }
 
@@ -133,7 +105,6 @@ public class AppController {
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         model.addAttribute("books", booksList);
-
         return "MainView";
     }
 
