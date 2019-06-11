@@ -125,7 +125,7 @@ public class AppController {
                            @RequestParam("AddedBookISBN") String isbn,
                            @RequestParam("g-recaptcha-response") String reCaptcha,
                            Model model) {
-        if (reCaptcha.length() > 0) {
+        if (reCaptcha.length() > 10) {
             Book.addNewBook(title, author, isbn);
             model.addAttribute("currentLanguage", Language.getCurrentLanguage());
             DataBase business = new DataBase();
