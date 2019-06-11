@@ -64,38 +64,24 @@ public class AppController {
         return "AddView";
     }
 
-    @RequestMapping(value = "books/addBook/{submit}", method = RequestMethod.GET)
-    public String addNewBook(@PathVariable String submit, Model model) {
-        switch (submit) {
+    @RequestMapping(value = "books/addBook/{language}", method = RequestMethod.GET)
+    public String addNewBook(@PathVariable String language, Model model) {
+        switch (language) {
             case "changeCurrentLanguageEN":
                 Language.setCurrentLanguageEN();
-                DataBase business = new DataBase();
-                List<Book> booksList = business.getBooksList();
-                model.addAttribute("books", booksList);
-                model.addAttribute("currentLanguage", Language.getCurrentLanguage());
-                return "AddView";
+                break;
             case "changeCurrentLanguageEE":
                 Language.setCurrentLanguageEE();
-                business = new DataBase();
-                booksList = business.getBooksList();
-                model.addAttribute("books", booksList);
-                model.addAttribute("currentLanguage", Language.getCurrentLanguage());
-                return "AddView";
+                break;
             case "changeCurrentLanguageRU":
                 Language.setCurrentLanguageRU();
-                business = new DataBase();
-                booksList = business.getBooksList();
-                model.addAttribute("books", booksList);
-                model.addAttribute("currentLanguage", Language.getCurrentLanguage());
-                return "AddView";
-            default:
-                Book.addNewBook(submit);
-                business = new DataBase();
-                booksList = business.getBooksList();
-                model.addAttribute("books", booksList);
-                model.addAttribute("currentLanguage", Language.getCurrentLanguage());
-                return "MainView";
+                break;
         }
+        DataBase business = new DataBase();
+        List<Book> booksList = business.getBooksList();
+        model.addAttribute("books", booksList);
+        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+        return "AddView";
     }
 
     @RequestMapping("/books_edit/{id}")
@@ -162,20 +148,23 @@ public class AppController {
         return "log";
     }
 
-    @PostMapping(path = "/books/addBook/Whisper")
-    public String Whispers(@RequestParam("AddedBookTitle2") String Title,
-                           @RequestParam("AddedBookAuthor2") String Author,
-                           @RequestParam("AddedBookISBN2") String ISBN,
+    @PostMapping(path = "/books/addBook/newBook")
+    public String Whispers(@RequestParam("AddedBookTitle") String title,
+                           @RequestParam("AddedBookAuthor") String author,
+                           @RequestParam("AddedBookISBN") String isbn,
                            @RequestParam("g-recaptcha-response") String reCaptcha,
                            Model model) {
-
-        System.out.println(Title);
-        System.out.println(Author);
-        System.out.println(ISBN);
-        System.out.println(reCaptcha);
-
-        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
-        return "AddView";
+        if (reCaptcha.length() > 0) {
+            Book.addNewBook(title, author, isbn);
+            model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+            DataBase business = new DataBase();
+            List<Book> booksList = business.getBooksList();
+            model.addAttribute("books", booksList);
+            return "MainView";
+        } else {
+            model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+            return "AddView";
+        }
     }
 }
 

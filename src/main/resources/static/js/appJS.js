@@ -3,7 +3,6 @@ function addNewBook(language) {
     let title = 'AddedBookTitle=' + document.getElementById("titleID").value;
     let author = 'AddedBookAuthor=' + document.getElementById("authorID").value;
     let isbn = 'AddedBookISBN=' + document.getElementById("isbnID").value;
-    let ref = title + author + isbn;
 
     if (title.length > 17 && title.length < 56) {
         document.getElementById('titleError').innerText = "";
@@ -11,7 +10,6 @@ function addNewBook(language) {
             document.getElementById('authorError').innerText = "";
             if (isbn.length > 16 && isbn.length < 29) {
                 document.getElementById('isbnError').innerText = "";
-                return window.location.href = '' + ref;
             } else {
                 if (language.includes('en'))
                     document.getElementById('isbnError').innerText
@@ -136,19 +134,6 @@ function LogMenu() {
 
 function confirmDelete() {
     return confirm("Delete Book?");
-}
-
-function addNewBookWithCaptcha(ref) {
-    let url = ref.split('/books/addBook/');
-    ref = url[1].substring(0, url[1].indexOf('&g-recaptcha'));
-    while (ref.includes('+')) {
-        ref = ref.replace('+', '~space~')
-    }
-    ref = ref.replace('changeCurrentLanguageRU', '')
-        .replace('changeCurrentLanguageEE', '')
-        .replace('changeCurrentLanguageEN', '')
-        .substring(1);
-    return window.location.href = '' + ref;
 }
 
 function doDelete(id) {

@@ -48,11 +48,9 @@ public class Book {
         return new String[]{title, author, ISBN};
     }
 
-    static void addNewBook(String request) {
-        String[] data = splitData(request);
-
-        DataBase.addNewBook(data[0], data[1], data[2]);
-        Logger.addNewBook(data[0], data[1], data[2]);
+    static void addNewBook(String title, String author, String isbn) {
+        DataBase.addNewBook(title, author, isbn);
+        Logger.addNewBook(title, author, isbn);
     }
 
     static void deleteBookFromDataBase(long id) {
