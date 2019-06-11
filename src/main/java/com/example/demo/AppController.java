@@ -74,6 +74,7 @@ public class AppController {
         DataBase business = new DataBase();
         List<Book> booksList = business.getBooksList();
         model.addAttribute("books", booksList);
+        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
         return "MainView";
     }
 
@@ -95,7 +96,8 @@ public class AppController {
     }
 
     @RequestMapping(value = "edit_book/about", method = RequestMethod.GET)
-    public String about2() {
+    public String about2(Model model) {
+        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
         return "about";
     }
 
