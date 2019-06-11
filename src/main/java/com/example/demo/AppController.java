@@ -2,10 +2,9 @@ package com.example.demo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Member;
 import java.util.List;
 import java.util.Objects;
 
@@ -161,6 +160,22 @@ public class AppController {
         model.addAttribute("Message", Language.getCurrentLanguage().equals("en") ? "Message" : Language.getCurrentLanguage().equals("ee") ? "Teade" : "Сообщение");
         model.addAttribute("currentLanguage", Language.getCurrentLanguage());
         return "log";
+    }
+
+    @PostMapping(path = "/books/addBook/Whisper")
+    public String Whispers(@RequestParam("AddedBookTitle2") String Title,
+                           @RequestParam("AddedBookAuthor2") String Author,
+                           @RequestParam("AddedBookISBN2") String ISBN,
+                           @RequestParam("g-recaptcha-response") String reCaptcha,
+                           Model model) {
+
+        System.out.println(Title);
+        System.out.println(Author);
+        System.out.println(ISBN);
+        System.out.println(reCaptcha);
+
+        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+        return "AddView";
     }
 }
 
