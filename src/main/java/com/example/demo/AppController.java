@@ -48,7 +48,7 @@ public class AppController {
         return "MainView";
     }
 
-    @RequestMapping(value = "books/doDelete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/books/doDelete/{id}", method = RequestMethod.GET)
     public String deleteBook(@PathVariable Long id, Model model) {
         Logger.deleteBook(id);
         Book.deleteBookFromDataBase(id);
@@ -59,7 +59,7 @@ public class AppController {
         return "MainView";
     }
 
-    @RequestMapping(value = "books/addBook", method = RequestMethod.GET)
+    @RequestMapping(value = "/books/addBook", method = RequestMethod.GET)
     public String showCreateForm(Model model) {
         model.addAttribute("currentLanguage", Language.getCurrentLanguage());
         return "AddView";

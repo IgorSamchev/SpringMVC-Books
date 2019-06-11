@@ -53,7 +53,7 @@ public class Logger extends HttpServlet {
     }
 
     static void getIP() {
-        DataBase.log(getTimeStamp(), " " + checkIP() + " logged in");
+        DataBase.log(getTimeStamp(), checkIP() + " logged in");
     }
 
     static void deleteBook(Long id) {

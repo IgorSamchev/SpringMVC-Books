@@ -118,7 +118,7 @@ class DataBase {
         try (Connection con = DriverManager.getConnection(url, user, password);
 
              Statement st = con.createStatement();
-             ResultSet rs = st.executeQuery("SELECT * FROM logs")) {
+             ResultSet rs = st.executeQuery("SELECT * FROM logs ORDER BY id DESC")) {
 
             while (rs.next()) {
                 String date = rs.getString(2);
@@ -132,7 +132,6 @@ class DataBase {
             e.printStackTrace();
             System.out.println("Error");
         }
-        Collections.reverse(logsList);
         return logsList;
     }
 
