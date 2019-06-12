@@ -96,4 +96,10 @@ function doDelete(id) {
     }
 }
 
+/**
+ * @return {string}
+ */
+function AddBook() {
+    return document.location.href = "/books/addBook/";
+}
 
