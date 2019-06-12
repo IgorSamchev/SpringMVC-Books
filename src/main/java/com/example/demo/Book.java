@@ -83,6 +83,7 @@ public class Book {
                 .replace("~rightBracket~", "]")
                 .replace("~wallSlash~", "|");
         DataBase.addComment(b.getID(), comment);
+        Logger.addComment(b.getID(), comment);
     }
 
     public List<String> getComment() {

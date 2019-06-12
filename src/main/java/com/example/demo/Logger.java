@@ -14,13 +14,6 @@ public class Logger extends HttpServlet {
     private String time;
     private String message;
 
-    Logger(String date, String time, String message) {
-        this.date = date;
-        this.time = time;
-        this.message = message;
-    }
-
-
     public String getDate() {
         return date;
     }
@@ -32,6 +25,14 @@ public class Logger extends HttpServlet {
     public String getMessage() {
         return message;
     }
+
+    Logger(String date, String time, String message) {
+        this.date = date;
+        this.time = time;
+        this.message = message;
+    }
+
+
 
     private static String getTimeStamp() {
         return ZonedDateTime.now(ZoneId.of("Europe/Helsinki"))
@@ -49,11 +50,28 @@ public class Logger extends HttpServlet {
 
     static void editBook(String id, String[] data) {
         DataBase.log(getTimeStamp(),
-                "Edit Book with ID "
+                checkIP() +
+                        "Edit Book with ID "
                         + id + ": to "
                         + data[0] + " - "
                         + data[1] + " - "
                         + data[2]);
+    }
+
+    static void addComment(int id, String comment) {
+        if (comment.contains("~@~")){
+            DataBase.log(getTimeStamp(),
+                    checkIP() +
+                            " Added new comment to Book with ID "
+                            + id + ": "
+                            + comment.substring(comment.lastIndexOf("~@~") + 3));
+        }else {
+            DataBase.log(getTimeStamp(),
+                    checkIP() +
+                            " Added new comment to Book with ID "
+                            + id + ": "
+                            + comment);
+        }
     }
 
     private static String checkIP() {
