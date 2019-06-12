@@ -20,6 +20,7 @@ public class Logger extends HttpServlet {
         this.message = message;
     }
 
+
     public String getDate() {
         return date;
     }
@@ -44,6 +45,15 @@ public class Logger extends HttpServlet {
                         + title + ", "
                         + author + ", "
                         + isbn);
+    }
+
+    static void editBook(String id, String[] data) {
+        DataBase.log(getTimeStamp(),
+                "Edit Book with ID "
+                        + id + ": to "
+                        + data[0] + " - "
+                        + data[1] + " - "
+                        + data[2]);
     }
 
     private static String checkIP() {

@@ -125,7 +125,6 @@ input[type=text] {
 }
 
 #addNewBooks {
-
     max-width: 70%;
     padding-top: 30px;
     margin-left: 50px;
@@ -137,7 +136,6 @@ textarea{
 }
 
 #comments {
-
     padding-top: 30px;
     margin-left: 30px;
 }
@@ -202,7 +200,6 @@ textarea{
 }
 
 .edit {
-
     background-image: url("https://shillienjava.herokuapp.com/images/Edit.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -275,7 +272,6 @@ h1 {
 }
 
 #logTable{
-
     border: 2px solid black;
     border-radius: 4px;
 }

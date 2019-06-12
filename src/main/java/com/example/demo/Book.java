@@ -60,6 +60,7 @@ public class Book {
         String[] id = request.split("AddedBookTitle");
         String[] data = splitData(request);
         DataBase.updateBook(id[0], data);
+        Logger.editBook(id[0], data);
 }
 
     static void addNewComment(Book b, String request) {
