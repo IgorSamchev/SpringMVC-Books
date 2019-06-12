@@ -188,6 +188,12 @@ textarea {
 #backToMenu1 {
     max-width: 35%;
     alignment: left;
+    margin-bottom: 30px;
+}
+
+#logButton {
+
+    margin-bottom: 30px;
 }
 
 #addBookButtoncomment {
@@ -278,6 +284,7 @@ h1 {
     background-size: contain;
     background-position: center;
     height: 100vh;
+    margin-bottom: 50px;
 }
 
 #logTable {
