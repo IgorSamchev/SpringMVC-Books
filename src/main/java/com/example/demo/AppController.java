@@ -177,6 +177,26 @@ public class AppController {
             return redirectView;
         }
     }
+
+    @PostMapping(path = "/about/abc/")
+    public RedirectView  abc(@RequestParam("name") String name,
+                                @RequestParam("email") String email,
+                                @RequestParam("time") String time,
+                                @RequestParam("phone") String phone,
+                                @RequestParam("people") String people,
+                                @RequestParam("message") String message,
+                                @RequestParam("g-recaptcha-response") String reCaptcha) {
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("https://learning-test-site.000webhostapp.com/");
+
+
+        if (reCaptcha.length() > 10) {
+            ABC.sendMail(name, email, time, phone, people, message);
+            return redirectView;
+        } else {
+            return redirectView;
+        }
+    }
 }
 
 
