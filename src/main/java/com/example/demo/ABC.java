@@ -28,7 +28,7 @@ public class ABC {
             message.setFrom(new InternetAddress("ABC-Books"));
             message.setRecipients(
                     Message.RecipientType.TO,
-                    InternetAddress.parse("artjom.skortsov@mail.ru")
+                    InternetAddress.parse("art.skv.farroz@gmail.com")
             );
             message.setSubject("Order");
             message.setText(name + " order:"
