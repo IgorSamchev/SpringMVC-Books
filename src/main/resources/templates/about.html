@@ -63,6 +63,50 @@
     </a></p>
     <br>
 
+    <div class="container backForm" align="left" th:switch="${currentLanguage}">
+        <span th:case="'en'">Send E-mail by using form</span>
+        <span th:case="'ee'">Saada E-mail kasutades vormi</span>
+        <span th:case="'ru'">РћС‚РїСЂР°РІРёС‚СЊ E-mail СЃ РїРѕРјРѕС‰СЊСЋ С„РѕСЂРјС‹</span>
+
+
+        <form method="post" action="/about/sendEmail/">
+            <a th:switch="${currentLanguage}">
+                <span th:case="'en'">Name</span>
+                <span th:case="'ee'">Nimi</span>
+                <span th:case="'ru'">Имя</span>
+            </a>
+            <label for="yourName"></label>
+            <input id="yourName" name="name" type="text">
+            <a th:switch="${currentLanguage}">
+                <span th:case="'en'">Subject</span>
+                <span th:case="'ee'">Teema</span>
+                <span th:case="'ru'">Тема°</span>
+            </a>
+            <label for="yourSubject"></label>
+            <input id="yourSubject" name="subject" type="text">
+            <a th:switch="${currentLanguage}">
+                <span th:case="'en'">Message</span>
+                <span th:case="'ee'">Сообщение</span>
+                <span th:case="'ru'">РўРµРєСЃС‚</span>
+            </a>
+            <label for="yourText"></label>
+            <textarea id="yourText" name="text"></textarea>
+            <div class="g-recaptcha" data-sitekey="6LcJ5KcUAAAAAA8uMo73G_qwDKSlQfZdkFqcreBF"></div>
+            <a th:switch="${currentLanguage}">
+                <span th:case="'en'">
+                    <button type="submit" class="btn btn-primary">Send E-mail</button>
+                </span>
+                <span th:case="'ee'">
+                    <button type="submit" class="btn btn-primary">Saada E-mail</button>
+                </span>
+                <span th:case="'ru'">
+                    <button type="submit" class="btn btn-primary">Отправить E-mail</button>
+                </span>
+            </a>
+        </form>
+    </div>
+    <br>
+
     <span th:switch="${currentLanguage}">
         <button id="backToMenu1"
                 class="btn btn-success"

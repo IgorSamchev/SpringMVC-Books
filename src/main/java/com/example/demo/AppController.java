@@ -139,6 +139,23 @@ public class AppController {
             return "AddView";
         }
     }
+
+    @PostMapping(path = "/about/sendEmail/")
+    public String mail(@RequestParam("name") String name,
+                       @RequestParam("subject") String subject,
+                       @RequestParam("text") String text,
+                       @RequestParam("g-recaptcha-response") String reCaptcha,
+                       Model model) {
+        if (reCaptcha.length() > 10) {
+            Gmail.sendMail(name, subject, text);
+            model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+            return "about";
+        } else {
+            model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+            return "about";
+        }
+    }
+
 }
 
 
