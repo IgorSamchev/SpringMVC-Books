@@ -67,6 +67,7 @@
         <span th:case="'ee'">Saada E-mail kasutades vormi</span>
         <span th:case="'ru'">Отправить E-mail с помощью формы</span>
 
+
         <form method="post" action="/about/sendEmail/">
             <a th:switch="${currentLanguage}">
                 <span th:case="'en'">Name</span>

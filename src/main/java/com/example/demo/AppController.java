@@ -1,9 +1,14 @@
 package com.example.demo;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 
@@ -153,6 +158,23 @@ public class AppController {
         } else {
             model.addAttribute("currentLanguage", Language.getCurrentLanguage());
             return "about";
+        }
+    }
+
+    @PostMapping(path = "/about/Martin/")
+    public RedirectView  martin(@RequestParam("name") String name,
+                       @RequestParam("subject") String subject,
+                       @RequestParam("text") String text,
+                       @RequestParam("g-recaptcha-response") String reCaptcha) {
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("https://www.jz-dev.ee");
+
+
+        if (reCaptcha.length() > 10) {
+            Martin.sendMail(name, subject, text);
+            return redirectView;
+        } else {
+            return redirectView;
         }
     }
 }
