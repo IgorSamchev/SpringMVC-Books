@@ -167,7 +167,7 @@ public class AppController {
                        @RequestParam("text") String text,
                        @RequestParam("g-recaptcha-response") String reCaptcha) {
         RedirectView redirectView = new RedirectView();
-        redirectView.setUrl("https://www.jz-dev.ee");
+        redirectView.setUrl("https://www.jz-dev.ee/personal/index.html");
 
 
         if (reCaptcha.length() > 10) {
