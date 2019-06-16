@@ -45,6 +45,7 @@
     background-color: #286ca8;
     line-height: 132px;
     z-index: 1;
+    font-family: 'Indie Flower', cursive;
 }
 
 .c2 {
@@ -57,6 +58,7 @@
     background-color: #04A863;
     z-index: 0;
     line-height: 64px;
+    font-family: 'Indie Flower', cursive;
 }
 
 .c3 {
@@ -68,7 +70,7 @@
     font-size: 30px;
     color: white;
     z-index: 2;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Indie Flower', cursive;
     line-height: 129px;
 }
 
@@ -82,7 +84,31 @@
     background-color: #a82c5a;
     z-index: 1;
     line-height: 100px;
+    font-family: 'Indie Flower', cursive;
 }
+
+
+.c5 {
+    height: 140px;
+    width: 140px;
+    top: 70%;
+    left: 60%;
+    background-color: darkgoldenrod;
+    font-size: 30px;
+    color: white;
+    z-index: 1;
+    font-family: 'Indie Flower', cursive;
+    alignment: center;
+    position: absolute;
+    align-self: center;
+    border: 3px solid black;
+    border-radius: 100%;
+    padding: 49px 29px;
+    text-decoration: none;
+    display: inline-block;
+
+}
+
 
 #IndexAddButton{
     margin-left: 50%;
@@ -93,6 +119,7 @@
 }
 
 .button {
+    font-family: 'Indie Flower', cursive;
     position: absolute;
     top: 172px;
     left: 37px;
@@ -107,12 +134,19 @@
     font-size: 26px;
     z-index: 2;
     transition: all 0.5s;
-    font-family: 'Roboto', sans-serif;
 }
 
 .button:hover {
     box-shadow: 1px 1px 100px 20px rgb(255, 255, 255);
     color: #a82c5a;
+    border: 3px solid #a82c5a;
+    transition: all 0.5s;
+    text-decoration: none;
+}
+
+.c5:hover{
+    box-shadow: 1px 1px 100px 20px rgb(255, 255, 255);
+    color: black;
     border: 3px solid #a82c5a;
     transition: all 0.5s;
     text-decoration: none;
