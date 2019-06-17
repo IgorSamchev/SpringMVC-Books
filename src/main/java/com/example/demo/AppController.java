@@ -10,6 +10,11 @@ import java.util.Objects;
 @Controller
 public class AppController {
 
+    @RequestMapping("/")
+    public String hello() {
+        return "index";
+    }
+
     @RequestMapping(value = "/books/{language}")
     public String changeLanguageEn(@PathVariable String language, Model model) {
         Language.shiftLanguage(language);
