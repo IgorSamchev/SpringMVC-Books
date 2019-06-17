@@ -21,11 +21,10 @@ public class DemoApplication {
     }
 
     @Bean
-    public LocaleResolver localeResolver () {
-        CookieLocaleResolver r = new CookieLocaleResolver();
-        r.setDefaultLocale(Locale.ENGLISH);
-        r.setCookieName("localeInfo");
-        return r;
+    public LocaleResolver localeResolver(){
+        SessionLocaleResolver localeResolver = new SessionLocaleResolver();
+        localeResolver.setDefaultLocale(Locale.ENGLISH);
+        return  localeResolver;
     }
 
     @Bean
