@@ -23,7 +23,7 @@ public class DemoApplication implements WebMvcConfigurer {
     @Bean
     public LocaleResolver localeResolver() {
         CookieLocaleResolver clr = new CookieLocaleResolver();
-        clr.setDefaultLocale(Locale.US);
+        clr.setDefaultLocale(Locale.ENGLISH);
         return clr;
     }
 
