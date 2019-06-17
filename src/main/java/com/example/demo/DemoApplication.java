@@ -33,7 +33,7 @@ public class DemoApplication {
             @Override
             public void addInterceptors (InterceptorRegistry registry) {
                 LocaleChangeInterceptor l = new LocaleChangeInterceptor();
-                l.setParamName("lang");
+                l.setParamName("language");
                 registry.addInterceptor(l);
             }
         };

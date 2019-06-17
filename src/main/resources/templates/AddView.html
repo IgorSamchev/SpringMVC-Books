@@ -106,9 +106,9 @@
     <span th:text="#{language.change}"></span>:
     <select id="locales">
         <option value=""></option>
-        <option value="en" th:text="#{lang.en}"></option>
-        <option value="ee" th:text="#{lang.ee}"></option>
-        <option value="ru" th:text="#{lang.ru}"></option>
+        <option value="en" th:text="#{language.en}"></option>
+        <option value="ee" th:text="#{language.ee}"></option>
+        <option value="ru" th:text="#{language.ru}"></option>
     </select>
 
 
@@ -120,7 +120,7 @@
         $("#locales").change(function () {
             let selectedOption = $('#locales').val();
             if (selectedOption !== '') {
-                window.location.replace('?lang=' + selectedOption);
+                window.location.replace('?language=' + selectedOption);
             }
         });
     });
