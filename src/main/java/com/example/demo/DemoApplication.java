@@ -30,7 +30,7 @@ public class DemoApplication {
 
     @Bean
     public WebMvcConfigurer configurer () {
-        return new WebMvcConfigurerAdapter() {
+        return new WebMvcConfigurer() {
             @Override
             public void addInterceptors (InterceptorRegistry registry) {
                 LocaleChangeInterceptor l = new LocaleChangeInterceptor();
