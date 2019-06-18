@@ -51,7 +51,7 @@ public class Logger extends HttpServlet {
     static void editBook(String id, String[] data) {
         DataBase.log(getTimeStamp(),
                 checkIP() +
-                        "Edit Book with ID "
+                        " Edit Book with ID "
                         + id + ": to "
                         + data[0] + " - "
                         + data[1] + " - "
