@@ -276,6 +276,7 @@ h1 {
 }
 
 #mainTable {
+    margin-top: 10px;
     /*background-image: linear-gradient(#d0d0d0, azure);*/
 }
 
