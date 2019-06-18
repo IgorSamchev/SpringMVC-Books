@@ -27,38 +27,26 @@
 <body>
 
 <div align="center" id="addView">
-    <div th:switch="${currentLanguage}" id="addNewBooks">
-        <h1 th:case="'en'">Add Book</h1>
-        <h1 th:case="'ee'">Raamatu lisamine</h1>
-        <h1 th:case="'ru'">Добавление новой книги</h1>
-        <a th:href="@{'/books/addBook/changeCurrentLanguageEN'}">
-            <img class="flag"
-                 src="https://shillienjava.herokuapp.com/images/engFlag.png"
-                 alt="ENG"></a>
-        <a th:href="@{'/books/addBook/changeCurrentLanguageRU'}">
-            <img class="flag"
-                 src="https://shillienjava.herokuapp.com/images/rusFlag.png"
-                 alt="RUS"></a>
-        <a th:href="@{'/books/addBook/changeCurrentLanguageEE'}">
-            <img class="flag"
-                 src="https://shillienjava.herokuapp.com/images/estFlag.png"
-                 alt="EST"></a>
+    <div id="addNewBooks">
+        <h1 th:text="#{addh1.message}"></h1>
+        <a th:href="@{'/books/addBook/?language=en'}">
+            <img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png" alt="ENG"></a>
+        <a th:href="@{'/books/addBook/?language=ru'}">
+            <img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png" alt="RUS"></a>
+        <a th:href="@{'/books/addBook/?language=ee'}">
+            <img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
 
         <br><br>
         <form method="post" action="/books/addBook/newBook">
-            <p class="addForm" th:switch="${currentLanguage}">
-                <span th:case="'en'">Title</span>
-                <span th:case="'ee'">Pealkiri</span>
-                <span th:case="'ru'">Наименование</span>
+            <p class="addForm">
+                <span th:text="#{title}"></span>
                 <label for="titleID"></label>
                 <input id="titleID" type="text" name="AddedBookTitle" required minlength="3" maxlength="30"/>
             </p>
             <div id="titleError" class="error"></div>
 
-            <p class="addForm" th:switch="${currentLanguage}">
-                <span th:case="'en'">Author</span>
-                <span th:case="'ee'">Autor</span>
-                <span th:case="'ru'">Автор</span>
+            <p class="addForm">
+                <span th:text="#{author}"></span>
                 <label for="authorID"></label>
                 <input id="authorID" type="text" name="AddedBookAuthor" required minlength="3" maxlength="20"/>
             </p>
@@ -72,10 +60,10 @@
 
             <div class="g-recaptcha" data-sitekey="6LcJ5KcUAAAAAA8uMo73G_qwDKSlQfZdkFqcreBF"></div>
             <br>
-            <div th:switch="${currentLanguage}">
+            <div th:switch="#{language.code}">
             <span th:case="'en'">
                 <button id="addBookButton" class="addBookButton btn btn-primary"
-                        onclick="fieldChecker(0,'en')">Add new Book
+                        onclick="fieldChecker(0, 'en')">Add new Book
                 </button>
             </span>
                 <span th:case="'ee'">
@@ -91,38 +79,35 @@
             </div>
         </form>
 
-        <div th:switch="${currentLanguage}">
-            <button class="backToMenu btn btn-success"
-                    onclick="MainMenu()">
-                <span th:case="'en'">Back to Main Menu</span>
-                <span th:case="'ee'">Tagasi põhimenüüsse</span>
-                <span th:case="'ru'">Возврат в главное меню</span>
-            </button>
-        </div>
+        <button class="backToMenu btn btn-success"
+                onclick="MainMenu()">
+            <span th:text="#{backToMenu}"></span>
+        </button>
     </div>
 
-    <h1 th:text="#{welcome.message}"></h1>
+    <!--    <h1 th:text="#{addh1.message}"></h1>-->
 
-    <span th:text="#{language.change}"></span>:
-    <select id="locales">
-        <option value=""></option>
-        <option value="en" th:text="#{language.en}"></option>
-        <option value="ee" th:text="#{language.ee}"></option>
-        <option value="ru" th:text="#{language.ru}"></option>
-    </select>
+    <!--    <span th:text="#{language.change}"></span>:-->
+    <!--    <select id="locales">-->
+    <!--        <option value=""></option>-->
+    <!--        <option value="en" th:text="#{language.en}"></option>-->
+    <!--        <option value="ee" th:text="#{language.ee}"></option>-->
+    <!--        <option value="ru" th:text="#{language.ru}"></option>-->
+    <!--    </select>-->
 
 
 </div>
 </body>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#locales").change(function () {
-            let selectedOption = $('#locales').val();
-            if (selectedOption !== '') {
-                window.location.replace('?language=' + selectedOption);
-            }
-        });
-    });
+<!--<script type="text/javascript">-->
+<!--    $(document).ready(function () {-->
+<!--        $("#locales").change(function () {-->
+<!--            let selectedOption = $('#locales').val();-->
+<!--            if (selectedOption !== '') {-->
+<!--                window.location.replace('?language=' + selectedOption);-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
 </script>
-</html>
+<
+/html>
