@@ -26,9 +26,15 @@
 <div class="edit">
     <div class="row">
         <div id="addNewBooks" class="col">
-            <h1 th:text="#{edith1}"></h1>
-
-
+            <div class="row"><h1 th:text="#{edith1}"></h1>
+            <a th:href="@{'/books_edit/'+ ${book.getID()} + '?language=en'}">
+                <img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png" alt="ENG"></a>
+            <a th:href="@{'/books_edit/'+ ${book.getID()} + '?language=ru'}">
+                <img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png" alt="RUS"></a>
+            <a th:href="@{'/books_edit/'+ ${book.getID()} + '?language=ee'}">
+                <img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
+            </div>
+            <br>
             <span th:text="#{title}"></span>
             <label for="titleID"></label>
             <input id="titleID" th:value="${book.getTitle()}" type="text" name="123"/>

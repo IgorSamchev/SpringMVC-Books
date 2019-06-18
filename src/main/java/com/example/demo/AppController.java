@@ -37,6 +37,14 @@ public class AppController {
         return "AddView";
     }
 
+    @RequestMapping("/books_edit/'{id}'")
+    public String changeLanguageDuringBookEdit(@PathVariable Long id, Model model) {
+        DataBase business = new DataBase();
+        Book b = Book.findBookByID(id, business.getBooksList());
+        model.addAttribute("book", b);
+        return "EditView";
+    }
+
     @RequestMapping("/books_edit/{id}")
     public String booksEditView(@PathVariable Long id, Model model) {
         DataBase business = new DataBase();
