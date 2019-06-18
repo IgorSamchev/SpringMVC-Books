@@ -1,4 +1,4 @@
-function fieldChecker(id, language) {
+function editBook(id, language) {
     let title = 'AddedBookTitle=' + document.getElementById("titleID").value;
     let author = 'AddedBookAuthor=' + document.getElementById("authorID").value;
     let isbn = 'AddedBookISBN=' + document.getElementById("isbnID").value;

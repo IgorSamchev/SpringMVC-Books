@@ -19,7 +19,6 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <meta charset="UTF-8">
     <title>ABC books - Add new Book</title>
-
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <script type="text/javascript" th:src="@{/js/appJS.js}"></script>
 
@@ -60,54 +59,17 @@
 
             <div class="g-recaptcha" data-sitekey="6LcJ5KcUAAAAAA8uMo73G_qwDKSlQfZdkFqcreBF"></div>
             <br>
-            <div th:switch="#{language.code}">
-            <span th:case="'en'">
-                <button id="addBookButton" class="addBookButton btn btn-primary"
-                        onclick="fieldChecker(0, 'en')">Add new Book
-                </button>
-            </span>
-                <span th:case="'ee'">
-                 <button class="addBookButton btn btn-primary"
-                         onclick="fieldChecker(0, 'ee')">Lisa uus raamat
-                </button>
-            </span>
-                <span th:case="'ru'">
-                 <button class="addBookButton btn btn-primary"
-                         onclick="fieldChecker(0,'ru')">Добавить новую книгу
-                </button>
-            </span>
-            </div>
+            <button id="addBookButton" class="addBookButton btn btn-primary" type="submit">
+                <span th:text="#{addNewBookButton}"></span>
+            </button>
         </form>
 
-        <button class="backToMenu btn btn-success"
-                onclick="MainMenu()">
+        <button class="backToMenu btn btn-success" onclick="MainMenu()">
             <span th:text="#{backToMenu}"></span>
         </button>
     </div>
-
-    <!--    <h1 th:text="#{addh1.message}"></h1>-->
-
-    <!--    <span th:text="#{language.change}"></span>:-->
-    <!--    <select id="locales">-->
-    <!--        <option value=""></option>-->
-    <!--        <option value="en" th:text="#{language.en}"></option>-->
-    <!--        <option value="ee" th:text="#{language.ee}"></option>-->
-    <!--        <option value="ru" th:text="#{language.ru}"></option>-->
-    <!--    </select>-->
-
-
 </div>
 </body>
 
-<!--<script type="text/javascript">-->
-<!--    $(document).ready(function () {-->
-<!--        $("#locales").change(function () {-->
-<!--            let selectedOption = $('#locales').val();-->
-<!--            if (selectedOption !== '') {-->
-<!--                window.location.replace('?language=' + selectedOption);-->
-<!--            }-->
-<!--        });-->
-<!--    });-->
-</script>
-<
-/html>
+
+</html>
