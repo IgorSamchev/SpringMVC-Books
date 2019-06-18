@@ -271,9 +271,12 @@ h1 {
     text-align: left;
 }
 
+.addNBh1{
+    color: gold;
+}
+
 #mainTable {
     /*background-image: linear-gradient(#d0d0d0, azure);*/
-
 }
 
 @keyframes slidein {

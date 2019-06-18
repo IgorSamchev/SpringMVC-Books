@@ -48,7 +48,7 @@ public class AppController {
     }
 
     @RequestMapping(value = "/books/addBook", method = RequestMethod.GET)
-    public String showCreateForm(Model model) {
+    public String showCreateForm() {
         return "AddView";
     }
 
