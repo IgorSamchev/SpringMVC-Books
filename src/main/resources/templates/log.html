@@ -21,23 +21,20 @@
 <body>
 <div id="mainTable" class="container-fluid">
     <br>
-    <h1 class="h1Left" th:switch="${currentLanguage}">
-        <span th:case="'en'">Logs</span>
-        <span th:case="'ee'">Logid</span>
-        <span th:case="'ru'">Логи</span>
+    <h1 class="h1Left">
+        <span th:text="#{logs}">Logs</span>
     </h1>
-    <a id="about" th:href="@{'/about'}"
-       class="btn btn-info newBook" th:switch="${currentLanguage}">
-        <span th:case="'en'">Back</span>
-        <span th:case="'ee'">Tagasi</span>
-        <span th:case="'ru'">Назад</span>
+
+    <a id="about" th:href="@{'/about'}" class="btn btn-info newBook">
+        <span th:text="#{back}"></span>
     </a>
+
     <table id="logTable" class="table table-hover">
         <thead>
         <tr class="header">
-            <td><b th:text="${Date}"></b></td>
-            <td><b th:text="${Time}"></b></td>
-            <td><b th:text="${Message}"></b></td>
+            <td><b th:text="#{log_date}"></b></td>
+            <td><b th:text="#{log_time}"></b></td>
+            <td><b th:text="#{log_message}"></b></td>
         </tr>
         </thead>
         <tr th:each="log : ${logs}">
