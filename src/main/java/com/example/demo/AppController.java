@@ -49,17 +49,6 @@ public class AppController {
 
     @RequestMapping(value = "/books/addBook", method = RequestMethod.GET)
     public String showCreateForm(Model model) {
-        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
-        return "AddView";
-    }
-
-    @RequestMapping(value = "books/addBook/{language}", method = RequestMethod.GET)
-    public String addNewBook(@PathVariable String language, Model model) {
-        Language.shiftLanguage(language);
-        DataBase business = new DataBase();
-        List<Book> booksList = business.getBooksList();
-        model.addAttribute("books", booksList);
-        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
         return "AddView";
     }
 
