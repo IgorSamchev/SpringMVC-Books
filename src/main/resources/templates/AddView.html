@@ -59,14 +59,11 @@
 
             <div class="g-recaptcha" data-sitekey="6LcJ5KcUAAAAAA8uMo73G_qwDKSlQfZdkFqcreBF"></div>
             <br>
-            <button id="addBookButton" class="addBookButton btn btn-primary" type="submit">
-                <span th:text="#{addNewBookButton}"></span>
-            </button>
+            <button id="addBookButton" class="addBookButton btn btn-primary" type="submit"
+                    th:text="#{addNewBookButton}"></button>
         </form>
 
-        <button class="backToMenu btn btn-success" onclick="MainMenu()">
-            <span th:text="#{backToMenu}"></span>
-        </button>
+        <button class="backToMenu btn btn-success" onclick="MainMenu()" th:text="#{backToMenu}"></button>
     </div>
 </div>
 </body>

@@ -40,10 +40,8 @@ public class AppController {
     @RequestMapping("/books_edit/{id}")
     public String booksEditView(@PathVariable Long id, Model model) {
         DataBase business = new DataBase();
-        List<Book> booksList = business.getBooksList();
-        Book b = Book.findBookByID(id, booksList);
+        Book b = Book.findBookByID(id, business.getBooksList());
         model.addAttribute("book", b);
-        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
         return "EditView";
     }
 
@@ -51,9 +49,7 @@ public class AppController {
     public String bookEdit(@PathVariable String request, Model model) {
         Book.update(request);
         DataBase business = new DataBase();
-        List<Book> booksList = business.getBooksList();
-        model.addAttribute("books", booksList);
-        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+        model.addAttribute("books", business.getBooksList());
         return "MainView";
     }
 
@@ -69,14 +65,12 @@ public class AppController {
     }
 
     @RequestMapping(value = "about", method = RequestMethod.GET)
-    public String about(Model model) {
-        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+    public String about() {
         return "about";
     }
 
     @RequestMapping(value = "edit_book/about", method = RequestMethod.GET)
-    public String about2(Model model) {
-        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+    public String about2() {
         return "about";
     }
 
@@ -92,10 +86,6 @@ public class AppController {
     public String log(Model model) {
         List<Logger> logs = DataBase.getLogs();
         model.addAttribute("logs", logs);
-        model.addAttribute("Date", Language.getCurrentLanguage().equals("en") ? "Date" : Language.getCurrentLanguage().equals("ee") ? "Kuupäev" : "Дата");
-        model.addAttribute("Time", Language.getCurrentLanguage().equals("en") ? "Time" : Language.getCurrentLanguage().equals("ee") ? "Aeg" : "Время");
-        model.addAttribute("Message", Language.getCurrentLanguage().equals("en") ? "Message" : Language.getCurrentLanguage().equals("ee") ? "Teade" : "Сообщение");
-        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
         return "log";
     }
 
@@ -107,13 +97,10 @@ public class AppController {
                            Model model) {
         if (reCaptcha.length() > 10) {
             Book.addNewBook(title, author, isbn);
-            model.addAttribute("currentLanguage", Language.getCurrentLanguage());
             DataBase business = new DataBase();
-            List<Book> booksList = business.getBooksList();
-            model.addAttribute("books", booksList);
+            model.addAttribute("books", business.getBooksList());
             return "MainView";
         } else {
-            model.addAttribute("currentLanguage", Language.getCurrentLanguage());
             return "AddView";
         }
     }
@@ -122,18 +109,11 @@ public class AppController {
     public String mail(@RequestParam("name") String name,
                        @RequestParam("subject") String subject,
                        @RequestParam("text") String text,
-                       @RequestParam("g-recaptcha-response") String reCaptcha,
-                       Model model) {
-        if (reCaptcha.length() > 10) {
+                       @RequestParam("g-recaptcha-response") String reCaptcha){
+        if (reCaptcha.length() > 10)
             Gmail.sendMail(name, subject, text);
-            model.addAttribute("currentLanguage", Language.getCurrentLanguage());
-            return "about";
-        } else {
-            model.addAttribute("currentLanguage", Language.getCurrentLanguage());
-            return "about";
-        }
+        return "about";
     }
-
 }
 
 

@@ -24,10 +24,8 @@
 <body>
 <br>
 <div id="aboutDiv" class="container">
-    <h1 class="h1Left" th:switch="${currentLanguage}">
-        <span th:case="'en'">Used technologies:</span>
-        <span th:case="'ee'">Kasutatud tehnoloogiad:</span>
-        <span th:case="'ru'">Использованные технологии:</span>
+    <h1 class="h1Left">
+        <span th:text="#{technologies}"></span>
     </h1>
     <h3>FrontEnd</h3>
     <ul>
@@ -51,81 +49,39 @@
         <li>PostgreSQL</li>
     </ul>
 
-    <a href="https://github.com/IgorSamchev/SpringMVC-Books" th:switch="${currentLanguage}">
-        <span th:case="'en'">Project at GitHub</span>
-        <span th:case="'ee'">Projekt GitHubis</span>
-        <span th:case="'ru'">Проект на GitHub</span>
-    </a>
-    <p><a href="mailto:Igor.Samchev@gmail.com?subject=ABC Books question" th:switch="${currentLanguage}">
-        <span th:case="'en'">Contact E-mail</span>
-        <span th:case="'ee'">Võtke ühendust e-kirjaga</span>
-        <span th:case="'ru'">Связаться по E-mail</span>
-    </a></p>
-    <br>
+    <a href="https://github.com/IgorSamchev/SpringMVC-Books">
+        <span th:text="#{github}"></span></a>
 
-    <div class="container backForm" align="left" th:switch="${currentLanguage}">
-        <span th:case="'en'">Send E-mail by using form</span>
-        <span th:case="'ee'">Saada E-mail kasutades vormi</span>
-        <span th:case="'ru'">РћС‚РїСЂР°РІРёС‚СЊ E-mail СЃ РїРѕРјРѕС‰СЊСЋ С„РѕСЂРјС‹</span>
+    <p><a href="mailto:Igor.Samchev@gmail.com?subject=ABC Books question">
+        <span th:text="#{emailContact}"></span></a></p><br>
 
+    <div class="container backForm" align="left">
+        <span th:text="#{emailForm}"></span>
 
         <form method="post" action="/about/sendEmail/">
-            <a th:switch="${currentLanguage}">
-                <span th:case="'en'">Name</span>
-                <span th:case="'ee'">Nimi</span>
-                <span th:case="'ru'">Имя</span>
-            </a>
+
+            <span th:text="#{emailName}"></span>
             <label for="yourName"></label>
             <input id="yourName" name="name" type="text">
-            <a th:switch="${currentLanguage}">
-                <span th:case="'en'">Subject</span>
-                <span th:case="'ee'">Teema</span>
-                <span th:case="'ru'">Тема°</span>
-            </a>
+
+
+            <span th:text="#{emailSubject}"></span>
             <label for="yourSubject"></label>
             <input id="yourSubject" name="subject" type="text">
-            <a th:switch="${currentLanguage}">
-                <span th:case="'en'">Message</span>
-                <span th:case="'ee'">Сообщение</span>
-                <span th:case="'ru'">РўРµРєСЃС‚</span>
-            </a>
+
+            <span th:text="#{emailMessage}"></span>
             <label for="yourText"></label>
             <textarea id="yourText" name="text"></textarea>
+
             <div class="g-recaptcha" data-sitekey="6LcJ5KcUAAAAAA8uMo73G_qwDKSlQfZdkFqcreBF"></div>
-            <a th:switch="${currentLanguage}">
-                <span th:case="'en'">
-                    <button type="submit" class="btn btn-primary">Send E-mail</button>
-                </span>
-                <span th:case="'ee'">
-                    <button type="submit" class="btn btn-primary">Saada E-mail</button>
-                </span>
-                <span th:case="'ru'">
-                    <button type="submit" class="btn btn-primary">Отправить E-mail</button>
-                </span>
-            </a>
+            <button type="submit" class="btn btn-primary" th:text="#{emailButton}"></button>
         </form>
     </div>
     <br>
 
-    <span th:switch="${currentLanguage}">
-        <button id="backToMenu1"
-                class="btn btn-success"
-                onclick="MainMenu()">
-            <span th:case="'en'">Back to Main Menu</span>
-            <span th:case="'ee'">Tagasi põhimenüüsse</span>
-            <span th:case="'ru'">Возврат в главное меню</span>
-         </button>
-    </span>
+    <button id="backToMenu1" class="btn btn-success" onclick="MainMenu()" th:text="#{backToMenu}"></button>
 
-    <span th:switch="${currentLanguage}">
-    <button id="logButton"
-            class="btn btn-warning"
-            onclick="LogMenu()">
-         <span th:case="'en'">Show site Logs</span>
-         <span th:case="'ee'">Näita saidi logisid</span>
-         <span th:case="'ru'">Показать логи сайта</span>
-    </button>
-    </span>
+    <button id="logButton" class="btn btn-warning" onclick="LogMenu()" th:text="#{showLogs}"></button>
 </div>
 </body>
 </html>

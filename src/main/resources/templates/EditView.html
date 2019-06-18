@@ -48,13 +48,11 @@
             <br>
 
             <button class="btn btn-primary"
-                    th:onclick="'javascript:editBook(\''+ ${book.getID()} +'\', \'' +#{language.code} + '\');'">
-                <span th:text="#{editButton}"></span>
+                    th:onclick="'javascript:editBook(\''+ ${book.getID()} +'\', \'' +#{language.code} + '\');'"
+                    th:text="#{editButton}">
             </button>
 
-            <button class="btn btn-success" onclick="MainMenu()">
-                <span th:text="#{backToMenu}"></span>
-            </button>
+            <button class="btn btn-success" onclick="MainMenu()" th:text="#{backToMenu}"></button>
         </div>
 
         <div id="comments" class="col" align="center">
@@ -66,8 +64,7 @@
             <br>
 
             <button class="btn btn-warning commentButton"
-                    th:onclick="'javascript:addComment(\''+ ${book.getID()} +'\');'">
-                <span th:text="#{addComment}"></span>
+                    th:onclick="'javascript:addComment(\''+ ${book.getID()} +'\');'" th:text="#{addComment}">
             </button>
 
             <div>
