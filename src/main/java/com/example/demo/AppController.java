@@ -15,24 +15,11 @@ public class AppController {
         return "index";
     }
 
-    @RequestMapping(value = "/books/{language}")
-    public String changeLanguageEn(@PathVariable String language, Model model) {
-        Language.shiftLanguage(language);
-        booksList(model);
-        return "MainView";
-    }
-
     @RequestMapping("/books_list")
     public String booksList(Model model) {
         Logger.getIP();
         DataBase business = new DataBase();
-        List<Book> booksList = business.getBooksList();
-        model.addAttribute("books", booksList);
-        model.addAttribute("Title", Language.getCurrentLanguage().equals("en") ? "title" : Language.getCurrentLanguage().equals("ee") ? "Pealkiri" : "Наименование");
-        model.addAttribute("Author", Language.getCurrentLanguage().equals("en") ? "Author" : Language.getCurrentLanguage().equals("ee") ? "Autor" : "Автор");
-        model.addAttribute("Comments", Language.getCurrentLanguage().equals("en") ? "Comments" : Language.getCurrentLanguage().equals("ee") ? "Kommentaarid" : "Комметарии");
-        model.addAttribute("Action", Language.getCurrentLanguage().equals("en") ? "Action" : Language.getCurrentLanguage().equals("ee") ? "Tegu" : "Действие");
-        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+        model.addAttribute("books", business.getBooksList());
         return "MainView";
     }
 
@@ -41,9 +28,7 @@ public class AppController {
         Logger.deleteBook(id);
         Book.deleteBookFromDataBase(id);
         DataBase business = new DataBase();
-        List<Book> booksList = business.getBooksList();
-        model.addAttribute("books", booksList);
-        model.addAttribute("currentLanguage", Language.getCurrentLanguage());
+        model.addAttribute("books", business.getBooksList());
         return "MainView";
     }
 
@@ -99,8 +84,7 @@ public class AppController {
     public String reset(Model model) {
         DataBase.reset();
         DataBase business = new DataBase();
-        List<Book> booksList = business.getBooksList();
-        model.addAttribute("books", booksList);
+        model.addAttribute("books", business.getBooksList());
         return "MainView";
     }
 
