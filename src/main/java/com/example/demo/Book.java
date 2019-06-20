@@ -64,13 +64,12 @@ public class Book {
 }
 
     static void addNewComment(Book b, String request) {
-        System.out.println(request);
         String newComment = newCommentRequestParser(b, request);
         DataBase.addComment(b.getID(), newComment);
         Logger.addComment(b.getID(), newComment);
     }
 
-    public static String newCommentRequestParser(Book b, String request){
+    static String newCommentRequestParser(Book b, String request){
         String newComment = request.substring(request.indexOf("=") + 1);
         List<String> list = new ArrayList<>(b.comment);
         list.add(newComment);
@@ -89,7 +88,6 @@ public class Book {
                 .replace("~leftBracket~", "[")
                 .replace("~rightBracket~", "]")
                 .replace("~wallSlash~", "|");
-        System.out.println(comment);
         return comment;
     }
 
