@@ -37,9 +37,9 @@ public class Book {
         return null;
     }
 
-    private static String[] splitData(String request) {
+    static String[] splitData(String request) {
         String[] titleRequest = request.split("AddedBookAuthor=");
-        String title = titleRequest[0].substring(titleRequest[0].indexOf("=")+1);
+        String title = titleRequest[0].substring(titleRequest[0].indexOf("=") + 1);
         String author = titleRequest[1].substring(0, titleRequest[1].indexOf("AddedBookISBN"));
         String ISBN = titleRequest[1].substring(titleRequest[1]
                 .indexOf("AddedBookISBN="))
@@ -61,7 +61,7 @@ public class Book {
         String[] data = splitData(request);
         DataBase.updateBook(id[0], data);
         Logger.editBook(id[0], data);
-}
+    }
 
     static void addNewComment(Book b, String request) {
         String newComment = newCommentRequestParser(b, request);
@@ -69,7 +69,7 @@ public class Book {
         Logger.addComment(b.getID(), newComment);
     }
 
-    static String newCommentRequestParser(Book b, String request){
+    static String newCommentRequestParser(Book b, String request) {
         String newComment = request.substring(request.indexOf("=") + 1);
         List<String> list = new ArrayList<>(b.comment);
         list.add(newComment);

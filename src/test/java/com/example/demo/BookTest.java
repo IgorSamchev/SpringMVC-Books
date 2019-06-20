@@ -3,7 +3,6 @@ package com.example.demo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 
 public class BookTest {
     @Test
@@ -32,5 +31,13 @@ public class BookTest {
         Assert.assertEquals("Good Book, Java 4-ever~@~!!@@##$$%%^^&&**(())__++//**--]][[{{}};;::''\"\",,<<..>>//??||\\\\~~", result);
     }
 
-
+    @Test
+    public void editBookRequestDataSplitTest() {
+        String request = "812" +
+                "AddedBookTitle=BookTitle" +
+                "AddedBookAuthor=BookAuthor" +
+                "AddedBookISBN=BookISBN";
+        String[] result = Book.splitData(request);
+        Assert.assertArrayEquals(new String[]{"BookTitle", "BookAuthor", "BookISBN"}, result);
+     }
 }
