@@ -311,7 +311,7 @@ h1 {
     font-size: 20px;
 }
 
-#about {
+.about {
     max-width: 10%;
     alignment: right;
 }

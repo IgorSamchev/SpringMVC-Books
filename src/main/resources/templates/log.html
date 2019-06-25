@@ -33,8 +33,13 @@
     <h1 class="h1Left">
         <span th:text="#{logs}">Logs</span>
     </h1>
-
-    <a id="about" th:href="@{'/about'}" class="btn btn-info newBook">
+    <a th:href="@{'/log/?language=en'}">
+        <img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png" alt="ENG"></a>
+    <a th:href="@{'/log/?language=ru'}">
+        <img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png" alt="RUS"></a>
+    <a th:href="@{'/log/?language=ee'}">
+        <img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
+    <a th:href="@{'/about'}" class="btn btn-info newBook about">
         <span th:text="#{back}"></span>
     </a>
 
@@ -52,6 +57,10 @@
             <td id="LogMessage" th:text="${log.getMessage()}">log</td>
         </tr>
     </table>
+    <a th:href="@{'/about'}" class="btn btn-info newBook about">
+        <span th:text="#{back}"></span>
+    </a>
+
 </div>
 </body>
 </html>
