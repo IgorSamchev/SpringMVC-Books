@@ -52,7 +52,7 @@
         </tr>
         </thead>
         <tr th:each="log : ${logs}">
-            <td id="LogDate" th:text="${log.getDate()}">log</td>
+            <td id="LogDate" th:text="${log.getDay()}">log</td>
             <td id="LogTime" th:text="${log.getTime()}">log</td>
             <td id="LogMessage" th:text="${log.getMessage()}">log</td>
         </tr>

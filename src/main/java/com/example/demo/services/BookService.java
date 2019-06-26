@@ -1,6 +1,5 @@
 package com.example.demo.services;
 
-import com.example.demo.Logger;
 import com.example.demo.Utils.Utils;
 import com.example.demo.dao.BookDao;
 import com.example.demo.models.Book;
@@ -9,6 +8,7 @@ import java.util.List;
 
 public class BookService {
     private BookDao bookDao = new BookDao();
+    private LoggerService loggerService = new LoggerService();
 
     public BookService() {
     }
@@ -18,12 +18,12 @@ public class BookService {
     }
 
     public void saveBook(Book book) {
-        Logger.addNewBook(book.getTitle(), book.getAuthor(), book.getIsbn());
+        loggerService.addNewBook(book.getTitle(), book.getAuthor(), book.getIsbn());
         bookDao.save(book);
     }
 
     public void deleteBook(Book book) {
-        Logger.deleteBook(book.getId());
+        loggerService.deleteBook(book.getId());
         bookDao.delete(book);
     }
 
@@ -34,12 +34,12 @@ public class BookService {
         book.setTitle(data[0]);
         book.setAuthor(data[1]);
         book.setIsbn(data[2]);
-        Logger.editBook(id[0], data);
+        loggerService.editBook(id[0], data);
         bookDao.update(book);
     }
 
     public List<Book> findAllBooks() {
-        Logger.getIP();
+        loggerService.getIP();
         return bookDao.findAll();
     }
 
@@ -47,7 +47,7 @@ public class BookService {
         Book book = findBook(id);
         String newComment = new Utils().newCommentRequestParser(book, request);
         book.setComment(newComment);
-        Logger.addComment(book.getId(), newComment);
+        loggerService.addComment(book.getId(), newComment);
         bookDao.update(book);
     }
 

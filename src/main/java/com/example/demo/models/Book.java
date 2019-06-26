@@ -1,13 +1,8 @@
 package com.example.demo.models;
 
-import com.example.demo.DataBase;
-import com.example.demo.Logger;
-import com.example.demo.Utils.Utils;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -16,7 +11,6 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String title;
     private String author;
     private String isbn;

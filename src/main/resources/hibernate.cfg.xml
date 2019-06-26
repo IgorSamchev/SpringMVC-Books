@@ -11,5 +11,6 @@
         <property name="hibernate.connection.url">jdbc:postgresql://ec2-54-221-236-144.compute-1.amazonaws.com:5432/d11pd7jijnokmj</property>
         <property name="show_sql">true</property>
         <mapping class="com.example.demo.models.Book"/>
+        <mapping class="com.example.demo.models.Logger"/>
     </session-factory>
 </hibernate-configuration>

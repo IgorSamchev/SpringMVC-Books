@@ -4,15 +4,15 @@ import com.example.demo.models.Book;
 import com.example.demo.services.BookReset;
 import com.example.demo.services.BookService;
 import com.example.demo.services.Gmail;
+import com.example.demo.services.LoggerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 public class AppController {
     private BookService bookService = new BookService();
+    private LoggerService loggerService = new LoggerService();
 
     @RequestMapping("/")
     public String hello() {
@@ -69,8 +69,7 @@ public class AppController {
 
     @RequestMapping(value = "/log", method = RequestMethod.GET)
     public String log(Model model) {
-        List<Logger> logs = DataBase.getLogs();
-        model.addAttribute("logs", logs);
+        model.addAttribute("logs", loggerService.getLogs());
         return "log";
     }
 
