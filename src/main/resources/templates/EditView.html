@@ -35,12 +35,12 @@
     <div class="row">
         <div id="addNewBooks" class="col">
             <div class="row"><h1 th:text="#{edith1}"></h1>
-            <a th:href="@{'/books_edit/'+ ${book.getID()} + '?language=en'}">
-                <img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png" alt="ENG"></a>
-            <a th:href="@{'/books_edit/'+ ${book.getID()} + '?language=ru'}">
-                <img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png" alt="RUS"></a>
-            <a th:href="@{'/books_edit/'+ ${book.getID()} + '?language=ee'}">
-                <img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
+                <a th:href="@{'/books_edit/'+ ${book.getId()} + '?language=en'}">
+                    <img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png" alt="ENG"></a>
+                <a th:href="@{'/books_edit/'+ ${book.getId()} + '?language=ru'}">
+                    <img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png" alt="RUS"></a>
+                <a th:href="@{'/books_edit/'+ ${book.getId()} + '?language=ee'}">
+                    <img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
             </div>
             <br>
             <span th:text="#{title}"></span>
@@ -57,12 +57,12 @@
 
             <span>ISBN:</span>
             <label for="isbnID"></label>
-            <input id="isbnID" th:value="${book.getISBN()}" type="text" value=""/><br>
+            <input id="isbnID" th:value="${book.getIsbn()}" type="text" value=""/><br>
             <div id="isbnError" class="error2"></div>
             <br>
 
             <button class="btn btn-primary"
-                    th:onclick="'javascript:editBook(\''+ ${book.getID()} +'\', \'' +#{language.code} + '\');'"
+                    th:onclick="'javascript:editBook(\''+ ${book.getId()} +'\', \'' +#{language.code} + '\');'"
                     th:text="#{editButton}">
             </button>
 
@@ -72,21 +72,22 @@
         <div id="comments" class="col" align="center">
             <h1 th:text="#{comments}"></h1>
             <br>
+            <form method="post" action="/addComment">
+                <label for="comment"></label>
+                <textarea id="comment" rows="4" cols="25" name="bigComment"></textarea>
+                <input type="hidden" id="hiddenField" th:value="${book.getId()}" name="id"/>
+                <br>
 
-            <label for="comment"></label>
-            <textarea id="comment" rows="4" cols="25" name="bigComment"></textarea>
-            <br>
-
-            <button class="btn btn-warning commentButton"
-                    th:onclick="'javascript:addComment(\''+ ${book.getID()} +'\');'" th:text="#{addComment}">
-            </button>
-
+                <button class="btn btn-warning commentButton" type="submit"
+                        th:text="#{addComment}">
+                </button>
+            </form>
             <div>
                 <table id="commentTable" class="table table-hover">
                     <tr>
                         <th th:text="#{comments}"></th>
                     </tr>
-                    <tr th:each="comment : ${book.getComment()}">
+                    <tr th:each="comment : ${book.getCommentArray()}">
                         <td th:text="${comment}"></td>
                     </tr>
                 </table>

@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.Utils.Utils;
+import com.example.demo.models.Book;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,7 +17,7 @@ public class BookTest {
 
     @Test
     public void addNewCommentRequestParserTestNOT1stComment() {
-        Book b = new Book(1, "Java All-in-One", "Doug Lowe", "978-1119247791", new String[]{"Good Book, Java 4-ever"});
+        Book b = new Book(1, "Java All-in-One", "Doug Lowe", "978-1119247791", "Good Book, Java 4-ever");
         String request = "756com=Good Book, Java 4-ever";
         String result = new Utils().newCommentRequestParser(b, request);
         Assert.assertEquals("Good Book, Java 4-ever~@~Good Book, Java 4-ever", result);
@@ -23,7 +25,7 @@ public class BookTest {
 
     @Test
     public void addNewCommentRequestParserTestBigCommentWithAllPossibleCharacters() {
-        Book b = new Book(1, "Java All-in-One", "Doug Lowe", "978-1119247791", new String[]{"Good Book, Java 4-ever"});
+        Book b = new Book(1, "Java All-in-One", "Doug Lowe", "978-1119247791", "Good Book, Java 4-ever");
         String request = "756com=!!@@~sharp~~sharp~$$~percent~~percent~^^&&**(())__++~slash~~slash~**--" +
                 "~rightBracket~~rightBracket~~leftBracket~~leftBracket~{{}}~sem~~sem~::''\"\",,<<..>>" +
                 "~slash~~slash~~question~~question~~wallSlash~~wallSlash~~backSlash~~backSlash~~~";

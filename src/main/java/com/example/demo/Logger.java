@@ -33,13 +33,12 @@ public class Logger extends HttpServlet {
     }
 
 
-
     private static String getTimeStamp() {
         return ZonedDateTime.now(ZoneId.of("Europe/Helsinki"))
                 .format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
     }
 
-    static void addNewBook(String title, String author, String isbn) {
+    public static void addNewBook(String title, String author, String isbn) {
         DataBase.log(getTimeStamp(),
                 checkIP() +
                         " Added new Book: "
@@ -48,7 +47,7 @@ public class Logger extends HttpServlet {
                         + isbn);
     }
 
-    static void editBook(String id, String[] data) {
+    public static void editBook(String id, String[] data) {
         DataBase.log(getTimeStamp(),
                 checkIP() +
                         " Edit Book with ID "
@@ -58,14 +57,14 @@ public class Logger extends HttpServlet {
                         + data[2]);
     }
 
-    static void addComment(int id, String comment) {
-        if (comment.contains("~@~")){
+    public static void addComment(int id, String comment) {
+        if (comment.contains("~@~")) {
             DataBase.log(getTimeStamp(),
                     checkIP() +
                             " Added new comment to Book with ID "
                             + id + ": "
                             + comment.substring(comment.lastIndexOf("~@~") + 3));
-        }else {
+        } else {
             DataBase.log(getTimeStamp(),
                     checkIP() +
                             " Added new comment to Book with ID "
@@ -80,11 +79,11 @@ public class Logger extends HttpServlet {
         return request.getRemoteAddr();
     }
 
-    static void getIP() {
+    public static void getIP() {
         DataBase.log(getTimeStamp(), checkIP() + " logged in");
     }
 
-    static void deleteBook(Long id) {
+    public static void deleteBook(int id) {
         DataBase.log(getTimeStamp(), checkIP() + " Deleted book with ID " + id);
     }
 }

@@ -1,12 +1,14 @@
 package com.example.demo;
 
+import com.example.demo.models.Book;
+
 import java.sql.*;
 import java.util.*;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-class DataBase {
+public class DataBase {
     private static String url = "jdbc:postgresql://ec2-54-221-236-144.compute-1.amazonaws.com:5432/d11pd7jijnokmj";
     private static String user = "jwzorstluduoav";
     private static String password = "e6208131a87f8c2383632ad3b69c5b6cede00fb46b802676b323e97a650ac83a";
@@ -27,7 +29,7 @@ class DataBase {
         }
     }
 
-    static void addNewBook(String title, String author, String isbn) {
+    public static void addNewBook(String title, String author, String isbn) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
 
             PreparedStatement st = conn.prepareStatement("INSERT INTO books (title, author, isbn, comment) VALUES (?, ?, ?, ?)");
@@ -44,7 +46,7 @@ class DataBase {
         }
     }
 
-    static void updateBook(String id, String[] data) {
+    public static void updateBook(String id, String[] data) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             Statement st = conn.createStatement();
             String query = "UPDATE books " +
@@ -60,7 +62,7 @@ class DataBase {
         }
     }
 
-    static void addComment(int id, String commentArray) {
+    public static void addComment(int id, String commentArray) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             String query = "UPDATE books "
                     + "SET comment = ? "
@@ -102,7 +104,7 @@ class DataBase {
 
                 st.setString(1, b.getTitle());
                 st.setString(2, b.getAuthor());
-                st.setString(3, b.getISBN());
+                st.setString(3, b.getIsbn());
                 st.setArray(4, null);
                 st.executeUpdate();
                 st.close();
@@ -152,9 +154,10 @@ class DataBase {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        comment));
+//                        comment));
+                        null));
             }
-            booksList.sort(Comparator.comparingInt(Book::getID));
+            booksList.sort(Comparator.comparingInt(Book::getId));
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Error");
@@ -162,7 +165,7 @@ class DataBase {
         return booksList;
     }
 
-    static void deleteBookById(long id) {
+    public static void deleteBookById(long id) {
         try (Connection con = DriverManager.getConnection(url, user, password)) {
 
             String sqlQuery = "DELETE FROM \"public\".\"books\" WHERE \"id\" = " + id;

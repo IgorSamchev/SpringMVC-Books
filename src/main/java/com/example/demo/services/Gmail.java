@@ -1,13 +1,13 @@
-package com.example.demo;
+package com.example.demo.services;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-class Gmail {
+public class Gmail {
 
-    static void sendMail(String name, String subject, String text) {
+    public static void sendMail(String name, String subject, String text) {
         final String username = "abc.bookzzz@gmail.com";
         final String password = "Intelinside5";
         Properties prop = new Properties();
