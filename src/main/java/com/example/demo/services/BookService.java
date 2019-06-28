@@ -4,11 +4,13 @@ import com.example.demo.Utils.Utils;
 import com.example.demo.dao.BookDao;
 import com.example.demo.models.Book;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookService {
     private BookDao bookDao = new BookDao();
     private LoggerService loggerService = new LoggerService();
+
 
     public BookService() {
     }
@@ -18,8 +20,10 @@ public class BookService {
     }
 
     public void saveBook(Book book) {
-        loggerService.addNewBook(book.getTitle(), book.getAuthor(), book.getIsbn());
-        bookDao.save(book);
+        if (checkIsbnForDuplicates(book)) {
+            loggerService.addNewBook(book.getTitle(), book.getAuthor(), book.getIsbn());
+            bookDao.save(book);
+        }
     }
 
     public void deleteBook(Book book) {
@@ -51,4 +55,10 @@ public class BookService {
         bookDao.update(book);
     }
 
+    static boolean checkIsbnForDuplicates(Book book) {
+        BookService bookService = new BookService();
+        List<String> isbnList = new ArrayList<>();
+        for (Book b : bookService.findAllBooks()) isbnList.add(b.getIsbn());
+        return (!isbnList.contains(book.getIsbn()));
+    }
 }

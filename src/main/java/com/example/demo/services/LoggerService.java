@@ -28,7 +28,7 @@ public class LoggerService {
         String[] date = getTimeStamp();
          loggerDao.save(new Logger(date[0], date[1],
                 checkIP()
-                        + "Added new Book: "
+                        + " Added new Book: "
                         + title + ", "
                         + author + ", "
                         + isbn));

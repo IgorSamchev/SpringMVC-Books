@@ -62,7 +62,7 @@ public class AppController {
 
     @RequestMapping("/reset87")
     public String reset(Model model) {
-        BookReset.reset();
+        new BookReset().reset();
         model.addAttribute("books", bookService.findAllBooks());
         return "MainView";
     }

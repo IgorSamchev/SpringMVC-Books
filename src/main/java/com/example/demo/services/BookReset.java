@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookReset {
-    public static void reset() {
+    private BookService bookService = new BookService();
+
+    public void reset() {
         List<Book> list = new ArrayList<>();
         list.add(new Book("React Quickly", "Azat Mardan", "978-1617293344", null));
         list.add(new Book("Effective Java 3rd Edition", "Joshua Bloch", "978-0134685991", null));
@@ -26,13 +28,10 @@ public class BookReset {
         list.add(new Book("Robot Programming", "Cameron Hughes", "978-0789755001", null));
         list.add(new Book("Cloud Native Patterns", "Cornelia Davis ", "978-1617294297", null));
 
-        BookService bookService = new BookService();
         for (Book book : list) {
-            try {
+            if (BookService.checkIsbnForDuplicates(book)) {
                 bookService.saveBook(book);
-            } catch (Exception ignored) {
             }
-
         }
     }
 }
