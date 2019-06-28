@@ -10,7 +10,21 @@
         <property name="hibernate.connection.password">e6208131a87f8c2383632ad3b69c5b6cede00fb46b802676b323e97a650ac83a</property>
         <property name="hibernate.connection.url">jdbc:postgresql://ec2-54-221-236-144.compute-1.amazonaws.com:5432/d11pd7jijnokmj</property>
         <property name="show_sql">true</property>
+        <property name="hibernate.c3p0.idle_test_period">60</property>
+        <property name="hibernate.c3p0.min_size">1</property>
+        <property name="hibernate.c3p0.max_size">2</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.timeout">0</property>
+        <property name="hibernate.c3p0.acquireRetryAttempts">1</property>
+        <property name="hibernate.c3p0.acquireRetryDelay">250</property>
+        <property name="hibernate.connection.isolation">2</property>
+        <property name="hibernate.connection.provider_disables_autocommit">true</property>
+        <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
+        <property name="spring.jpa.database-platform">org.hibernate.dialect.PostgreSQL82Dialect</property>
         <mapping class="com.example.demo.models.Book"/>
         <mapping class="com.example.demo.models.Logger"/>
+
     </session-factory>
+
+
 </hibernate-configuration>
