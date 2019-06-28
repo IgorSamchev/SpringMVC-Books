@@ -88,9 +88,8 @@
     </div>
     <br>
 
-    <button id="backToMenu1" class="btn btn-success" onclick="MainMenu()" th:text="#{backToMenu}"></button>
-
-    <button id="logButton" class="btn btn-warning" onclick="LogMenu()" th:text="#{showLogs}"></button>
+    <a id="backToMenu1" class="btn btn-success" href="/books_list" th:text="#{backToMenu}"></a>
+    <a id="logButton" class="btn btn-warning" href="/log"  th:text="#{showLogs}"></a>
 </div>
 </body>
 </html>

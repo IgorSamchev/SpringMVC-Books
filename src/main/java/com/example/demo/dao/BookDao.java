@@ -39,11 +39,6 @@ public class BookDao {
         session.close();
     }
 
-    public Book findAutoById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Book.class, id);
-    }
-
-
     public List<Book> findAll() {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         List<Book> books = (List<Book>) session.createQuery("from Book ").list();

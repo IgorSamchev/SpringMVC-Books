@@ -45,26 +45,9 @@ function editBook(id, language) {
                 = "Поле Наименование должно быть минимумально 3 и максимально 30 символов";
     }
 }
-/**
- * @return {string}
- */
-function MainMenu() {
-    return document.location.href = "/books_list";
-}
-
-/**
- * @return {string}
- */
-function LogMenu() {
-    return document.location.href = "/log";
-}
-
-function confirmDelete() {
-    return confirm("Delete Book?");
-}
 
 function doDelete(id) {
-    if (confirmDelete()) {
+    if (confirm("Delete Book?")) {
         document.location.href = "/books/doDelete/" + id;
     }
 }
