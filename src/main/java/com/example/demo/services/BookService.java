@@ -38,8 +38,10 @@ public class BookService {
         book.setTitle(data[0]);
         book.setAuthor(data[1]);
         book.setIsbn(data[2]);
-        loggerService.editBook(id[0], data);
-        bookDao.update(book);
+        if (checkIsbnForDuplicates(book)) {
+            loggerService.editBook(id[0], data);
+            bookDao.update(book);
+        }
     }
 
     public List<Book> findAllBooks() {
