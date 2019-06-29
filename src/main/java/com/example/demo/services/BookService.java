@@ -45,7 +45,6 @@ public class BookService {
     }
 
     public List<Book> findAllBooks() {
-        loggerService.getIP();
         return bookDao.findAll();
     }
 

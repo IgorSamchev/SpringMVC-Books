@@ -68,7 +68,7 @@ public class LoggerService {
         return request.getRemoteAddr();
     }
 
-     void getIP() {
+     public void getIP() {
         String[] date = getTimeStamp();
          loggerDao.save(new Logger(date[0], date[1], checkIP() + " logged in"));
     }
