@@ -43,7 +43,7 @@
         <a th:href="@{'/books_list/?language=ee'}">
             <img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
     </h1>
-    <div th:insert="~{fragments/Fragment_AboutButton.html :: about_button}"></div>
+    <div th:insert="~{fragments/aboutButton.html :: about_button}"></div>
     <div class="form-group">
         <a th:href="@{'/books/addBook/'}"
            class="btn btn-success newBook" th:text="#{addBookButton}">
@@ -89,7 +89,7 @@
 
     <a th:href="@{'/books/addBook/'}"
        class="btn btn-success newBook" th:text="#{addBookButton}"></a>
-    <div th:insert="~{fragments/Fragment_AboutButton.html :: about_button}"></div>
+    <div th:insert="~{fragments/aboutButton.html :: about_button}"></div>
 </div>
 
 <script>
