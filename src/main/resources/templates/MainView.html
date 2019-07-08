@@ -43,7 +43,7 @@
         <a th:href="@{'/books_list/?language=ee'}">
             <img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
     </h1>
-    <a th:href="@{'/about'}" class="btn btn-info newBook about" th:text="#{aboutButton}"></a>
+    <a th:insert="~{Fragment_AboutButton.html :: about_button}"></a>
     <div class="form-group">
         <a th:href="@{'/books/addBook/'}"
            class="btn btn-success newBook" th:text="#{addBookButton}">
@@ -72,7 +72,10 @@
             <td class="align-middle" th:text="${book.getTitle()}">Title</td>
             <td class="align-middle" th:text="${book.getAuthor()}">Author</td>
             <td class="align-middle" th:text="${book.getIsbn()}">ISBN</td>
-            <td class="align-middle" th:text="${book.getCommentLength()}">Comments</td>
+            <td class="align-middle">
+                <a th:text="${book.getCommentLength()}"
+                   th:href="@{'/books_edit/' + ${book.getId()}}"></a>
+            </td>
 
             <td>
                 <a id="deleteButton" th:onclick="'javascript:doDelete(' + ${book.getId()} + ');'"
@@ -85,10 +88,8 @@
     </table>
 
     <a th:href="@{'/books/addBook/'}"
-       class="btn btn-success newBook"  th:text="#{addBookButton}">
-    </a>
-
-    <a th:href="@{'/about'}" class="btn btn-info newBook about" th:text="#{aboutButton}"></a>
+       class="btn btn-success newBook" th:text="#{addBookButton}"></a>
+    <a th:insert="~{Fragment_AboutButton.html :: about_button}"></a>
 </div>
 
 <script>
