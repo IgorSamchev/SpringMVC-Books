@@ -15,10 +15,10 @@ public class BookDao {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Book.class, id);
     }
 
-    public void save(Book user) {
+    public void save(Book book) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
-        session.save(user);
+        session.save(book);
         tx1.commit();
         session.close();
     }

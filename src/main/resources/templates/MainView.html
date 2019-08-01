@@ -35,14 +35,16 @@
 
 <body>
 <div class="container-fluid" id="mainTable">
-    <h1>ABC Books - KTA-18V - Igor Samchev
+    <h1>ABC Books
         <a th:href="@{'/books_list/?language=en'}">
             <img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png" alt="ENG"></a>
         <a th:href="@{'/books_list/?language=ru'}">
             <img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png" alt="RUS"></a>
         <a th:href="@{'/books_list/?language=ee'}">
             <img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
+        <a style="float: right">User_Name</a>
     </h1>
+    <div th:insert="~{fragments/loginButton.html :: signInbutton}"></div>
     <div th:insert="~{fragments/aboutButton.html :: about_button}"></div>
     <div class="form-group">
         <a th:href="@{'/books/addBook/'}"
@@ -89,6 +91,7 @@
 
     <a th:href="@{'/books/addBook/'}"
        class="btn btn-success newBook" th:text="#{addBookButton}"></a>
+    <div th:insert="~{fragments/loginButton.html :: signInbutton}"></div>
     <div th:insert="~{fragments/aboutButton.html :: about_button}"></div>
 </div>
 

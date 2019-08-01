@@ -23,6 +23,7 @@
         <property name="spring.jpa.database-platform">org.hibernate.dialect.PostgreSQL82Dialect</property>
         <mapping class="com.example.demo.models.Book"/>
         <mapping class="com.example.demo.models.Logger"/>
+        <mapping class="com.example.demo.models.User"/>
 
     </session-factory>
 
