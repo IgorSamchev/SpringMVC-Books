@@ -42,7 +42,7 @@
             <img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png" alt="RUS"></a>
         <a th:href="@{'/books_list/?language=ee'}">
             <img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
-        <a style="float: right">User_Name</a>
+        <a th:text="${user.getName() != null} ? ${user.getName()} : 'Guest'" style="float: right"></a>
     </h1>
     <div th:insert="~{fragments/loginButton.html :: signInbutton}"></div>
     <div th:insert="~{fragments/aboutButton.html :: about_button}"></div>

@@ -28,9 +28,9 @@ public class UserDao {
 
     public List<User> findAll() {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        List<User> books = (List<User>) session.createQuery("from Book ").list();
+        List<User> users = (List<User>) session.createQuery("from User ").list();
         session.close();
-        books.sort(Comparator.comparingInt(User::getId));
-        return books;
+        users.sort(Comparator.comparingInt(User::getId));
+        return users;
     }
 }

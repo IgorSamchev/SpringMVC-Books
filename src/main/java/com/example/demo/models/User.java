@@ -8,7 +8,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
+    private String name ;
     private String password;
 
     public User() {
@@ -28,6 +28,7 @@ public class User {
     }
 
     public String getName() {
+        if (name == null || name.isEmpty()) return "Guest";
         return name;
     }
 
