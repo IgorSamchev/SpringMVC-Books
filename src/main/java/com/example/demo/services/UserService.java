@@ -28,9 +28,9 @@ public class UserService {
         return userDao.findAll();
     }
 
-    public void registerNewUser(String name, String password){
+    public void registerNewUser(String name, String password, boolean registered){
         if (checkNamesForDublicates(name))
-            userDao.save(new User(name, password));
+            userDao.save(new User(name, password, registered));
         //TODO create some else
     }
 

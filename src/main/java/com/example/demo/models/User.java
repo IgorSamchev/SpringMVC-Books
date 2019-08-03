@@ -8,15 +8,25 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name ;
+    private String name;
     private String password;
+    private boolean registered = false;
 
     public User() {
     }
 
-    public User(String name, String password) {
+    public User(String name, String password, boolean registered) {
         this.name = name;
         this.password = password;
+        this.registered = registered;
+    }
+
+    public boolean isRegistered() {
+        return registered;
+    }
+
+    public void setRegistered(boolean registered) {
+        this.registered = registered;
     }
 
     public int getId() {

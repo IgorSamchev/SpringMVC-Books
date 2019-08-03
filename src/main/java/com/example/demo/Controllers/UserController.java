@@ -20,7 +20,8 @@ public class UserController {
                         @ModelAttribute("user") User user,
                         Model model) {
         user.setName(name);
-        userService.registerNewUser(name, password);
+        user.setRegistered(true);
+        userService.registerNewUser(name, password, true);
         model.addAttribute("books", bookService.findAllBooks());
         return "MainView";
     }
@@ -28,6 +29,14 @@ public class UserController {
     @RequestMapping("/SignIn")
     public String signIn() {
         return "SignIn";
+    }
+
+    @RequestMapping("/Logout")
+    public String logout(@ModelAttribute("user")User user, Model model){
+        user.setRegistered(false);
+        user.setName("Guest");
+        model.addAttribute("books", bookService.findAllBooks());
+        return "MainView";
     }
 
     @ModelAttribute("user")
