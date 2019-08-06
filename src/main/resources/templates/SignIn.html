@@ -51,7 +51,13 @@
     th:text="#{signIn}"></button>
 
     <a class="btn btn-success" href="/books_list" th:text="#{backToMenu}"></a>
+    <a class="btn btn-warning" href="/registration" th:text="#{registration}"></a>
+    <div th:if="${LoginError}" class="nameDuplicated">
+        <span class="signIn" th:text="#{loginError}"></span>
+    </div>
 </form>
+
+
 
 <script type="text/javascript" th:src="@{/js/jquery.tablesorter.js}"></script>
 <script type="text/javascript" th:src="@{/js/appJS.js}"></script>

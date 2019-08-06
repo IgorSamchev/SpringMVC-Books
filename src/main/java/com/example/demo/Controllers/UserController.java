@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @SessionAttributes("user")
 public class UserController {
@@ -15,20 +17,35 @@ public class UserController {
     private UserService userService = new UserService();
 
     @PostMapping(path = "/addNewUserAndLogin")
-    public String doLogin(@RequestParam("name") String name,
-                          @RequestParam("password") String password,
-                          @ModelAttribute("user") User user,
-                          Model model) {
+    public String doRegistration(@RequestParam("name") String name,
+                                 @RequestParam("password") String password,
+                                 @ModelAttribute("user") User user,
+                                 Model model) {
         user.setName(name);
         user.setRegistered(true);
         if (userService.registerNewUser(name, password, true)) {
             model.addAttribute("books", bookService.findAllBooks());
             return "MainView";
         } else {
-            model.addAttribute("Already_taken",  true);
+            model.addAttribute("Already_taken", true);
             return "registrationView";
         }
 
+    }
+
+    @PostMapping(path = "/login")
+    public String doLogin(@RequestParam("name") String name,
+                          @RequestParam("password") String password,
+                          @ModelAttribute("user") User user,
+                          Model model) {
+        if (userService.checkNameAndPassword(name, password)){
+            user.setName(name);
+            user.setRegistered(true);
+            model.addAttribute("books", bookService.findAllBooks());
+            return "MainView";
+        }
+        model.addAttribute("LoginError", true);
+        return "SignIn";
     }
 
     @RequestMapping("/SignIn")
