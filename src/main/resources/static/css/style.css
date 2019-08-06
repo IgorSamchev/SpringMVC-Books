@@ -193,7 +193,7 @@ textarea {
     cursor: pointer;
 }
 
-#deleteButton:hover {
+.deleteButton:hover {
     background-color: RoyalBlue;
 }
 
@@ -206,7 +206,7 @@ textarea {
     cursor: pointer;
 }
 
-#editButton:hover {
+.editButton:hover {
     background-color: RoyalBlue;
 }
 

@@ -14,10 +14,6 @@ public class UserDao {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(User.class, id);
     }
 
-    public User findByName(String name) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(User.class, name);
-    }
-
     public void save(User user) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();

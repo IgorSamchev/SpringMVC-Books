@@ -7,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 @SessionAttributes("user")
 public class UserController {
@@ -68,6 +66,8 @@ public class UserController {
 
     @ModelAttribute("user")
     public User setUpUserForm() {
-        return new User();
+       User user = new User();
+       user.setRegistered(false);
+       return user;
     }
 }

@@ -1,13 +1,13 @@
 package com.example.demo.Controllers;
 
+import com.example.demo.models.User;
 import com.example.demo.services.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@SessionAttributes("user")
 public class DeleteBookController {
     private BookService bookService = new BookService();
 
@@ -16,5 +16,11 @@ public class DeleteBookController {
         bookService.deleteBook(bookService.findBook(id));
         model.addAttribute("books", bookService.findAllBooks());
         return "MainView";
+    }
+    @ModelAttribute("user")
+    public User setUpUserForm() {
+        User user = new User();
+        user.setRegistered(false);
+        return user;
     }
 }

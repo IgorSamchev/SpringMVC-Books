@@ -18,7 +18,9 @@ public class MainController {
 
     @ModelAttribute("user")
     public User setUpUserForm() {
-        return new User();
+        User user = new User();
+        user.setRegistered(false);
+        return user;
     }
 
     @RequestMapping("/")
