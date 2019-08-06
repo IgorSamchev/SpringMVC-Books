@@ -47,11 +47,11 @@
         <label for="loginPassword"></label>
         <input id="loginPassword" type="text" name="password" required minlength="1" maxlength="20"/>
     </p>
-    <button class="btn btn-primary" type="submit"
+    <button class="btn btn-primary regOptions" type="submit"
     th:text="#{signIn}"></button>
 
-    <a class="btn btn-success" href="/books_list" th:text="#{backToMenu}"></a>
-    <a class="btn btn-warning" href="/registration" th:text="#{registration}"></a>
+    <a class="btn btn-success regOptions" href="/books_list" th:text="#{backToMenu}"></a>
+    <a class="btn btn-warning regOptions" href="/registration" th:text="#{registration}"></a>
     <div th:if="${LoginError}" class="nameDuplicated">
         <span class="signIn" th:text="#{loginError}"></span>
     </div>

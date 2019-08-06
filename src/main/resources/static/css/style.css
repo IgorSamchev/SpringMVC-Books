@@ -110,7 +110,7 @@
 }
 
 
-#IndexAddButton{
+#IndexAddButton {
     margin-left: 50%;
     font-size: 30px;
     border-radius: 50%;
@@ -144,7 +144,7 @@
     text-decoration: none;
 }
 
-.c5:hover{
+.c5:hover {
     box-shadow: 1px 1px 100px 20px rgb(255, 255, 255);
     color: black;
     border: 3px solid #a82c5a;
@@ -271,7 +271,7 @@ h1 {
     text-align: left;
 }
 
-.addNBh1{
+.addNBh1 {
     color: gold;
 }
 
@@ -312,7 +312,7 @@ h1 {
 }
 
 .about {
-    max-width: 10%;
+    max-width: 15%;
     alignment: right;
 }
 
@@ -347,7 +347,8 @@ h1 {
     width: 45px;
     height: 45px;
 }
-.flag:hover{
+
+.flag:hover {
     transform: scale(1.5);
 }
 
@@ -356,25 +357,35 @@ h1 {
     font-size: 20px;
 }
 
-.signForm{
+.signForm {
     color: black;
     font-size: 20px;
 }
 
-.backForm{
+.backForm {
     width: 60%;
     margin-right: 40%;
 }
 
-#yourText{
+#yourText {
     width: 100%;
 }
 
-.nameDuplicated{
+.nameDuplicated {
     color: red;
 }
 
-.signIn{
+.signIn {
     max-width: 40%;
     margin: auto;
+}
+
+.regOptions {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.regOptions2 {
+    width: 100%;
+    margin-bottom: 15px;
 }
