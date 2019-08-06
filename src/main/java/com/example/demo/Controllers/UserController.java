@@ -14,7 +14,7 @@ public class UserController {
     private BookService bookService = new BookService();
     private UserService userService = new UserService();
 
-    @PostMapping(path = "/login")
+    @PostMapping(path = "/addNewUserAndLogin")
     public String doLogin(@RequestParam("name") String name,
                         @RequestParam("password") String password,
                         @ModelAttribute("user") User user,
@@ -29,6 +29,11 @@ public class UserController {
     @RequestMapping("/SignIn")
     public String signIn() {
         return "SignIn";
+    }
+
+    @RequestMapping("/registration")
+    public String registration() {
+        return "registrationView";
     }
 
     @RequestMapping("/Logout")

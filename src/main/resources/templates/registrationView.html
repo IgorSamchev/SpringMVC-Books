@@ -26,7 +26,7 @@
 </head>
 <body>
 <h1>
-    <span th:text="#{signIn}"></span>
+    <span th:text="#{registration}"></span>
     <a th:href="@{'/SignIn/?language=en'}">
         <img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png" alt="ENG"></a>
     <a th:href="@{'/SignIn/?language=ru'}">
@@ -35,11 +35,11 @@
         <img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
 
 </h1>
-<form method="post" action="/login" class="signIn">
+<form method="post" action="/addNewUserAndLogin" class="signIn">
     <p class="signForm">
-    <span th:text="#{loginName}"></span>
-    <label for="loginName"></label>
-    <input id="loginName" type="text" name="name" required minlength="3" maxlength="15"/>
+        <span th:text="#{loginName}"></span>
+        <label for="loginName"></label>
+        <input id="loginName" type="text" name="name" required minlength="3" maxlength="15"/>
     </p>
 
     <p class="signForm">
@@ -48,7 +48,7 @@
         <input id="loginPassword" type="text" name="password" required minlength="1" maxlength="20"/>
     </p>
     <button class="btn btn-primary" type="submit"
-    th:text="#{signIn}"></button>
+            th:text="#{registration}"></button>
 
     <a class="btn btn-success" href="/books_list" th:text="#{backToMenu}"></a>
 </form>

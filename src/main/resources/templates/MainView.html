@@ -50,9 +50,11 @@
     </div>
     <div th:if="${!user.isRegistered()}">
         <div th:insert="~{fragments/loginButton.html :: signInbutton}"></div>
+        <div th:insert="~{fragments/registraionButton.html :: signInbutton}"></div>
     </div>
 
     <div th:insert="~{fragments/aboutButton.html :: about_button}"></div>
+    </div>
     <div class="form-group">
         <a th:href="@{'/books/addBook/'}"
            class="btn btn-success newBook" th:text="#{addBookButton}">
