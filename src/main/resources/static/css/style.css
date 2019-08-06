@@ -370,7 +370,9 @@ h1 {
     width: 100%;
 }
 
-
+.nameDuplicated{
+    color: red;
+}
 
 .signIn{
     max-width: 40%;

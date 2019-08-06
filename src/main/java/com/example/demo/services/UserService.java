@@ -28,10 +28,12 @@ public class UserService {
         return userDao.findAll();
     }
 
-    public void registerNewUser(String name, String password, boolean registered){
-        if (checkNamesForDublicates(name))
+    public boolean registerNewUser(String name, String password, boolean registered){
+        if (checkNamesForDublicates(name)) {
             userDao.save(new User(name, password, registered));
-        //TODO create some else
+            return true;
+        }
+        return false;
     }
 
     private static boolean checkNamesForDublicates(String name){

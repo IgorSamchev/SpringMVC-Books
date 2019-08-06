@@ -27,11 +27,11 @@
 <body>
 <h1>
     <span th:text="#{registration}"></span>
-    <a th:href="@{'/SignIn/?language=en'}">
+    <a th:href="@{'/registration/?language=en'}">
         <img class="flag" src="https://shillienjava.herokuapp.com/images/engFlag.png" alt="ENG"></a>
-    <a th:href="@{'/SignIn/?language=ru'}">
+    <a th:href="@{'/registration/?language=ru'}">
         <img class="flag" src="https://shillienjava.herokuapp.com/images/rusFlag.png" alt="RUS"></a>
-    <a th:href="@{'/SignIn/?language=ee'}">
+    <a th:href="@{'/registration/?language=ee'}">
         <img class="flag" src="https://shillienjava.herokuapp.com/images/estFlag.png" alt="EST"></a>
 
 </h1>
@@ -41,6 +41,9 @@
         <label for="loginName"></label>
         <input id="loginName" type="text" name="name" required minlength="3" maxlength="15"/>
     </p>
+    <div th:if="${Already_taken}" class="nameDuplicated">
+        <span th:text="#{nameDuplicated}"></span>
+    </div>
 
     <p class="signForm">
         <span th:text="#{loginPassword}"></span>

@@ -16,14 +16,19 @@ public class UserController {
 
     @PostMapping(path = "/addNewUserAndLogin")
     public String doLogin(@RequestParam("name") String name,
-                        @RequestParam("password") String password,
-                        @ModelAttribute("user") User user,
-                        Model model) {
+                          @RequestParam("password") String password,
+                          @ModelAttribute("user") User user,
+                          Model model) {
         user.setName(name);
         user.setRegistered(true);
-        userService.registerNewUser(name, password, true);
-        model.addAttribute("books", bookService.findAllBooks());
-        return "MainView";
+        if (userService.registerNewUser(name, password, true)) {
+            model.addAttribute("books", bookService.findAllBooks());
+            return "MainView";
+        } else {
+            model.addAttribute("Already_taken",  true);
+            return "registrationView";
+        }
+
     }
 
     @RequestMapping("/SignIn")
@@ -37,7 +42,7 @@ public class UserController {
     }
 
     @RequestMapping("/Logout")
-    public String logout(@ModelAttribute("user")User user, Model model){
+    public String logout(@ModelAttribute("user") User user, Model model) {
         user.setRegistered(false);
         user.setName("Guest");
         model.addAttribute("books", bookService.findAllBooks());
