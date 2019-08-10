@@ -1,14 +1,13 @@
 package com.example.demo.Controllers;
 
+import com.example.demo.models.User;
 import com.example.demo.services.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@SessionAttributes("user")
 public class EditBookAndCommentsController {
     private BookService bookService = new BookService();
 
@@ -19,10 +18,16 @@ public class EditBookAndCommentsController {
     }
 
     @RequestMapping(value = "/edit_book/{request}", method = RequestMethod.GET)
-    public String bookEdit(@PathVariable String request, Model model) {
-        bookService.updateBook(request);
-        model.addAttribute("books", bookService.findAllBooks());
-        return "MainView";
+    public String bookEdit(@PathVariable String request,
+                           Model model,
+                           @ModelAttribute("user") User user) {
+        if (user.isRegistered()) {
+            bookService.updateBook(request);
+            model.addAttribute("books", bookService.findAllBooks());
+            return "MainView";
+        } else {
+            return "SignIn";
+        }
     }
 
     @RequestMapping(value = "/addComment", method = RequestMethod.POST)
@@ -31,8 +36,15 @@ public class EditBookAndCommentsController {
                              Model model) {
         int id = Integer.parseInt(idString);
         if (comment.trim().length() > 0)
-        bookService.addComment(id, comment);
+            bookService.addComment(id, comment);
         model.addAttribute("books", bookService.findAllBooks());
         return booksEditView(id, model);
+    }
+
+    @ModelAttribute("user")
+    public User setUpUserForm() {
+        User user = new User();
+        user.setRegistered(false);
+        return user;
     }
 }
