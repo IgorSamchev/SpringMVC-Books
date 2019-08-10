@@ -30,6 +30,7 @@ public class EditBookAndCommentsController {
                              @RequestParam("bigComment") String comment,
                              Model model) {
         int id = Integer.parseInt(idString);
+        if (comment.trim().length() > 0)
         bookService.addComment(id, comment);
         model.addAttribute("books", bookService.findAllBooks());
         return booksEditView(id, model);
